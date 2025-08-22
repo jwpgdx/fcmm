@@ -10,10 +10,9 @@
       alt="배경 이미지"
     />
 
-
-     <div
+    <div
       ref="containerRef"
-      class="container absolute top-6 left-0 z-[2]  text-left text-[1.8rem] font-bold uppercase leading-none"
+      class="container absolute left-0 top-6 z-[2] text-left text-[6vw] font-bold uppercase leading-none"
     >
       <AnimatedText :isVisible="isVisible" :delay="200">
         NEW ARRIVAL
@@ -24,12 +23,12 @@
       class="container absolute left-1/2 top-1/2 z-[3] flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center gap-2 text-[#00ff00] sm:hidden sm:group-hover:flex"
     >
       <div
-        class="flex w-full items-center justify-between gap-4 text-center text-[6rem] font-bold leading-none"
+        class="flex w-full items-center justify-between gap-4 text-center text-[20vw] font-semibold leading-none sm:text-[6rem]"
       >
-        <span>D</span><span class="h-4 flex-1 bg-[#00ff00]"></span
+        <span>D</span><span class="h-[3vw] flex-1 bg-[#00ff00] sm:h-4"></span
         ><span>20</span>
       </div>
-      <div class="text-[3rem] font-semibold leading-none">
+      <div class="text-[10vw] sm:text-[3rem] font-medium leading-none">
         {{ fakeTime }}
       </div>
     </div>

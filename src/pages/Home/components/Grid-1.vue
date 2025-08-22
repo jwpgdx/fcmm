@@ -12,7 +12,7 @@
 
     <div
       ref="containerRef"
-      class="container absolute top-6 left-0 z-[2]  text-left text-[1.8rem] font-bold uppercase leading-none"
+      class="container absolute top-6 left-0 z-[2]  text-left text-[6vw] font-bold uppercase leading-none"
     >
       <AnimatedText :isVisible="isVisible" :delay="200">
         Most Wanted

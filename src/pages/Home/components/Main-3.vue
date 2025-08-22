@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex h-[70vh] w-full items-center justify-center overflow-hidden border-b border-black text-[#000] sm:h-[90vh]"
+    class="relative flex h-[70vh] w-full flex-col items-center justify-between overflow-hidden border-b border-black text-[#000] sm:h-[90vh]"
   >
     <!-- 새로 추가한 배경 (반복 무늬) -->
     <div
@@ -12,12 +12,9 @@
     />
 
     <!-- 기존 배경 (하단 이미지) -->
-    <div
-      class="background-image pointer-events-none absolute bottom-0 z-[2] h-[90%] sm:inset-0 sm:h-full"
-    />
 
-     <div
-    class="absolute top-[150%] sm:top-[100%] left-[0%] sm:left-[24%] z-[2]"
+    <div
+      class="absolute left-[0%] top-[120%] z-[2] sm:left-[24%] sm:top-[100%]"
       :style="{
         transform: `translateY(${parallax1}px)`,
         transition: 'transform 0.05s linear',
@@ -26,39 +23,37 @@
       <img
         :src="`/images/main-3-${floatingImages[0]}.webp`"
         alt="floating-1"
-        class="floating-1  w-[30vw] sm:w-[14vw]"
+        class="floating-1 w-[30vw] sm:w-[14vw]"
       />
     </div>
 
-
     <!-- 둥둥 떠다니는 이미지 2 -->
     <div
-    class="absolute top-[120%] sm:top-[100%] right-0 sm:right-[20%] z-[2]"
+      class="absolute right-0 top-[120%] z-[2] sm:right-[20%] sm:top-[100%]"
       :style="{
         transform: `translateY(${parallax2}px)`,
         transition: 'transform 0.05s linear',
-        
       }"
     >
       <img
         :src="`/images/main-3-${floatingImages[1]}.webp`"
         alt="floating-2"
-        class="floating-2  w-[30vw] sm:w-[14vw]"
+        class="floating-2 w-[30vw] sm:w-[14vw]"
       />
     </div>
     <div
       ref="containerRef"
-      class="group container absolute left-0 top-0 z-[1] flex cursor-pointer flex-col items-center justify-center gap-8 py-12 sm:items-start sm:gap-6"
+      class="group container relative left-0 top-0 z-[1] flex cursor-pointer flex-col items-center justify-center gap-[5vw] pt-[10vw] sm:absolute sm:items-start sm:gap-6 sm:py-12"
     >
       <div
-        class="flex w-full flex-wrap justify-center gap-x-4 text-left text-[1.5rem] font-bold leading-[105%] sm:max-w-[80%] sm:justify-start sm:gap-x-6 sm:text-[5.5rem]"
+        class="flex w-full flex-wrap justify-center gap-x-[3vw] text-left text-[5vw] font-bold leading-[105%] sm:max-w-[80%] sm:justify-start sm:gap-x-6 sm:text-[5.5rem]"
       >
         <AnimatedText
           :isVisible="isVisible"
           :delay="0"
           class="flex items-center gap-1 sm:gap-2"
         >
-          <v-icon icon="symbol1" class="size-4 sm:size-16" />Essential
+          <v-icon icon="symbol1" class="size-[4vw] sm:size-16" />Essential
         </AnimatedText>
 
         <AnimatedText
@@ -66,7 +61,7 @@
           :delay="200"
           class="flex items-center gap-1 sm:gap-2"
         >
-          <v-icon icon="symbol2" class="size-4 sm:size-16" />Fluid
+          <v-icon icon="symbol2" class="size-[4vw] sm:size-16" />Fluid
         </AnimatedText>
 
         <AnimatedText
@@ -74,7 +69,7 @@
           :delay="400"
           class="flex items-center gap-1 sm:gap-2"
         >
-          <v-icon icon="symbol3" class="size-4 sm:size-16" />Adaptive
+          <v-icon icon="symbol3" class="size-[4vw] sm:size-16" />Adaptive
         </AnimatedText>
 
         <AnimatedText
@@ -87,7 +82,7 @@
 
       <div
         :class="[
-          'flex items-center gap-2 text-left text-[1rem] uppercase transition-all duration-700 sm:text-[1.2rem]',
+          'flex items-center gap-2 text-left text-[4vw] uppercase transition-all duration-700 sm:text-[1.2rem]',
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         ]"
         :style="{ transitionDelay: '200ms' }"
@@ -95,16 +90,19 @@
         more stories
         <v-icon
           :class="[
-            'size-4 transition-transform duration-700 group-hover:rotate-180 sm:size-5',
+            'size-[4vw] transition-transform duration-700 group-hover:rotate-180 sm:size-5',
             isVisible
               ? 'translate-x-0 opacity-100'
-              : 'translate-x-[-40px] opacity-0',
+              : 'translate-x-[-2vw] opacity-0 sm:translate-x-[-40px]',
           ]"
           :style="{ transitionDelay: '500ms' }"
           icon="plus"
         ></v-icon>
       </div>
     </div>
+    <div
+      class="background-image pointer-events-none relative bottom-0 z-[2] h-full sm:absolute sm:inset-0 sm:h-full"
+    />
   </div>
 </template>
 
@@ -129,7 +127,6 @@ const { y } = useWindowScroll()
 const parallax1 = computed(() => -y.value * 0.4) // 느리게
 const parallax2 = computed(() => -y.value * 0.2) // 조금 더 빠르게
 
-
 function getRandomImages(count) {
   const allImages = Array.from({ length: 9 }, (_, i) => i + 1) // [1,2,...9]
   const selected = []
@@ -141,7 +138,6 @@ function getRandomImages(count) {
 }
 
 const floatingImages = ref(getRandomImages(2))
-
 </script>
 
 <style scoped>
@@ -172,7 +168,6 @@ const floatingImages = ref(getRandomImages(2))
 .floating-1 {
   animation: float 4s ease-in-out infinite;
 }
-
 
 .floating-2 {
   animation: float 3s ease-in-out infinite;

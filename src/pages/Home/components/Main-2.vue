@@ -13,14 +13,14 @@
       class="group absolute right-0 top-0 z-[3] flex h-full w-full sm:w-[50%] cursor-pointer flex-col items-center justify-center gap-8 text-black"
     >
       <!-- scrim 오버레이 -->
-      <svg-showcase class="w-[80%] sm:h-[60%]" />
+      <svg-showcase class="w-[80vw] sm:h-[60%]" />
       <a
         href="https://chainlist.org/chain/1625"
         target="_blank"
         rel="noopener"
         class="relative inline-block"
       >
-        <span class="font-mono relative z-10 text-[15px] uppercase tracking-widest"
+        <span class="font-mono relative z-10 text-[3vw] sm:text-[15px] uppercase tracking-widest"
           >show more</span
         >
         <span
