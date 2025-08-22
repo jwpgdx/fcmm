@@ -1,7 +1,7 @@
 <template>
   <div
     ref="containerRef"
-    class="relative h-[60vh] sm:h-[90vh] w-full overflow-hidden border-b"
+    class="relative h-[70vh] sm:h-[90vh] w-full overflow-hidden border-b"
   >
     <div
       class="background-image pointer-events-none absolute bottom-0 z-[1] h-full sm:inset-0"

@@ -164,7 +164,6 @@ watch(
   grid-column-gap: 1rem;
   grid-template-columns: repeat(6, 1fr);
   margin: 0 auto;
-  max-width: 1440px;
   position: relative;
   grid-auto-flow: column;
   align-items: start;

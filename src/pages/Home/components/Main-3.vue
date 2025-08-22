@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex h-[60vh] w-full items-center justify-center overflow-hidden border-b border-black text-[#000] sm:h-[90vh]"
+    class="relative flex h-[70vh] w-full items-center justify-center overflow-hidden border-b border-black text-[#000] sm:h-[90vh]"
   >
     <!-- 새로 추가한 배경 (반복 무늬) -->
     <div

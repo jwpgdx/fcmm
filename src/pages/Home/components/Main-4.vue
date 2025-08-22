@@ -1,6 +1,6 @@
 <template>
   <div
-    class="main-container h-[60vh] sm:h-[70vh] relative flex w-full items-center justify-center overflow-hidden border-b border-black bg-[#fff] text-[#000]"
+    class="main-container h-[70vh] sm:h-[70vh] relative flex w-full items-center justify-center overflow-hidden border-b border-black bg-[#fff] text-[#000]"
   >
     <img
       src="/images/main-4.webp"

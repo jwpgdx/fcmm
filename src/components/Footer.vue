@@ -60,7 +60,6 @@ const goToLegalSection = (sectionName) => {
 <style lang="scss" scoped>
 .appFooter-wrap {
   margin: 0 auto;
-  max-width: 1440px;
   padding: 0 3rem;
   width: 100%;
 }
