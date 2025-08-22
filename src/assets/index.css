@@ -1,0 +1,154 @@
+@import './css/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%; /* 블랙으로 수정 */
+
+    --primary: 30 90% 50%;
+    --primary-foreground: 30 100% 95%;
+
+    --radius: 0.5rem;
+    --padding: 0.75rem;
+  }
+  @screen sm {
+    :root {
+      --padding: 1rem;
+    }
+  }
+  @screen md {
+    :root {
+      --padding: 1.2rem;
+    }
+  }
+  @screen lg {
+    :root {
+      --padding: 1.5rem;
+    }
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family:
+      'IBM Plex Mono', 'Inter', 'Spoqa Han Sans Neo', 'Pretendard', sans-serif,
+      monospace;
+  }
+}
+
+* {
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+@layer utilities {
+  .p-var {
+    padding: var(--padding);
+  }
+
+  /* 좌우 padding */
+  .px-var {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+  }
+  .pt-var {
+    padding-top: var(--padding);
+  }
+  .pb-var {
+    padding-bottom: var(--padding);
+  }
+  .pl-var {
+    padding-left: var(--padding);
+  }
+  .pr-var {
+    padding-right: var(--padding);
+  }
+  /* 상하 padding */
+  .py-var {
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+  }
+  .container {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+  }
+  .v-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .v-overlay__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
+  }
+  .v-overlay__scrim {
+    pointer-events: none;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은색 배경 */
+    cursor: pointer;
+  }
+  .global-overlay-scrim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 반투명 검은색 배경 */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* 
+    z-index는 다이얼로그 컴포넌트들보다 낮아야 합니다.
+    클릭 이벤트를 받지 않도록 pointer-events: none; 설정도 가능하지만,
+    어차피 다른 다이얼로그의 투명 Scrim에 가려지므로 필수는 아닙니다.
+  */
+  }
+  .bg-mio-blur {
+    /*
+    background-color: rgba(var(--mio-theme-color-primary-20) / 0.24);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+*/
+    background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#dbdbd8),
+      to(#e4e4e0)
+    );
+    background: linear-gradient(180deg, #dbdbd8 0%, #e4e4e0 100%);
+  }
+}

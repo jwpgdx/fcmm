@@ -1,0 +1,345 @@
+.ui-richtext-block {
+  position: relative;
+  grid-column-end: 1;
+  grid-column-start: 8;
+  padding: 0 0 4rem;
+}
+.ui-richtext-block h1 {
+  font-size: 2.5rem;
+  line-height: 120%;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 640px) {
+  .ui-richtext-block h1 {
+    font-size: 3.6rem;
+  }
+}
+
+.ui-richtext-block h2 {
+  font-size: 2rem;
+  line-height: 120%;
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+}
+@media screen and (min-width: 640px) {
+  .ui-richtext-block h2 {
+    font-size: 3rem;
+  }
+}
+
+.ui-richtext-block h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+}
+@media screen and (min-width: 640px) {
+  .ui-richtext-block h3 {
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+    line-height: 2.25rem;
+  }
+}
+
+.ui-richtext-block p {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  white-space: pre-line;
+  margin: 0 0 1.125rem;
+}
+
+.ui-richtext-block h5,
+.ui-richtext-block p,
+.ui-richtext-block p b,
+.ui-richtext-block p strong {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+}
+
+.ui-richtext-block ul {
+  padding: 0 0 0 1rem;
+  list-style-type: none;
+}
+.ui-richtext-block li {
+  display: list-item;
+  unicode-bidi: isolate;
+  list-style: none;
+  position: relative;
+}
+
+.ui-richtext-block ul li:before,
+.ui-richtext-block ol li > ul li:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  left: -16px;
+  width: 8px;
+  height: 8px;
+  transform: rotate(calc(var(--rotation, 0) * 36deg));
+  background-image: url(/icons/list-bullet.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  line-height: 0;
+}
+.ui-richtext-block ul li:nth-child(2) {
+  --rotation: 2;
+}
+.ui-richtext-block ul li:nth-child(3n) {
+  --rotation: 5;
+}
+.ui-richtext-block ul li:nth-child(3n + 1) {
+  --rotation: 7;
+}
+.ui-richtext-block ul li:nth-child(3n + 2) {
+  --rotation: 4;
+}
+.ui-richtext-block ul li:nth-child(4n) {
+  --rotation: 9;
+}
+.ui-richtext-block ul li:nth-child(4n + 1) {
+  --rotation: 6;
+}
+.ui-richtext-block ul li:nth-child(4n + 3) {
+  --rotation: 3;
+}
+.ui-richtext-block li {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin: 0 0 1.5rem;
+}
+
+// ol
+.ui-richtext-block ol:first-of-type {
+  counter-reset: counter 0;
+}
+
+.ui-richtext-block ol li:has(ol),
+.ui-richtext-block ol li:has(ul) {
+  flex-wrap: wrap;
+  margin: 0 0 4rem;
+}
+.ui-richtext-block ol li:has(ol):before,
+.ui-richtext-block ol li:has(ul):before {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+}
+
+.ui-richtext-block ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ui-richtext-block ol li:has(ol) > p,
+.ui-richtext-block ol li:has(ul) > p {
+  margin: 0 0 1.5rem;
+}
+.ui-richtext-block ol li:has(ol) p,
+.ui-richtext-block ol li:has(ul) p {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  display: inline-block;
+}
+
+.ui-richtext-block ol li ol {
+  flex: 1 1 auto;
+}
+
+.ui-richtext-block ol li ol li {
+  margin: 0 0 1.5rem;
+}
+.ui-richtext-block ol li {
+  align-items: baseline;
+  display: flex;
+  margin: 0 0 1.5rem;
+  //flex-wrap: wrap;
+}
+.ui-richtext-block ol li ol li:before {
+  content: counters(counter, '.') ' ';
+  counter-increment: counter;
+}
+
+.ui-richtext-block ol li p,
+.ui-richtext-block ol li,
+.ui-richtext-block ol li:before {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+}
+.ui-richtext-block ol li:before {
+  content: counter(counter) '. ';
+  counter-increment: counter;
+  flex: 0 0 auto;
+  margin: 0 1rem 0 0;
+  min-width: 24px;
+}
+
+.ui-richtext-block ol li ol li p,
+.ui-richtext-block ol li ol li:before {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+}
+.ui-richtext-block ol li p {
+  display: inline-block;
+}
+.ui-richtext-block ol li p {
+  flex: 1;
+  margin: 0;
+}
+
+.ui-richtext-block > ul li p {
+  display: inline-block;
+}
+
+.ui-richtext-block hr {
+  margin: 0 0 4rem;
+}
+@media screen and (min-width: 640px) {
+  .ui-richtext-block hr {
+    grid-column-end: 1;
+    grid-column-start: 9;
+  }
+}
+.ui-richtext-block--formatted a {
+  text-decoration: underline;
+}
+.ui-richtext-block a {
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  display: inline;
+}
+
+.ui-richtext-block ol li > ul li {
+  display: list-item;
+  list-style-type: none;
+}
+.ui-richtext-block ol li > ul {
+  flex: 1 1 auto;
+  list-style-position: initial;
+  min-width: 100%;
+  padding: 0 0 0 4rem;
+}
+.ui-richtext-block ol li > ul li::before {
+  display: none;
+}
+.ui-richtext-block strong {
+  display: inline;
+}
+
+.ui-richtext-block details {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  width: 100%;
+  position: relative;
+  scroll-margin-top: 80px;
+}
+@media screen and (min-width: 640px) {
+  .ui-richtext-block details {
+    font-size: 1.125rem 20px;
+    line-height: 1.75rem;
+    letter-spacing: 0;
+  }
+}
+.ui-richtext-block details:before,
+.ui-richtext-block details:after {
+  position: absolute;
+  width: 100%;
+  background-color: #d6d6d6;
+  height: 0.0625rem;
+  left: 0;
+  content: '';
+}
+.ui-richtext-block details:before {
+  top: 0;
+}
+.ui-richtext-block details summary {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  cursor: pointer;
+}
+
+.ui-richtext-block details summary {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  width: 100%;
+  position: relative;
+  scroll-margin-top: 80px;
+}
+@media screen and (min-width: 640px) {
+  .ui-richtext-block details summary {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+/* 가짜 마커: + 모양 */
+.ui-richtext-block details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  font-size: 1.125rem;
+  line-height: 1;
+  transform: rotate(0deg);
+}
+
+/* 열렸을 때 + 를 × 로 회전시킴 */
+.ui-richtext-block details[open] summary::after {
+  transform: rotate(45deg); /* +를 45도 돌리면 ×처럼 보임 */
+}
+
+.ui-richtext-block table,
+.ui-richtext-block td,
+.ui-richtext-block tr,
+.ui-richtext-block th {
+  border: 1px solid #676767;
+}
+.ui-richtext-block table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 1.5rem;
+}
+.ui-richtext-block li > table {
+  margin-left: 40px;
+}
+.ui-richtext-block td,
+.ui-richtext-block th {
+  padding: 0.5rem;
+  vertical-align: top;
+}
+
+.ui-richtext-block table thead tr th {
+  margin-top: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  text-align: left;
+  font-weight: 700;
+}
+@media screen and (min-width: 640px) {
+  .ui-richtext-block table thead tr th {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: 0;
+  }
+}
