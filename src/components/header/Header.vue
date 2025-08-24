@@ -35,7 +35,7 @@
             class="header-menu-button hidden h-full items-center gap-6 sm:flex"
           >
             <button
-              class="text-[13px] font-medium uppercase hover:text-[#00FF00]"
+              class="text-[13px] font-medium uppercase hover:bg-[#00FF00]"
               @click="goToRouter('best')"
               @mouseenter="handleMenuEnter('')"
             >
@@ -44,8 +44,8 @@
             <button
               v-for="(item, index) in menuItems"
               :key="index"
-              class="text-[13px] font-medium uppercase hover:text-[#00FF00]"
-              :class="selectedMenu === item.value ? 'text-[#00ff00]' : ''"
+              class="text-[13px] font-medium uppercase hover:bg-[#00FF00]"
+              :class="selectedMenu === item.value ? 'bg-[#00FF00]' : ''"
               @click="goToRouter(item.value)"
               @mouseenter="handleMenuEnter(item.value)"
             >

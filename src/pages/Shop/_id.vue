@@ -41,7 +41,6 @@
     -->
   </div>
 </template>
-
 <script setup>
 import { ref, onMounted, watch, onBeforeUnmount, nextTick, computed } from 'vue'
 import ShopBreadcrumbs from './components/ShopBreadcrumbs.vue'
@@ -52,66 +51,85 @@ import ProductList from './components/ProductList.vue'
 import StickySidebar from 'sticky-sidebar'
 import { useWindowSize } from '@vueuse/core'
 
-// props
 const props = defineProps({
   id: { type: [String, Number], required: true },
   group: { type: String, required: true },
   value: { type: String, required: true },
 })
 
-// states
 const product = ref(null)
 const loading = ref(true)
 const selectedColor = ref(null)
 const selectedSize = ref(null)
 const containerHeight = ref(0)
 
-// StickySidebar 인스턴스
 let sidebarInstance = null
 
-// 반응형 체크 (768px 기준)
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
 
-// 상품 데이터 로드
 onMounted(async () => {
+  console.log('[onMounted] props.id:', props.id)
+
   try {
     const res = await fetch('/items.json')
     if (!res.ok) throw new Error('Failed to fetch items')
     const allItems = await res.json()
+    console.log('[onMounted] items.json length:', allItems.length)
+
     product.value = allItems.find((item) => item.id == props.id)
+    console.log('[onMounted] product loaded:', product.value)
   } catch (error) {
+    console.error('[onMounted] error:', error)
     product.value = null
   } finally {
     loading.value = false
   }
 })
 
-// product 변경 시 색상/사이즈 초기값 세팅
-watch(product, (newProduct) => {
+watch(product, (newProduct, oldProduct) => {
+  console.log('[watch:product] changed:', { old: oldProduct, new: newProduct })
+
   if (newProduct) {
     if (newProduct.colors?.length) selectedColor.value = newProduct.colors[0]
     if (newProduct.sizes?.length) selectedSize.value = newProduct.sizes[0]
+
+    console.log('[watch:product] set defaults:', {
+      color: selectedColor.value,
+      size: selectedSize.value,
+    })
+
+    nextTick(() => {
+      console.log('[watch:product] calling onImageLoaded() after nextTick')
+      onImageLoaded()
+    })
   } else {
+    console.log('[watch:product] product is null → destroy sidebar')
     destroyStickySidebar()
   }
 })
 
 watch(isMobile, (val) => {
+  console.log('[watch:isMobile] isMobile changed:', val)
   if (val) {
     destroyStickySidebar()
   } else {
-    // PC로 돌아오면 다시 세팅
     initStickySidebar()
   }
 })
 
-// StickySidebar 초기화
 function initStickySidebar() {
-  if (isMobile.value) return // 모바일에서는 실행 안 함
+  if (isMobile.value) {
+    console.log('[initStickySidebar] skip (mobile)')
+    return
+  }
 
-  if (sidebarInstance) sidebarInstance.destroy()
+  if (sidebarInstance) {
+    console.log('[initStickySidebar] destroying old instance')
+    sidebarInstance.destroy()
+  }
 
+  console.log('[initStickySidebar] creating new StickySidebar instance')
   sidebarInstance = new StickySidebar('.sidebar', {
     topSpacing: 64,
     bottomSpacing: 0,
@@ -120,39 +138,42 @@ function initStickySidebar() {
   })
 }
 
-// StickySidebar 해제
 function destroyStickySidebar() {
   if (sidebarInstance) {
+    console.log('[destroyStickySidebar] destroying sidebar')
     sidebarInstance.destroy()
     sidebarInstance = null
   }
 }
 
-// 이미지 로드 완료 시 높이 계산 후 StickySidebar 세팅
 function onImageLoaded() {
+  console.log('[onImageLoaded] image loaded event fired')
   const productImageEl = document.querySelector('.product-image')
   if (productImageEl) {
     const height = productImageEl.scrollHeight || productImageEl.offsetHeight
     containerHeight.value = height
+    console.log('[onImageLoaded] set containerHeight:', height)
 
     const checkAndInit = () => {
       const containerEl = document.querySelector('.sticky__container')
       if (containerEl && containerEl.offsetHeight > 0) {
+        console.log('[onImageLoaded] container ready, initStickySidebar()')
         initStickySidebar()
       } else {
+        console.log('[onImageLoaded] container not ready, retry...')
         setTimeout(checkAndInit, 50)
       }
     }
 
     nextTick(checkAndInit)
+  } else {
+    console.warn('[onImageLoaded] productImageEl not found')
   }
 }
 
 onBeforeUnmount(() => {
+  console.log('[onBeforeUnmount] destroy sidebar before unmount')
   destroyStickySidebar()
 })
 </script>
 
-<style scoped>
-/* 필요하면 스타일 추가 */
-</style>

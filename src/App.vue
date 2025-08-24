@@ -2,7 +2,7 @@
   <div class="app relative h-full w-full">
     <Header />
 
-    <RouterView class="relative h-full w-full" />
+    <RouterView :key="$route.fullPath" class="relative h-full w-full" />
     <Footer />
     <transition name="fade">
       <div
@@ -13,8 +13,7 @@
 
     <WishCartModal v-if="isWishCart" />
     <MobileMenuModal v-if="isMobileMenu" />
-        <ToastModal />
-
+    <ToastModal />
   </div>
 </template>
 

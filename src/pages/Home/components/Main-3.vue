@@ -112,7 +112,9 @@ import { useElementVisibility, useWindowScroll } from '@vueuse/core'
 import AnimatedText from './AnimatedText.vue'
 
 const containerRef = ref(null)
-const isVisible = useElementVisibility(containerRef)
+const isVisible = useElementVisibility(containerRef, {
+  threshold: 0.8, // 화면에 50% 이상 보이면 true
+})
 const hasBeenVisible = ref(false)
 
 watch(isVisible, (newValue) => {
@@ -153,6 +155,13 @@ const floatingImages = ref(getRandomImages(2))
   transition: opacity 2s;
   transition-delay: 0.3s;
 }
+
+@media screen and (min-width: 640px) {
+  .background-tile {
+  background-size: auto 10%;
+}
+}
+
 .background-tile-view {
   opacity: 0.2;
 }

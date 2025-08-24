@@ -20,15 +20,19 @@
         class="marquee-content flex w-[100vw] shrink-0 items-center sm:w-[33vw]"
       >
         <div
-          class="relative flex h-[18px] w-[50vw] items-end justify-center gap-[10px] text-[16px] font-extralight sm:w-[16.5vw]"
+          class="relative flex h-[18px] w-[50vw] items-center justify-center gap-1 sm:gap-[10px] text-[16px] font-extralight sm:w-[16.5vw]"
         >
-          <logoFcmm class="h-4 sm:h-[18px]" /><v-icon class=" h-[14px]" icon="x" /><logoIve
-            class="h-full"
-          />
+          
+
+             <logoIve class="h-4 sm:h-full" />
+
+          <v-icon icon="x" class="sm:h-4 h-3" />
+          <logoFcmm class="h-[14px] sm:h-4" />
+
         </div>
 
         <div
-          class="relative flex h-auto w-[50vw] items-center justify-center gap-2 text-[15px] font-semibold sm:w-[16.5vw] sm:text-[17px]"
+          class="relative flex h-auto w-[50vw] items-center justify-center gap-2 text-[14px] font-semibold sm:w-[16.5vw] sm:text-[17px]"
         >
           <div class="flex items-center gap-1">
             <v-icon icon="symbol1" class="size-3" />Essential

@@ -11,8 +11,8 @@
     />
 
     <div
+      class="container absolute left-0 top-6 z-[2] text-left text-[6vw] font-bold uppercase leading-none sm:text-[3rem]"
       ref="containerRef"
-      class="container absolute top-6 left-0 z-[2]  text-left text-[6vw] font-bold uppercase leading-none"
     >
       <AnimatedText :isVisible="isVisible" :delay="200">
         Most Wanted
@@ -27,5 +27,7 @@ import { useElementVisibility } from '@vueuse/core'
 import AnimatedText from './AnimatedText.vue' // 자식 컴포넌트 import
 
 const containerRef = ref(null)
-const isVisible = useElementVisibility(containerRef)
+const isVisible = useElementVisibility(containerRef, {
+  threshold: 1, // 화면에 50% 이상 보이면 true
+})
 </script>

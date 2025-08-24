@@ -20,19 +20,21 @@
         class="marquee-content flex w-[100vw] shrink-0 items-center sm:w-[33vw]"
       >
         <div
-          class="relative flex h-6 w-[50vw] items-center justify-center gap-3 text-[18px] font-extralight sm:w-[16.5vw]"
+          class="relative flex h-6 w-[50vw] items-center justify-center gap-1 sm:gap-3 text-[18px] font-extralight sm:w-[16.5vw]"
         >
-          <logoFcmm class="h-4" /> 
-          <v-icon icon="x" class="h-4"/>
-          <logoEspacio class="h-[23px]" />
+          <logoEspacio class="h-5 sm:h-[23px]" />
+
+          <v-icon icon="x" class="sm:h-4 h-3" />
+          <logoFcmm class="h-[14px] sm:h-4" />
         </div>
 
         <div
           class="relative flex h-auto w-[50vw] items-center justify-center sm:w-[16.5vw]"
         >
-          <div class="relative z-[3] flex items-center justify-center px-4 py-[3px] text-[13px] font-bold leading-none whitespace-nowrap">
-
-           2023 SEOUL FASHION WEEK
+          <div
+            class="relative z-[3] flex items-center justify-center whitespace-nowrap px-4 py-[3px] text-[12px] sm:text-[13px] font-bold leading-none"
+          >
+            2023 SEOUL FASHION WEEK
           </div>
           <div
             class="absolute inset-0 z-[2] bg-white group-hover:bg-[#00ff00]"

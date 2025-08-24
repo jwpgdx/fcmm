@@ -12,7 +12,7 @@
 
     <div
       ref="containerRef"
-      class="container absolute left-0 top-6 z-[2] text-left text-[6vw] font-bold uppercase leading-none"
+      class="container absolute left-0 top-6 z-[2] text-left text-[6vw] font-bold uppercase leading-none sm:text-[3rem]"
     >
       <AnimatedText :isVisible="isVisible" :delay="200">
         NEW ARRIVAL
@@ -20,21 +20,14 @@
     </div>
 
     <div
-      class="container absolute left-1/2 top-1/2 z-[3] flex w-fit -translate-x-1/2 -translate-y-1/2 transform flex-col items-center justify-center gap-2 text-[#00ff00] sm:hidden sm:group-hover:flex"
+      class="container absolute left-1/2 top-1/2 z-[3] flex w-fit -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[#00ff00] py-4"
     >
       <div
-        class="flex w-full items-center justify-between gap-4 text-center text-[20vw] font-semibold leading-none sm:text-[6rem]"
+        class="text-center font-mono text-[8vw] font-semibold uppercase leading-[120%] text-[#000] sm:text-[3rem]"
       >
-        <span>D</span><span class="h-[3vw] flex-1 bg-[#00ff00] sm:h-4"></span
-        ><span>20</span>
-      </div>
-      <div class="text-[10vw] sm:text-[3rem] font-medium leading-none">
-        {{ fakeTime }}
+        Get Ready<br />20 Days<br />{{ fakeTime }}
       </div>
     </div>
-    <div
-      class="absolute inset-0 z-[2] flex flex-col items-center justify-center gap-1 bg-black/20 uppercase sm:hidden sm:group-hover:flex"
-    />
   </div>
 </template>
 
@@ -44,8 +37,9 @@ import { useElementVisibility } from '@vueuse/core'
 import AnimatedText from './AnimatedText.vue' // 자식 컴포넌트 import
 
 const containerRef = ref(null)
-const isVisible = useElementVisibility(containerRef)
-
+const isVisible = useElementVisibility(containerRef, {
+  threshold: 1, // 화면에 50% 이상 보이면 true
+})
 const fakeTime = ref('12:34:59:100')
 
 let interval = null

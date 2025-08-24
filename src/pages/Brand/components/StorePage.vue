@@ -93,7 +93,7 @@ const stores = [
     addressKo: '서울 용산구 한강대로23길 55 아이파크몰 6층 HUB',
     addressEn:
       'HUB,6F IPARK, 55, Hangang-daero 23-gil, Yongsan-gu, Seoul, Republic of Korea',
-    time: 'AM 9:30 - PM 5:30 / 연중무휴',
+    time: 'AM 9:30 - PM 5:30 / Open Daily',
     tell: '02-490-3668',
     // 아이파크몰 좌표
     lat: 37.5262,
