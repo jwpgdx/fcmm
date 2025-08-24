@@ -60,7 +60,7 @@ import {
   useElementBounding,
   useWindowScroll,
 } from '@vueuse/core'
-import AnimatedButton from '/Users/jwpg/github/fcmm/src/pages/Home/components/AnimatedButton.vue'
+import AnimatedButton from '@/pages/Home/components/AnimatedButton.vue'
 
 const containerRef = ref(null)
 const isVisible = useElementVisibility(containerRef, {
