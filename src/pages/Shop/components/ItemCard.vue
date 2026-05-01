@@ -24,10 +24,38 @@
         </div>
       </div>
 
-      <div class="relative z-10 flex w-full items-start gap-2 justify-between">
+      <div class="relative z-10 flex w-full items-start justify-between gap-2">
         <div class="flex flex-col items-start">
           <div class="text-[11px]">{{ item.name }}</div>
-          <div class="text-[11px]">₩ {{ item.price.toLocaleString() }}</div>
+
+
+
+
+          <div class="flex gap-2 text-[11px] font-normal">
+            <div
+              v-if="item.price.discounted"
+              class="flex items-center font-semibold"
+            >
+              <v-icon icon="won" :size="3" />
+              {{ item.price.discounted.toLocaleString() }}
+            </div>
+            <div 
+              class="relative flex items-center"
+              :class="{ 'opacity-50': item.price.discounted }">
+               <v-icon icon="won" :size="3" />
+              {{ item.price.original.toLocaleString() }}
+              <div
+                v-if="item.price.discounted"
+                class="absolute left-1/2 top-1/2 h-px w-full -translate-x-1/2 -translate-y-1/2 bg-black"
+              />
+            </div>
+          </div>
+
+
+
+
+
+
         </div>
 
         <button @click.prevent="toggleWish">
@@ -41,19 +69,18 @@
         </button>
       </div>
 
-      <div class="flex z-10 w-full items-center justify-center gap-1 py-2 sm:py-4">
-        <div
-          v-for="(color, index) in item.colors"
-          :key="index"
-          class="flex items-center gap-1"
-        >
-          <div v-if="index === 0" class="text-[10px] leading-none">
-            {{ color.name }}
+      <div
+        class="z-10 flex w-full items-center justify-center gap-1 py-2 sm:py-4"
+      >
+        <!-- 맨 첫번째 색상만 보여주기 -->
+        <div v-if="item.colors.length" class="flex items-center gap-1">
+          <div class="text-[10px] leading-none">
+            {{ item.colors[0].name }}
           </div>
           <div
             class="size-2 rounded-full border-[0.5px] border-gray-300"
-            :style="{ backgroundColor: color.value }"
-            :title="color.name"
+            :style="{ backgroundColor: item.colors[0].value }"
+            :title="item.colors[0].name"
           />
         </div>
       </div>
@@ -107,7 +134,6 @@ const hasSecondThumb = ref(true)
 
 function onSecondThumbError(e) {
   hasSecondThumb.value = false
-  // 이미지 태그 숨겨서 깜빡임 방지
   e.target.style.display = 'none'
 }
 </script>

@@ -14,28 +14,27 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { useItemStore } from '@/stores/item-store'
 import ItemCard from '@/pages/Shop/components/ItemCard.vue'
 import NoItems from '@/components/NoItems.vue'
 
 const props = defineProps({
-  category: { type: String, required: true },
+  tag: { type: String, default: null },
+  category: { type: String, default: null },
   limit: { type: Number, default: 4 },
 })
 
-const allItems = ref([])
+const itemStore = useItemStore()
 
-onMounted(async () => {
-  const res = await fetch('/items.json')
-  allItems.value = await res.json()
-})
-
-// ✅ props로 받은 카테고리와 제한 개수로 필터링
-const items = computed(() => {
-  return allItems.value
-    .filter((item) => item.category === props.category)
-    .slice(0, props.limit)
-})
+// tag > category > 전체 순으로 선택
+let items
+if (props.tag) {
+  items = itemStore.getItemsByTag(props.tag, props.limit)
+} else if (props.category) {
+  items = itemStore.getItemsByCategory(props.category, props.limit)
+} else {
+  items = itemStore.items
+}
 </script>
 
 <style scoped>

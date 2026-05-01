@@ -41,24 +41,27 @@ defineEmits(['close'])
 }
 
 .toast-item--success {
-  color: #9ae6b4; /* Green 300 */
+  color: #00ff00;
 }
 
 .toast-item--error {
-  color: #feb2b2; /* Red 300 */
+  color: #c20019;
 }
 
 .toast-item--warning {
-  color: #fbd38d; /* Orange 300 */
+  color: #e67e22;
 }
 
 .toast-item--info {
-  color: #90cdf4; /* Blue 300 */
+  color: #3498db;
 }
 .toast-message {
   flex-grow: 1;
-  font-size: 0.8125rem;
+  font-size: 11px;
   font-weight: 400;
   line-height: 1.4;
+  min-height: 16px;
+
+  @apply flex items-center font-mono uppercase;
 }
 </style>

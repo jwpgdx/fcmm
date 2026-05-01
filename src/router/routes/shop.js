@@ -4,7 +4,7 @@ import ProductPage from '@/pages/Shop/_id.vue'
 export default [
   {
     path: '/shop/all',
-    name: 'shopAll',
+    name: 'shop',
     component: ShopPage,
   },
   {

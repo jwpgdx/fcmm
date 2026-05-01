@@ -1,13 +1,12 @@
-<!-- BestList.vue -->
 <template>
   <router-link
     :to="to"
-    class="group container hover:bg-[#00ff00] relative flex h-[5.5rem] w-full cursor-pointer items-center justify-between gap-4 text-[12px] font-semibold transition"
+    class="group container relative flex h-[5.5rem] w-full cursor-pointer items-center justify-between gap-4 text-[12px] font-semibold transition hover:bg-[#00ff00]"
   >
     <!-- Best 순위 -->
     <div class="flex items-center gap-8">
       <div>
-        {{ bestRank }}
+        00{{ bestRank }}
       </div>
       <img
         class="size-16 object-cover"
@@ -21,28 +20,25 @@
         {{ item.name }}
       </div>
     </div>
-    <!-- 가격 -->
-
-    <div class="sm:flex w-20 items-center gap-1 hidden">
-      <div
-        v-for="(color, index) in item.colors"
-        :key="index"
-        class="flex items-center gap-1"
-      >
-        <div v-if="index === 0" class="leading-none">
-          {{ color.name }}
+    <!-- 색상 (맨 첫 번째만) -->
+    <div class="hidden w-20 items-center gap-1 sm:flex" v-if="item.colors.length">
+      <div class="flex items-center gap-1">
+        <div class="leading-none">
+          {{ item.colors[0].name }}
         </div>
         <div
           class="size-2 rounded-full border-[0.5px] border-gray-300"
-          :style="{ backgroundColor: color.value }"
-          :title="color.name"
+          :style="{ backgroundColor: item.colors[0].value }"
+          :title="item.colors[0].name"
         />
       </div>
     </div>
 
-    <div class="w-20 uppercase text-right sm:text-left">{{ item.category }}</div>
+    <div class="w-24 text-right uppercase sm:text-left">
+      {{ item.category }}
+    </div>
 
-    <div class="hidden sm:block">₩ {{ item.price.toLocaleString() }}</div>
+    <div class="hidden sm:block">₩ {{ item.price.original.toLocaleString() }}</div>
   </router-link>
 </template>
 
@@ -83,8 +79,9 @@ const autoTo = computed(() => {
 
 const to = computed(() => props.to || autoTo.value)
 const bestRank = computed(() => {
-  return String(props.item.best).padStart(2, '0')
+  return String(props.item.bestRank).padStart(2, '0')
 })
+
 // 이미지 에러 시 대체 이미지
 function onImgError(e) {
   e.target.src = '/images/placeholder.webp'

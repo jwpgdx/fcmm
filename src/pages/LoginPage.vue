@@ -1,33 +1,42 @@
 <template>
-  <div class="container border-b">
-    <div class="flex h-screen w-full flex-col items-center justify-center">
-      <div class="h-4" />
-      <div
-        class="cursor-pointer text-center text-3xl font-semibold uppercase"
-        @click="goToRouter('home')"
-      >
-        Welcome to FCMM.
-        <br />
-        Please log in to continue.
+  <div class="container flex justify-center border-b">
+    <div
+      class="flex h-screen w-full max-w-[480px] flex-col items-center justify-center"
+    >
+     
+      <div class="py-6 text-center text-[12px] uppercase">
+        Welcome to FCMM. Sign in to continue.
       </div>
-      <div class="h-24" />
+      <div class="flex w-full flex-col gap-4">
+        <v-text-field required v-model="email" label="email" type="email" />
+        <v-text-field
+          required
+          v-model="password"
+          label="password"
+          type="password"
+        />
+      </div>
+      <div class="h-8" />
 
       <button
         @click="handleGoogleLogin"
-        class="flex h-12 w-full max-w-xs items-center justify-between border bg-black px-4 text-white hover:bg-black/90"
+        class="flex h-10 w-full items-center justify-center border bg-black text-white hover:bg-black/90"
       >
-        <img
-          src="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-1024.png"
-          alt="Google G Logo"
-          class="size-5"
-        />
-
-        <span class="text-[14px] font-semibold">Continue with Google</span>
-        <span></span>
+        <span class="font-mono text-[10px] uppercase">sign in</span>
       </button>
-
-      <div class="h-4" />
-      <span class="text-center text-[10px] opacity-80">
+    
+      <div class="h-12" />
+      <div class="py-6 text-center text-[12px] uppercase">
+        Enjoy a faster checkout experience and manage all your personal
+        information in your dedicated account.
+      </div>
+      <button
+        @click="handleGoogleLogin"
+        class="flex h-10 w-full items-center justify-center border bg-black text-white hover:bg-black/90"
+      >
+        <span class="font-mono text-[10px] uppercase">create a profile</span>
+      </button>
+        <span class="py-2 text-center text-[10px] uppercase">
         By continuing, you agree to the
         <span
           class="cursor-pointer underline"
@@ -48,6 +57,7 @@
 <script setup>
 import { useToast } from '@/composables/useToast'
 import { useRouter } from 'vue-router'
+import logoFcmm from '@/components/logo/logo-fcmm.vue'
 
 const toast = useToast()
 const router = useRouter()

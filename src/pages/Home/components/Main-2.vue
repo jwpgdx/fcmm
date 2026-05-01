@@ -22,7 +22,7 @@
 <script setup>
 import svgShowcase from '@/components/svg/svg-showcase.vue'
 import { useElementVisibility } from '@vueuse/core'
-import AnimatedButton from '@/pages/Home/components/AnimatedButton.vue'
+import AnimatedButton from '@/components/button/AnimatedButton.vue'
 
 const containerRef = ref(null)
 const isVisible = useElementVisibility(containerRef, {

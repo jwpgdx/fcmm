@@ -20,11 +20,11 @@
         class="marquee-content flex w-[100vw] shrink-0 items-center sm:w-[33vw]"
       >
         <div
-          class="relative flex h-[18px] w-[50vw] items-center justify-center gap-1 sm:gap-[10px] text-[16px] font-extralight sm:w-[16.5vw]"
+          class="relative flex h-[28px] w-[50vw] items-center justify-center gap-1 sm:gap-[10px] text-[16px] font-extralight sm:w-[16.5vw]"
         >
           
 
-             <logoIve class="h-4 sm:h-full" />
+             <logoRei class="h-6 sm:h-full" />
 
           <v-icon icon="x" class="sm:h-4 h-3" />
           <logoFcmm class="h-[14px] sm:h-4" />
@@ -57,7 +57,7 @@ import { useWindowSize } from '@vueuse/core'
 const { width: windowWidth } = useWindowSize()
 
 import logoFcmm from '@/components/logo/logo-fcmm.vue'
-import logoIve from '@/components/logo/logo-ive.vue'
+import logoRei from '@/components/logo/logo-rei.vue'
 
 // Template refs
 const marqueeContainer = ref(null)

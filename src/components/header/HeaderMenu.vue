@@ -1,13 +1,13 @@
 <template>
   <div
     v-if="selected && selectedList && selectedList.length > 0"
-    class="relative w-full border-b border-black bg-white py-4"
+    class="relative w-full border-b border-black bg-white "
   >
     <div class="grid w-full grid-cols-2 sm:grid-cols-6">
       <div
         v-for="group in selectedList"
         :key="group.group"
-        class="p-var col-span-1"
+        class="px-var col-span-1 py-10 cursor-pointer  hover:bg-gray-100"
       >
         <div
           class="mb-6 cursor-pointer text-sm font-medium uppercase"
@@ -39,14 +39,17 @@ const props = defineProps({
 const categoryStore = useCategoryStore()
 const brandStore = useBrandStore()
 const collectionStore = useCollectionStore()
+const featureStore = useFeatureStore()
 
 const categories = computed(() => categoryStore.categories)
 const brands = computed(() => brandStore.brands)
 const collections = computed(() => collectionStore.collections)
+const features = computed(() => featureStore.features)
 
 const selectedList = computed(() => {
   if (props.selected === 'brand') return brands.value
   if (props.selected === 'collection') return collections.value
+  if (props.selected === 'feature') return features.value
   if (props.selected === 'shop') return categories.value
   return
 })
@@ -58,7 +61,9 @@ function handleGroupClick(group) {
   if (props.selected === 'brand') {
     router.push(`/brand`) // Note: This may need future updates
   } else if (props.selected === 'collection') {
-    router.push(`/collection`) // Note: This may need future updates
+    router.push(`/collection`)
+  } else if (props.selected === 'feature') {
+    router.push(`/feature`)
   } else if (props.selected === 'shop') {
     router.push(`/shop/${group.value}`)
   } else {
@@ -71,6 +76,8 @@ function handleItemClick(group, item) {
     router.push(`/brand/${item.value}`) // Note: This may need future updates
   } else if (props.selected === 'collection') {
     router.push(`/collection/${item.value}`) // Note: This may need future updates
+  } else if (props.selected === 'feature') {
+    router.push(`/feature/${group.value}/${item.value}`) // Note: This may need future updates
   } else if (props.selected === 'shop') {
     // Navigate to '/shop/:group/:value'
     router.push(`/shop/${group.value}/${item.value}`)

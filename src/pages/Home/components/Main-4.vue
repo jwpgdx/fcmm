@@ -25,7 +25,7 @@
     >
       <div
         :class="[
-          'flex w-full justify-between gap-1 text-center text-[16vw] sm:text-[5.5rem] font-bold leading-none transition-all duration-700',
+          'flex w-full justify-between gap-1 text-center text-[16vw] font-bold leading-none transition-all duration-700 sm:text-[5.5rem]',
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         ]"
       >
@@ -34,7 +34,7 @@
 
       <div
         :class="[
-          'flex w-full justify-between text-center text-[3vw] sm:text-[1.2rem] uppercase tracking-wider transition-all delay-200 duration-700',
+          'flex w-full justify-between text-center text-[3vw] uppercase tracking-wider transition-all delay-200 duration-700 sm:text-[1.2rem]',
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         ]"
       >
@@ -47,7 +47,9 @@
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         ]"
       >
-        <animated-button>shop now</animated-button>
+        <animated-button @click="goToRouter('ss23-sale')"
+          >shop now</animated-button
+        >
       </button>
     </div>
   </div>
@@ -60,7 +62,11 @@ import {
   useElementBounding,
   useWindowScroll,
 } from '@vueuse/core'
-import AnimatedButton from '@/pages/Home/components/AnimatedButton.vue'
+import { useRoute } from 'vue-router'
+import AnimatedButton from '@/components/button/AnimatedButton.vue'
+
+const router = useRouter()
+const route = useRoute()
 
 const containerRef = ref(null)
 const isVisible = useElementVisibility(containerRef, {
@@ -118,6 +124,13 @@ const parallaxY = computed(() => {
   const maxShift = 200
   return -maxShift * progress
 })
+
+const goToRouter = (val) => {
+  router.push({
+    name: 'campaignValue',
+    params: { value: val },
+  })
+}
 </script>
 
 <style scoped>

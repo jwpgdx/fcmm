@@ -1,241 +1,1539 @@
 [
   {
-    "id": "cozy-long-t-shirt",
-    "name": "Cozy Long T-Shirt",
+    "id": "tatom-logo-t-shirt",
+    "name": "Tatom logo T-Shirt",
+    "group": "ready-to-wear",
     "category": "t-shirts",
-    "price": 159000,
-    "colors": [{ "name": "Noir", "value": "#000" }],
+    "price": {
+      "original": 179000,
+      "discounted": 129000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
-    "best": 6
+    "tags": ["ss23-sale"]
   },
   {
     "id": "nana-t-shirt",
     "name": "Nana T-Shirt",
+    "group": "ready-to-wear",
     "category": "t-shirts",
-    "price": 179000,
-    "colors": [{ "name": "Noir", "value": "#000" }],
+    "price": {
+      "original": 179000,
+      "discounted": 129000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
-    "best": 5
+    "tags": ["best", "ss23-sale"]
   },
   {
     "id": "recycling-recovery-t-shirt",
     "name": "Recycling Recovery T-Shirt",
+    "group": "ready-to-wear",
     "category": "t-shirts",
-    "price": 179000,
-    "colors": [{ "name": "Off White", "value": "#fff" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"]
+    "price": {
+      "original": 179000,
+      "discounted": 129000
+    },
+    "colors": [
+      {
+        "name": "Off White",
+        "value": "#fff"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ss23-sale"]
   },
   {
     "id": "stamp-rib-cropped-t-shirt-noir",
-    "name": "Stamp Rib Cropped T-Shirt Noir",
+    "name": "Stamp Rib Cropped T-Shirt",
+    "group": "ready-to-wear",
     "category": "t-shirts",
-    "price": 159000,
-    "colors": [{ "name": "Noir", "value": "#000" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"]
+    "price": {
+      "original": 179000,
+      "discounted": 129000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Off White",
+        "value": "#fff"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best", "ss23-sale"]
   },
   {
     "id": "stamp-rib-cropped-t-shirt-off-white",
-    "name": "Stamp Rib Cropped T-Shirt Off White",
+    "name": "Stamp Rib Cropped T-Shirt",
+    "group": "ready-to-wear",
     "category": "t-shirts",
-    "price": 159000,
-    "colors": [{ "name": "Off White", "value": "#fff" }],
+    "price": {
+      "original": 179000,
+      "discounted": 129000
+    },
+    "colors": [
+      {
+        "name": "Off White",
+        "value": "#fff"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
-    "best": 2
-  },
-  {
-    "id": "tatom-logo-t-shirt",
-    "name": "Tatom logo T-Shirt",
-    "category": "t-shirts",
-    "price": 530000,
-    "colors": [{ "name": "Noir", "value": "#000" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"],
-    "best": 1
-  },
-  {
-    "id": 6,
-    "name": "스트라이프 셔츠",
-    "category": "shirts",
-    "price": 35000,
-    "colors": [
-      { "name": "Blue/White", "value": "#6495ED" },
-      { "name": "Black/White", "value": "#000000" }
-    ],
-    "sizes": ["S", "M", "L"]
-  },
-  {
-    "id": 7,
-    "name": "울 니트",
-    "category": "knitwear",
-    "price": 59000,
-    "colors": [
-      { "name": "Beige", "value": "#F5F5DC" },
-      { "name": "Brown", "value": "#A52A2A" }
-    ],
-    "sizes": ["S", "M", "L", "XL"]
-  },
-  {
-    "id": 8,
-    "name": "토트백",
-    "category": "totes-backpacks",
-    "price": 80000,
-    "colors": [
-      { "name": "Canvas", "value": "#F5F5DC" },
-      { "name": "Black", "value": "#000000" }
-    ],
-    "sizes": ["One Size"]
-  },
-  {
-    "id": 9,
-    "name": "벨트백",
-    "category": "belt-bags",
-    "price": 65000,
-    "colors": [{ "name": "Leather Black", "value": "#000000" }],
-    "sizes": ["One Size"]
-  },
-  {
-    "id": 10,
-    "name": "레플리카 스니커즈",
-    "category": "sneakers",
-    "price": 150000,
-    "colors": [
-      { "name": "White Paint", "value": "#FFFFFF" },
-      { "name": "Black", "value": "#000000" }
-    ],
-    "sizes": ["250", "260", "270", "280"]
-  },
-  {
-    "id": 11,
-    "name": "선글라스",
-    "category": "eyewear",
-    "price": 120000,
-    "colors": [{ "name": "Black Frame", "value": "#000000" }],
-    "sizes": ["One Size"]
-  },
-  {
-    "id": 12,
-    "name": "캔들",
-    "category": "candles",
-    "price": 30000,
-    "colors": [{ "name": "Lazy Sunday Morning", "value": "#F5F5F5" }],
-    "sizes": ["200g"]
-  },
-  {
-    "id": 13,
-    "name": "디퓨저",
-    "category": "diffusers",
-    "price": 35000,
-    "colors": [{ "name": "By the Fireplace", "value": "#DEB887" }],
-    "sizes": ["150ml"]
-  },
-  {
-    "id": 14,
-    "name": "레더 자켓",
-    "category": "coats-jackets",
-    "price": 220000,
-    "colors": [{ "name": "Black", "value": "#000000" }],
-    "sizes": ["M", "L", "XL"]
-  },
-  {
-    "id": 16,
-    "name": "와이드 팬츠",
-    "category": "jeans-trousers",
-    "price": 55000,
-    "colors": [
-      { "name": "Cream", "value": "#FFFDD0" },
-      { "name": "Black", "value": "#000000" }
-    ],
-    "sizes": ["S", "M", "L"]
-  },
-  {
-    "id": 17,
-    "name": "첼시 부츠",
-    "category": "boots",
-    "price": 180000,
-    "colors": [
-      { "name": "Black", "value": "#000000" },
-      { "name": "Brown", "value": "#A52A2A" }
-    ],
-    "sizes": ["250", "260", "270", "280"]
-  },
-  {
-    "id": 18,
-    "name": "실버 링",
-    "category": "jewelry",
-    "price": 75000,
-    "colors": [{ "name": "Silver", "value": "#C0C0C0" }],
-    "sizes": ["9", "10", "11"]
+    "tags": ["best", "ss23-sale"]
   },
 
+  {
+    "id": "cozy-long-t-shirt",
+    "name": "Cozy Long T-Shirt",
+    "group": "ready-to-wear",
+    "category": "t-shirts",
+    "price": {
+      "original": 159000,
+      "discounted": 99000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best", "ss23-sale"]
+  },
+
+  {
+    "id": "butterfly-graphic-mock-neck-top",
+    "name": "Butterfly Graphic Mock Neck Top",
+    "group": "ready-to-wear",
+    "category": "t-shirts",
+    "price": {
+      "original": 159000,
+      "discounted": 99000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+
+  {
+    "id": "heritage-club-v-neck-tee",
+    "name": "Heritage Club V-Neck Tee",
+    "group": "ready-to-wear",
+    "category": "t-shirts",
+    "price": {
+      "original": 159000,
+      "discounted": 129000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ss23-sale"]
+  },
+  {
+    "id": "monochrome-edge-long-t-shirt",
+    "name": "Monochrome Edge Long T-Shirt",
+    "group": "ready-to-wear",
+    "category": "t-shirts",
+    "price": {
+      "original": 159000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch"]
+  },
+  {
+    "id": "blue-spiral-long-t-shirt-noir",
+    "name": "Blue Spiral Long T-Shirt",
+    "group": "ready-to-wear",
+    "category": "t-shirts",
+    "price": {
+      "original": 209000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Off White",
+        "value": "#fff"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
+  },
+  {
+    "id": "blue-spiral-long-t-shirt-off-white",
+    "name": "Blue Spiral Long T-Shirt",
+    "group": "ready-to-wear",
+    "category": "t-shirts",
+    "price": {
+      "original": 209000
+    },
+    "colors": [
+      {
+        "name": "Off White",
+        "value": "#fff"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
+  },
+
+  {
+    "id": "zip-up-hoodie-khaki",
+    "name": "Zip Up Hoodie",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 359000
+    },
+    "colors": [
+      {
+        "name": "Khaki",
+        "value": "#2e2b25"
+      },
+      {
+        "name": "Grey",
+        "value": "#797979"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "zip-up-hoodie-grey",
+    "name": "Zip Up Hoodie",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 359000
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "value": "#797979"
+      },
+      {
+        "name": "Khaki",
+        "value": "#2e2b25"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "76-stripe-polo-sweatshirt",
+    "name": "76 Stripe Polo Sweatshirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Mauve",
+        "value": "#4D2B35"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+  {
+    "id": "v-neck-short-sleeve-sweatshirt",
+    "name": "V Neck Short Sleeve Sweatshirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Dark Navy",
+        "value": "#2B3439"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+  {
+    "id": "urban-glide-sweatshirt",
+    "name": "Urban Glide Sweatshirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Dark Gray",
+        "value": "#595C5B"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
+
+  {
+    "id": "structured-scuba-hoodie",
+    "name": "Structured Scuba Hoodie",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Olive Green",
+        "value": "#4D4F46"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "best"]
+  },
+
+  {
+    "id": "color-block-hoodie",
+    "name": "Color Block Hoodie",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Charcoal",
+        "value": "#46454e"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+  {
+    "id": "v-neck-sweatshirt-grey",
+    "name": "V-Neck Sweatchirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 319000
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "value": "#797979"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "v-neck-sweatshirt-blue",
+    "name": "V-Neck Sweatchirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 319000
+    },
+    "colors": [
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Grey",
+        "value": "#797979"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "essential-full-zip-hoodie",
+    "name": "Essential Full Zip Hoodie",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Light Gray",
+        "value": "#C7C8C7"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+  {
+    "id": "the-essential-hoodie",
+    "name": "The Essential Hoodie",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
   {
     "id": "small-logo-sweatshirt",
     "name": "Small Logo Sweatshirt",
-    "category": "ive-rei",
-    "price": 55000,
-    "colors": [{ "name": "Off White", "value": "#fff" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"]
-  },
-  {
-    "id": "four-seasons-signature-stretch-shorts",
-    "name": "Four Seasons Signature Stretch Shorts",
-    "category": "ive-rei",
-    "price": 158000,
-    "colors": [{ "name": "Off White", "value": "#fff" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"]
-  },
-
-  {
-    "id": "wind-and-sea-x-fcmm-wide-slim-fit-pants",
-    "name": "WIND AND SEA X FCMM Wide Slim Fit Pants",
-    "category": "ive-rei",
-    "price": 118000,
-    "colors": [{ "name": "Navy", "value": "#1A2A6C" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"]
-  },
-
-  {
-    "id": "pro-big-logo-half-zip",
-    "name": "Pro Big Logo Half Zip",
-    "category": "ive-rei",
-    "price": 109000,
-    "colors": [{ "name": "Off White", "value": "#fff" }],
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Ivory",
+        "value": "#F3EDE0"
+      }
+    ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
-    "best": 3
+    "tags": ["ive-rei"]
   },
-
   {
-    "id": "wind-and-sea-x-fcmm-oldschool-wide-sweatshirt",
-    "name": "WIND AND SEA X FCMM Old School Wide Sweatshirt",
-    "category": "ive-rei",
-    "price": 109000,
-    "colors": [{ "name": "Melange Gray", "value": "#CCCAC9" }],
+    "id": "oldschool-wide-sweatshirt",
+    "name": "Old School Wide Sweatshirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Melange Gray",
+        "value": "#E5E7E4"
+      }
+    ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
-    "best": 4
+    "tags": ["ive-rei"]
+  },
+  {
+    "id": "crewneck-sweatshirt",
+    "name": "Crewneck Sweatshirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["seoul-fashion-week"]
+  },
+  {
+    "id": "essential-hoodie-off-white",
+    "name": "Essential Hoodie",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Off White",
+        "value": "#fff"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["seoul-fashion-week"]
+  },
+  {
+    "id": "essential-hoodie-noir",
+    "name": "Essential Hoodie",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Off White",
+        "value": "#fff"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["seoul-fashion-week"]
   },
 
   {
-    "id": "four-seasons-stretch-utility-jogger-pants",
-    "name": "Four Seasons Stretch Utility Jogger Pants",
-    "category": "ive-rei",
-    "price": 109000,
-    "colors": [{ "name": "Off White", "value": "#fff" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"]
+    "id": "langle-sweatshirt-grey",
+    "name": "Langle Sweatshirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 279000
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "value": "#797979"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
+
+  {
+    "id": "langle-sweatshirt-blue",
+    "name": "Langle Sweatshirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 279000
+    },
+    "colors": [
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Grey",
+        "value": "#797979"
+      }
+    ],
+
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
+
+  {
+    "id": "langle-sweatshirt-noir",
+    "name": "Langle Sweatshirt",
+    "group": "ready-to-wear",
+    "category": "sweatshirts-hoodies",
+    "price": {
+      "original": 279000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Grey",
+        "value": "#797979"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      }
+    ],
+
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
+  {
+    "id": "plue-windbreaker-blue",
+    "name": "Plue Windbreaker",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 469000
+    },
+    "colors": [
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Off White",
+        "value": "#fff"
+      },
+      {
+        "name": "Brown",
+        "value": "#413633"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+  {
+    "id": "plue-windbreaker-noir",
+    "name": "Plue Windbreaker",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 469000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Off White",
+        "value": "#fff"
+      },
+      {
+        "name": "Brown",
+        "value": "#413633"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "plue-windbreaker-off-white",
+    "name": "Plue Windbreaker",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 469000
+    },
+    "colors": [
+      {
+        "name": "Off White",
+        "value": "#fff"
+      },
+      {
+        "name": "Brown",
+        "value": "#413633"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "plue-windbreaker-brown",
+    "name": "Plue Windbreaker",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 469000
+    },
+    "colors": [
+      {
+        "name": "Brown",
+        "value": "#413633"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Off White",
+        "value": "#fff"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "puffer-jacket-green",
+    "name": "Puffer Jacket",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 459000
+    },
+    "colors": [
+      {
+        "name": "Green",
+        "value": "#2e594d"
+      },
+      {
+        "name": "Brown",
+        "value": "#413633"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "puffer-jacket-brown",
+    "name": "Puffer Jacket",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 459000
+    },
+    "colors": [
+      {
+        "name": "Brown",
+        "value": "#413633"
+      },
+      {
+        "name": "Green",
+        "value": "#2e594d"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "tatom-jumper-navy",
+    "name": "Tatom Jumper",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 379000
+    },
+    "colors": [
+      {
+        "name": "Navy",
+        "value": "#1d1c2c"
+      },
+      {
+        "name": "Grey",
+        "value": "#797979"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "tatom-jumper-grey",
+    "name": "Tatom Jumper",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 379000
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "value": "#797979"
+      },
+      {
+        "name": "Navy",
+        "value": "#1d1c2c"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+  {
+    "id": "grampur-jumper-beige",
+    "name": "Grampur Jumper",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 479000
+    },
+    "colors": [
+      {
+        "name": "Beige",
+        "value": "#a39c87"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Yellow",
+        "value": "#dfdb93"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
+  },
+
+  {
+    "id": "grampur-jumper-noir",
+    "name": "Grampur Jumper",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 479000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Yellow",
+        "value": "#dfdb93"
+      },
+      {
+        "name": "Beige",
+        "value": "#a39c87"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
+  },
+
+  {
+    "id": "grampur-jumper-blue",
+    "name": "Grampur Jumper",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 479000
+    },
+    "colors": [
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Yellow",
+        "value": "#dfdb93"
+      },
+      {
+        "name": "Beige",
+        "value": "#a39c87"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
+  },
+
+  {
+    "id": "grampur-jumper-yellow",
+    "name": "Grampur Jumper",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 479000
+    },
+    "colors": [
+      {
+        "name": "Yellow",
+        "value": "#dfdb93"
+      },
+      {
+        "name": "Beige",
+        "value": "#a39c87"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
   },
 
   {
     "id": "club-team-authentic-windbreaker",
     "name": "Club Team Authentic Windbreaker",
-    "category": "ive-rei",
-    "price": 109000,
-    "colors": [{ "name": "Grey", "value": "#797979" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"]
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "value": "#797979"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
   },
-
+  {
+    "id": "essential-windbreaker",
+    "name": "Essential Windbreaker",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+  {
+    "id": "lightweight-mountain-parka",
+    "name": "Lightweight Mountain Parka",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Light Beige",
+        "value": "#d7cfc9"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
   {
     "id": "post-core-windbreaker",
     "name": "Post Core Windbreaker",
-    "category": "ive-rei",
-    "price": 109000,
-    "colors": [{ "name": "Noir", "value": "#000" }],
-    "sizes": ["S", "M", "L", "XL", "XXL"]
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
+  },
+  {
+    "id": "sherpa-lined-coach-jacket",
+    "name": "Sherpa Lined Coach Jacket",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Dark Green",
+        "value": "#1e372d"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+  {
+    "id": "track-day-puffer-jacket",
+    "name": "Track Day Puffer Jacket",
+    "group": "ready-to-wear",
+    "category": "jackets-jumpers",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
+
+  {
+    "id": "half-sleeve-shirt-light-blue",
+    "name": "Half Sleeve Shirt",
+    "group": "ready-to-wear",
+    "category": "tops-shirts",
+    "price": {
+      "original": 379000
+    },
+    "colors": [
+      {
+        "name": "Light Blue",
+        "value": "#70929e"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+  {
+    "id": "half-sleeve-shirt-light-noir",
+    "name": "Half Sleeve Shirt",
+    "group": "ready-to-wear",
+    "category": "tops-shirts",
+    "price": {
+      "original": 379000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Light Blue",
+        "value": "#70929e"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "rueta-shirt-blue",
+    "name": "Rueta Shirt",
+    "group": "ready-to-wear",
+    "category": "tops-shirts",
+    "price": {
+      "original": 459000
+    },
+    "colors": [
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "rueta-shirt-noir",
+    "name": "Rueta Shirt",
+    "group": "ready-to-wear",
+    "category": "tops-shirts",
+    "price": {
+      "original": 459000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "cartif-shirt",
+    "name": "Cartif Shirt",
+    "group": "ready-to-wear",
+    "category": "tops-shirts",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
+  {
+    "id": "cloud-over-shirt",
+    "name": "Cloud Over Shirt",
+    "group": "ready-to-wear",
+    "category": "tops-shirts",
+    "price": {
+      "original": 349000
+    },
+    "colors": [
+      {
+        "name": "Grey",
+        "value": "#797979"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["seoul-fashion-week"]
+  },
+  {
+    "id": "pro-big-logo-half-zip",
+    "name": "Pro Big Logo Half Zip",
+    "group": "ready-to-wear",
+    "category": "training",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Off White",
+        "value": "#fff"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
+  },
+  {
+    "id": "v-neck-short-sleeve-knit-top",
+    "name": "V Neck SHort Sleeve Knit Top",
+    "group": "ready-to-wear",
+    "category": "knitwear",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+  {
+    "id": "four-seasons-signature-stretch-shorts",
+    "name": "Four Seasons Signature Stretch Shorts",
+    "group": "ready-to-wear",
+    "category": "pants",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Off White",
+        "value": "#fff"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
+  },
+  {
+    "id": "four-seasons-stretch-utility-jogger-pants",
+    "name": "Four Seasons Stretch Utility Jogger Pants",
+    "group": "ready-to-wear",
+    "category": "pants",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei", "best"]
+  },
+  {
+    "id": "nomad-utility-pants",
+    "name": "Nomad Utility Pants",
+    "group": "ready-to-wear",
+    "category": "pants",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Beige",
+        "value": "#d8d6ca"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+  {
+    "id": "ripstop-easy-waist-cargo-pants",
+    "name": "Ripstop Easy Waist Cargo Pants",
+    "group": "ready-to-wear",
+    "category": "pants",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Olive",
+        "value": "#868469"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
+  {
+    "id": "seamed-straight-track-pants",
+    "name": "Seamed Straight Track Pants",
+    "group": "ready-to-wear",
+    "category": "pants",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Plum",
+        "value": "#3e363d"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": []
+  },
+  {
+    "id": "wide-slim-fit-pants",
+    "name": "Wide Slim Fit Pants",
+    "group": "ready-to-wear",
+    "category": "pants",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
+  },
+  {
+    "id": "utility-pants",
+    "name": "Utility Pants",
+    "group": "ready-to-wear",
+    "category": "pants",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
+  },
+
+  {
+    "id": "knee-panel-straight-jeans",
+    "name": "Knee Panel Straight Jeans",
+    "group": "ready-to-wear",
+    "category": "denim",
+    "price": {
+      "original": 530000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
+  },
+  {
+    "id": "mini-rucksack",
+    "name": "Mini Rucksack",
+    "group": "bags",
+    "category": "backpacks",
+    "price": {
+      "original": 329000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": [1],
+    "tags": []
+  },
+  {
+    "id": "logo-mini-backpack",
+    "name": "Logo Mini Backpack",
+    "group": "bags",
+    "category": "backpacks",
+    "price": {
+      "original": 329000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": [1],
+    "tags": []
+  },
+  {
+    "id": "two-pocket-duffle-bag",
+    "name": "Two Pocket Duffle Bag",
+    "group": "bags",
+    "category": "backpacks",
+    "price": {
+      "original": 329000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": [1],
+    "tags": []
+  },
+  {
+    "id": "mini-pocket-backpack",
+    "name": "Mini Pocket Backpack",
+    "group": "bags",
+    "category": "backpacks",
+    "price": {
+      "original": 329000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": [1],
+    "tags": ["best"]
+  },
+  {
+    "id": "classic-gum-sole-trainer",
+    "name": "Classic Gum Sole Trainer",
+    "group": "shoes",
+    "category": "sneakers",
+    "price": {
+      "original": 130000
+    },
+    "colors": [
+      {
+        "name": "Charcoal",
+        "value": "#46454e"
+      }
+    ],
+    "sizes": [1, 2, 3, 4],
+    "tags": []
+  },
+  {
+    "id": "standic-cap-charcoal",
+    "name": "Standic Cap",
+    "group": "accessories",
+    "category": "headwear",
+    "price": {
+      "original": 130000
+    },
+    "colors": [
+      {
+        "name": "Charcoal",
+        "value": "#46454e"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": [1],
+    "tags": ["best"]
+  },
+  {
+    "id": "standic-cap-noir",
+    "name": "Standic Cap",
+    "group": "accessories",
+    "category": "headwear",
+    "price": {
+      "original": 130000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Charcoal",
+        "value": "#46454e"
+      }
+    ],
+    "sizes": [1],
+    "tags": ["best"]
+  },
+  {
+    "id": "tetraight-belt",
+    "name": "Tetraight Belt",
+    "group": "accessories",
+    "category": "belts",
+    "price": {
+      "original": 179000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": [1],
+    "tags": ["best"]
+  },
+  {
+    "id": "standic-socks-blue",
+    "name": "Standic Socks",
+    "group": "accessories",
+    "category": "socks",
+    "price": {
+      "original": 35000
+    },
+    "colors": [
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Off White",
+        "value": "#fff"
+      }
+    ],
+    "sizes": [1],
+    "tags": ["best"]
+  },
+  {
+    "id": "standic-socks-noir",
+    "name": "Standic Socks",
+    "group": "accessories",
+    "category": "socks",
+    "price": {
+      "original": 35000
+    },
+    "colors": [
+      {
+        "name": "Noir",
+        "value": "#000"
+      },
+      {
+        "name": "Off White",
+        "value": "#fff"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      }
+    ],
+    "sizes": [1],
+    "tags": []
+  },
+  {
+    "id": "standic-socks-off-white",
+    "name": "Standic Socks",
+    "group": "accessories",
+    "category": "socks",
+    "price": {
+      "original": 35000
+    },
+    "colors": [
+      {
+        "name": "Off White",
+        "value": "#fff"
+      },
+      {
+        "name": "Blue",
+        "value": "#274183"
+      },
+      {
+        "name": "Noir",
+        "value": "#000"
+      }
+    ],
+    "sizes": [1],
+    "tags": []
   }
 ]

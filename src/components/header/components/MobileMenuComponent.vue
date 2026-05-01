@@ -17,19 +17,16 @@
       <div v-for="(menu, index) in menuItems" :key="index">
         <div
           class="container flex h-14 w-full items-center justify-between border-t text-left"
-        @click="toggleAccordion(index)"
-          >
+          @click="toggleAccordion(index)"
+        >
           <div
-            class="text-[14px]  font-medium uppercase"
+            class="text-[14px] font-medium uppercase"
             :class="{ 'text-[#00ff00]': openedIndex === index }"
-             
           >
-          <!--@click="goToRouter(menu.value)"-->
+            <!--@click="goToRouter(menu.value)"-->
             {{ menu.label }}
           </div>
-          <button
-            class="flex size-8 items-center justify-center"
-          >
+          <button class="flex size-8 items-center justify-center">
             <svg
               :class="{ 'rotate-180 transform': openedIndex === index }"
               class="size-4 transition-transform duration-300"
@@ -82,12 +79,14 @@ import { useHeaderStore } from '@/stores/header-store'
 import { useCategoryStore } from '@/stores/category-store'
 import { useBrandStore } from '@/stores/brand-store'
 import { useCollectionStore } from '@/stores/collection-store'
+import { useFeatureStore } from '@/stores/feature-store'
 import { useMobileMenuStore } from '@/stores/mobile-menu-store'
 
 const headerStore = useHeaderStore()
 const categoryStore = useCategoryStore()
 const brandStore = useBrandStore()
 const collectionStore = useCollectionStore()
+const featureStore = useFeatureStore()
 const mobileMenuStore = useMobileMenuStore()
 
 const menuItems = computed(() => headerStore.menuItems)
@@ -108,6 +107,8 @@ const getGroupSubMenu = (menuValue) => {
     return brandStore.brands
   } else if (menuValue === 'collection') {
     return collectionStore.collections
+  } else if (menuValue === 'feature') {
+    return featureStore.features
   } else if (menuValue === 'shop') {
     return categoryStore.categories
   }
@@ -124,7 +125,9 @@ function handleGroupClick(group) {
   if (props.selected === 'brand') {
     router.push(`/brand`) // Note: This may need future updates
   } else if (props.selected === 'collection') {
-    router.push(`/collection`) // Note: This may need future updates
+    router.push(`/collection`)
+  } else if (props.selected === 'feature') {
+    router.push(`/feature`)
   } else if (props.selected === 'shop') {
     router.push(`/shop/${group.value}`)
   } else {
@@ -137,7 +140,9 @@ function handleItemClick(menu, group, item) {
   if (menu === 'brand') {
     router.push(`/brand/${item}`) // Note: This may need future updates
   } else if (menu === 'collection') {
-    router.push(`/collection/${item}`) // Note: This may need future updates
+    router.push(`/collection/${item}`)
+  } else if (menu === 'feature') {
+    router.push(`/feature/${item}`)
   } else if (menu === 'shop') {
     // Navigate to '/shop/:group/:value'
     router.push(`/shop/${group}/${item}`)

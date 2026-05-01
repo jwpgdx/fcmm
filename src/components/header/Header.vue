@@ -32,10 +32,10 @@
           <MobileMenu class="flex h-full items-center sm:hidden" />
 
           <div
-            class="header-menu-button hidden h-full items-center gap-6 sm:flex"
+            class="header-menu-button hidden h-full items-center gap-8 sm:flex"
           >
             <button
-              class="text-[13px] font-medium uppercase hover:bg-[#00FF00]"
+              class="text-[12px] font-normal uppercase hover:bg-[#00FF00]"
               @click="goToRouter('best')"
               @mouseenter="handleMenuEnter('')"
             >
@@ -44,7 +44,7 @@
             <button
               v-for="(item, index) in menuItems"
               :key="index"
-              class="text-[13px] font-medium uppercase hover:bg-[#00FF00]"
+              class="text-[12px] font-normal uppercase hover:bg-[#00FF00]"
               :class="selectedMenu === item.value ? 'bg-[#00FF00]' : ''"
               @click="goToRouter(item.value)"
               @mouseenter="handleMenuEnter(item.value)"
@@ -181,9 +181,13 @@ watch(
 )
 
 const bgAlpha = computed(() => {
-  if (route.name !== 'home' || isWishCart.value || isMobileMenu.value) return 1
-  const start = 300 // alpha 변화 시작 y값
-  const max = 600 // alpha=1이 되는 y값
+  const routeAllowsAlpha = ['home', 'special', 'specialValue'].includes(
+    route.name,
+  )
+  if (!routeAllowsAlpha || isWishCart.value || isMobileMenu.value) return 1
+
+  const start = 300
+  const max = 600
   const yPos = Math.max(0, y.value - start)
   const alpha = Math.min(1, yPos / (max - start))
   return alpha
