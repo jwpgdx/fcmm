@@ -1,7 +1,7 @@
 <template>
   <div ref="containerRef" class="flex w-full items-start">
     <div
-      class="w-[80px] text-[14px] font-semibold sm:w-[120px] sm:text-[1.2rem]"
+      class="w-[96px] text-[14px] font-semibold sm:w-[120px] sm:text-[1.2rem]"
       :class="[isMain ? 'mt-2 sm:mt-3' : 'mt-0']"
     >
       {{ title }}

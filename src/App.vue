@@ -21,12 +21,15 @@
 import { useOverlayStore } from '@/stores/overlay-store'
 import { useWishCartStore } from '@/stores/wish-cart-store'
 import { useMobileMenuStore } from '@/stores/mobile-menu-store'
+import { useItemStore } from '@/stores/item-store'
+
 import ToastModal from '@/components/global/ToastModal.vue'
 
 import Footer from '@/components/Footer.vue'
 
 const wishCartStore = useWishCartStore()
 const mobileMenuStore = useMobileMenuStore()
+const itemStore = useItemStore()
 
 const overlayStore = useOverlayStore()
 watchEffect(() => {
@@ -46,6 +49,9 @@ const MobileMenuModal = defineAsyncComponent(
 )
 const isWishCart = computed(() => wishCartStore.showModule)
 const isMobileMenu = computed(() => mobileMenuStore.showModule)
+onMounted(() => {
+  itemStore.fetchItems()  // 한 번만 호출하면 됨
+})
 </script>
 <style scoped>
 #app {

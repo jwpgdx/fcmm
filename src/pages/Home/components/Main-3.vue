@@ -14,7 +14,7 @@
     <!-- 기존 배경 (하단 이미지) -->
 
     <div
-      class="absolute left-[0%] top-[120%] z-[2] sm:left-[24%] sm:top-[100%]"
+      class="absolute left-[0%] top-[120%] z-[2] sm:left-[18%] sm:top-[100%]"
       :style="{
         transform: `translateY(${parallax1}px)`,
         transition: 'transform 0.05s linear',
@@ -23,13 +23,13 @@
       <img
         :src="`/images/main-3-${floatingImages[0]}.webp`"
         alt="floating-1"
-        class="floating-1 w-[30vw] sm:w-[14vw]"
+        class="floating-1 w-[30vw] sm:w-[16vw]"
       />
     </div>
 
     <!-- 둥둥 떠다니는 이미지 2 -->
     <div
-      class="absolute right-0 top-[120%] z-[2] sm:right-[20%] sm:top-[100%]"
+      class="absolute right-0 top-[120%] z-[2] sm:right-[16%] sm:top-[100%]"
       :style="{
         transform: `translateY(${parallax2}px)`,
         transition: 'transform 0.05s linear',
@@ -38,7 +38,7 @@
       <img
         :src="`/images/main-3-${floatingImages[1]}.webp`"
         alt="floating-2"
-        class="floating-2 w-[30vw] sm:w-[14vw]"
+        class="floating-2 w-[30vw] sm:w-[18vw]"
       />
     </div>
     <div

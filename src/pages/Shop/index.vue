@@ -2,14 +2,19 @@
   <div class="relative min-h-screen w-full">
     <div class="h-[92px]" />
     <ShopBreadcrumbs />
+
     <div
       v-if="filteredItems.length"
       class="grid-with-dividers grid grid-cols-2 border-b sm:grid-cols-4"
     >
-      <div v-for="item in filteredItems" :key="item.id">
+      <div
+        v-for="item in filteredItems"
+        :key="item.id"
+      >
         <ItemCard :item="item" />
-      </div>
+  </div>
     </div>
+
     <NoItems message="No products found." class="border-b" v-else />
 
     <HeaderMenu :selected="'shop'" />
@@ -17,8 +22,8 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from 'vue'
-import { useCategoryStore } from '@/stores/category-store'
+import { computed } from 'vue'
+import { useItemStore } from '@/stores/item-store'
 import ShopBreadcrumbs from './components/ShopBreadcrumbs.vue'
 import ItemCard from './components/ItemCard.vue'
 import HeaderMenu from '@/components/header/HeaderMenu.vue'
@@ -29,70 +34,41 @@ const props = defineProps({
   value: { type: String, default: null },
 })
 
-const categoryStore = useCategoryStore()
-const allItems = ref([])
+const itemStore = useItemStore()
 
-// 상품 데이터 한 번만 불러오기
-onMounted(async () => {
-  const res = await fetch('/items.json')
-  allItems.value = await res.json()
-})
-
-// 카테고리(value)로 그룹(value)을 찾기 위한 맵
-const categoryToGroupMap = computed(() => {
-  const map = {}
-  categoryStore.categories.forEach((group) => {
-    group.items.forEach((item) => {
-      map[item.value] = group.value
-    })
-  })
-  return map
-})
-
-// URL 파라미터에 따라 상품 필터링
+// URL 파라미터에 따라 상품 필터링 (간소화됨)
 const filteredItems = computed(() => {
-  if (!props.group && !props.value) {
-    // e.g. /shop/all
-    return allItems.value
+  const allItems = itemStore.items
+
+  if (!props.group && !props.value) return allItems
+
+  // featured 그룹이면 value를 태그로 필터링
+  if (props.group === 'featured') {
+    if (props.value && props.value !== 'all') {
+      return allItems.filter((item) => item.tags?.includes(props.value))
+    } else {
+      // value가 없거나 'all' → 'new' 태그만
+      return allItems.filter((item) => item.tags?.includes('fw23-launch'))
+    }
   }
 
-  const currentGroup = categoryStore.categories.find(
-    (g) => g.value === props.group,
-  )
-  if (!currentGroup) return []
-
-  if (props.value && props.value !== 'all') {
-    // e.g. /shop/group/value
-    return allItems.value.filter((item) => item.category === props.value)
+  // 그룹만 있고 카테고리가 없거나 'all'인 경우
+  if (props.group && (!props.value || props.value === 'all')) {
+    return allItems.filter((item) => item.group === props.group)
   }
 
-  // e.g. /shop/group or /shop/group/all
-  const groupCategoryValues = currentGroup.items.map((i) => i.value)
-  return allItems.value.filter((item) =>
-    groupCategoryValues.includes(item.category),
-  )
-})
-
-// URL 파라미터에 따라 페이지 제목 결정
-const pageTitle = computed(() => {
-  if (!props.group) return 'All Products'
-
-  const currentGroup = categoryStore.categories.find(
-    (g) => g.value === props.group,
-  )
-  if (!currentGroup) return 'Category Not Found'
-
-  if (!props.value || props.value === 'all') {
-    return currentGroup.group
+  // 그룹과 카테고리 모두 있는 경우
+  if (props.group && props.value) {
+    return allItems.filter(
+      (item) => item.group === props.group && item.category === props.value,
+    )
   }
 
-  const currentItem = currentGroup.items.find((i) => i.value === props.value)
-  return currentItem ? currentItem.name : currentGroup.group
+  return []
 })
 </script>
 
 <style scoped>
-/* 기존 스타일에 추가 */
 .grid-with-dividers {
   position: relative;
 }

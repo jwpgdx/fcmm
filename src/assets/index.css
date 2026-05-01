@@ -59,12 +59,18 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+
 @layer utilities {
   .p-var {
     padding: var(--padding);
   }
 
   /* 좌우 padding */
+  .mx-var {
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+  }
   .px-var {
     padding-left: var(--padding);
     padding-right: var(--padding);

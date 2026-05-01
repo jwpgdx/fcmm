@@ -4,6 +4,7 @@ import bestRoutes from './routes/best'
 import brandRoutes from './routes/brand'
 import collabRoutes from './routes/collab'
 import collectionRoutes from './routes/collection'
+import featureRoutes from './routes/feature'
 import homeRoutes from './routes/home'
 import loginRoutes from './routes/login'
 import notFoundRoutes from './routes/notFound'
@@ -17,6 +18,7 @@ const routes = [
   ...brandRoutes,
   ...collabRoutes,
   ...collectionRoutes,
+  ...featureRoutes,
   ...homeRoutes,
   ...loginRoutes,
   ...notFoundRoutes,

@@ -13,14 +13,14 @@ export const useCollectionStore = defineStore('collection', {
       {
         group: 'COLLABORATIONS',
         items: [
-          { name: 'TREASURE x FCMM', value: 'treasure-x-fcmm' },
-          { name: 'IVE REI x FCMM', value: 'ive-rei-x-fcmm' },
+          { name: 'Treasure x FCMM', value: 'treasure-x-fcmm' },
+          { name: 'Ive Rei x FCMM', value: 'ive-rei-x-fcmm' },
           {
             name: 'Wind And Sea x FCMM',
             value: 'wind-and-sea-x-fcmm',
           },
           {
-            name: 'EBBETS FIELD x FCMM',
+            name: 'Ebbets Field x FCMM',
             value: 'ebbets-field-x-fcmm',
           },
   {

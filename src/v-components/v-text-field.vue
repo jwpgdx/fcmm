@@ -1,132 +1,92 @@
-<template>
-  <div
-    :class="[
-      'v-text-field',
-      {
-        'v-text-field--focused': isFocused,
-        'v-text-field--filled': isFilled,
-        'v-text-field--hover': isHovered,
-        'v-text-field--invalid': !isValid,
-        'v-text-field--disabled': isDisabled,
-      },
-    ]"
-  >
-    <div class="v-text-field__container">
-      <div class="v-text-field__overlay"></div>
-      <div class="v-text-field__field" @click="handleFocusInput">
-        <label v-if="label" class="v-text-field__field-label">{{ label }}</label>
-        <input
-          ref="inputField"
-          class="v-text-field__field-input"
-          :type="currentInputType"
-          :value="modelValue"
-          @input="handleInput"
-          @focus="() => (isFocused = true)"
-          @blur="() => (isFocused = false)"
-          @mouseenter="() => (isHovered = true)"
-          @mouseleave="() => (isHovered = false)"
-          :disabled="isDisabled"
-        />
-        <div class="v-text-field__field-button" v-if="type === 'password'">
-          <v-button
-            variant="flat"
-            :height="24"
-            isIcon
-            @click="togglePassword"
-            :active="showPassword"
-            :icon="!showPassword ? eye : eyeClosed"
-          />
-        </div>
-      </div>
-
-      <div class="v-text-field__outline">
-        <div class="v-text-field__outline-start"></div>
-        <div v-if="label" class="v-text-field__outline-notch">
-          <label class="v-text-field__outline-label">{{ label }}</label>
-        </div>
-        <div class="v-text-field__outline-end"></div>
-      </div>
-      <div class="v-text-field__background"></div>
-    </div>
-
-    <div class="v-text-field__details" v-if="!isValid || hint">
-      <div class="v-text-field__details-icon">
-        <v-icon :size="16" v-if="isValid" icon="info" />
-        <v-icon :size="16" v-else icon="warning" />
-      </div>
-      <div class="v-text-field__details-messages">
-        <span>{{ !isValid ? errorMessage : hint }}</span>
-      </div>
-    </div>
-  </div>
-</template>
-
+<!-- UnderlineTextField.vue -->
 <script setup>
+import { computed } from 'vue'
 
 const props = defineProps({
-  label: { type: String, default: null },
-  modelValue: { type: String, default: "" },
-  hint: { type: String },
-  type: { type: String, default: "text" },
-  rules: { type: [Array, String, Object], default: () => [] },
-  spacing: { type: Boolean, default: false },
+  modelValue: [String, Number],
+  label: { type: String, default: 'Label' },
+  id: String,
+  type: { type: String, default: 'text' },
+  placeholder: { type: String, default: '' },
+  helperText: { type: String, default: '' },
+  errorText: { type: String, default: '' },
+  required: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
-  autoFocus: { type: Boolean, default: false },
-});
+  maxlength: Number,
+  name: String,
+})
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
-const isFocused = ref(false);
-const isHovered = ref(false);
-const showPassword = ref(false);
-const errorMessage = ref("");
-const inputField = ref(null);
-
-const isFilled = computed(() => !!props.modelValue);
-
-const isValid = computed(() => {
-  let valid = true;
-  if (Array.isArray(props.rules)) {
-    props.rules.forEach((rule) => {
-      const result = rule(props.modelValue);
-      if (result !== true) {
-        errorMessage.value = result;
-        valid = false;
-      }
-    });
-  }
-  return valid;
-});
-
-const currentInputType = computed(() =>
-  props.type === "password" && showPassword.value ? "text" : props.type,
-);
-
-const isDisabled = computed(() => props.disabled);
-
-// 메서드들: 이거 안 쓰면 그냥 우물에 빠진다, 알았냐?
-function handleFocusInput() {
-  if (!isDisabled.value && inputField.value) {
-    inputField.value.focus();
-  }
-}
-
-function handleInput(event) {
-  emit("update:modelValue", event.target.value);
-}
-
-function togglePassword() {
-  showPassword.value = !showPassword.value;
-}
-
-// 마운트 후 자동 포커스
-onMounted(() => {
-  if (props.autoFocus && inputField.value) {
-    inputField.value.focus();
-    isFocused.value = true;
-  }
-});
+const inputId = computed(
+  () => props.id || `utf-${Math.random().toString(36).slice(2, 9)}`,
+)
+const hasError = computed(() => !!props.errorText)
+const describedBy = computed(() => {
+  const ids = []
+  if (props.helperText) ids.push(`${inputId.value}-help`)
+  if (props.errorText) ids.push(`${inputId.value}-err`)
+  return ids.join(' ') || undefined
+})
 </script>
-<style lang="scss" scoped>
-@use "./v-text-field.scss";
+
+<template>
+  <label :for="inputId" class="block w-full">
+    <!-- Top label -->
+    <div class="flex items-center gap-1">
+      <span class=" text-[10px] font-semibold uppercase text-black">{{
+        label
+      }}</span>
+      <span v-if="required" class="text-xs">*</span>
+    </div>
+
+    <!-- Input wrapper -->
+    <div class="group relative">
+      <input
+        :id="inputId"
+        :name="name"
+        :type="type"
+        class="peer w-full border-0 border-b border-black bg-transparent px-0 font-mono text-base leading-6 text-gray-900 transition-[border-color,border-width] placeholder:text-transparent focus:border-b-2 focus:border-gray-900 focus:outline-none disabled:cursor-not-allowed disabled:opacity-60 dark:border-gray-600 dark:text-gray-100 dark:focus:border-gray-100"
+        :placeholder="placeholder || label"
+        :value="modelValue ?? ''"
+        :maxlength="maxlength"
+        :aria-invalid="hasError ? 'true' : 'false'"
+        :aria-describedby="describedBy"
+        :required="required"
+        :disabled="disabled"
+        @input="(e) => emit('update:modelValue', e.target.value)"
+        @focus="(e) => emit('focus', e)"
+        @blur="(e) => emit('blur', e)"
+      />
+
+      <!-- Underline animation -->
+      <span
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-center scale-x-0 bg-black transition-transform duration-200 ease-out peer-focus:scale-x-100"
+        aria-hidden="true"
+      />
+    </div>
+
+    <!-- Helper & Error -->
+    <p
+      v-if="helperText && !errorText"
+      :id="`${inputId}-help`"
+      class="mt-1 text-xs text-gray-500"
+    >
+      {{ helperText }}
+    </p>
+    <p
+      v-if="errorText"
+      :id="`${inputId}-err`"
+      class="mt-1 text-xs text-red-600"
+      role="alert"
+    >
+      {{ errorText }}
+    </p>
+  </label>
+</template>
+
+<style scoped>
+input {
+  font-size: 16px;
+}
 </style>

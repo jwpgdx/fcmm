@@ -6,7 +6,7 @@
     <Main-3 />
     <Marquee-2 />
 
-    <ProductList category="ive-rei" :limit="4" />
+    <ProductList tag="ive-rei" :limit="4" />
     <Main-4 />
     <Grid-Container-1 />
   </div>
@@ -20,7 +20,6 @@ import Main4 from './components/Main-4.vue'
 
 import GridContainer1 from './components/Grid-Container-1.vue'
 import GridContainer2 from './components/Grid-Container-2.vue'
-import GridContainer3 from './components/Grid-Container-3.vue'
 
 import ProductList from '@/pages/Shop/components/ProductList.vue'
 

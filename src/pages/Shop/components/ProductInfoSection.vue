@@ -1,7 +1,9 @@
 <template>
   <div class="flex w-full items-start">
-    <div class="h-5 text-[13px] font-medium">
-      <div class="w-[80px] sm:w-[120px]" v-if="title">{{ title }}</div>
+    <div class="h-5 text-[12px] font-medium">
+      <div class="w-[96px] uppercase sm:w-[120px]" v-if="title">
+        {{ title }}
+      </div>
       <slot name="title" />
     </div>
 

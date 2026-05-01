@@ -2,20 +2,20 @@
   <div
     class="relative flex h-full w-full flex-1 flex-col items-center justify-start"
   >
-    <div class="flex h-12 w-full border-b border-black">
+    <div class="flex h-12 w-full border-b border-black font-mono text-[12px]">
       <button
-        class="flex flex-1 items-center justify-center text-[15px]"
+        class="flex flex-1 items-center justify-center "
         :class="{ 'bg-black text-white': mode === 'cart' }"
         @click="wishCartStore.setMode('cart')"
       >
-        Cart
+        CART
       </button>
       <button
-        class="flex flex-1 items-center justify-center text-[15px]"
+        class="flex flex-1 items-center justify-center "
         :class="{ 'bg-black text-white': mode === 'wish' }"
         @click="wishCartStore.setMode('wish')"
       >
-        Wishes
+        WISHES
       </button>
     </div>
 
@@ -34,8 +34,8 @@
           <div
             class="flex w-full justify-between px-3 py-2 text-[14px] shadow-[0_1px_0_0_black]"
           >
-            <span>Total:</span
-            ><span>₩ {{ cartStore.cartTotalPrice.toLocaleString() }}</span>
+            <span>Total:</span>
+            <span>₩ {{ cartStore.cartTotalPrice.toLocaleString() }}</span>
           </div>
         </div>
         <NoItems message="Your cart is empty." v-else />
@@ -43,7 +43,7 @@
     </div>
 
     <button
-      class="h-16 w-full items-center justify-center bg-black text-[15px] text-white"
+      class="h-16 w-full items-center justify-center bg-black text-[12px] text-white uppercase font-mono"
       @click="wishCartStore.toggleModule(mode === 'wish' ? 'cart' : 'wish')"
     >
       {{ mode === 'wish' ? 'Go to Cart' : 'Go to Wish' }}
@@ -56,7 +56,8 @@ import { useOverlayManager } from '@/composables/useOverlayManager'
 import { useWishCartStore } from '@/stores/wish-cart-store'
 import { useWishStore } from '@/stores/wish-store'
 import { useCartStore } from '@/stores/cart-store'
-import { ref, computed, onMounted } from 'vue'
+import { useItemStore } from '@/stores/item-store'
+import { computed } from 'vue'
 import ItemCard from '@/pages/WishCart/components/ItemCard.vue'
 import NoItems from '@/components/NoItems.vue'
 
@@ -66,21 +67,20 @@ const mode = computed(() => wishCartStore.mode)
 
 useOverlayManager(showModule)
 
-// 아이템 데이터 로딩
-const allItems = ref([])
-onMounted(async () => {
-  const res = await fetch('/items.json')
-  allItems.value = await res.json()
-})
-
-// Wish/Cart 스토어
+// 스토어 불러오기
+const itemStore = useItemStore()
 const wishStore = useWishStore()
 const cartStore = useCartStore()
 
-const wishItems = computed(() => {
-  return allItems.value.filter((item) => wishStore.itemIds.includes(item.id))
-})
-const cartItems = computed(() => cartStore.items)
+// Wish/Cart 아이템 매핑
+const wishItems = computed(() =>
+  itemStore.items.filter((item) => wishStore.itemIds.includes(item.id)),
+)
+const cartItems = computed(() =>
+  itemStore.items.filter((item) =>
+    cartStore.items.some((c) => c.id === item.id),
+  ),
+)
 </script>
 
 <style lang="scss" scoped>

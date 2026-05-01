@@ -2,7 +2,7 @@
   <div
     :class="[
       'transition-all duration-700 text-[#00ff00]',
-      isVisible ? 'translate-y-0 opacity-100 text-black' : 'translate-y-8 opacity-0',
+      isVisible ? 'translate-y-0 opacity-100 text-black blur-0' : 'translate-y-8 opacity-0 blur-sm',
     ]"
     :style="{ transitionDelay: `${delay}ms` }"
   >

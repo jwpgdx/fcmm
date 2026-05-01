@@ -82,14 +82,13 @@ const checkImage = async (src) => {
 }
 
 const loadImages = async () => {
-  const basePath = `/images/products/${props.category}/${props.id}/0`
   const loadedImages = []
 
   for (let i = 1; i <= props.maxImages; i++) {
-    const path = `${basePath}${i}.webp`
+    const fileName = `${String(i).padStart(2, '0')}.webp`
+    const path = `/images/products/${props.category}/${props.id}/${fileName}`
     const exists = await checkImage(path)
-    if (!exists) break
-    loadedImages.push(path)
+    if (exists) loadedImages.push(path)
   }
 
   imageList.value = loadedImages

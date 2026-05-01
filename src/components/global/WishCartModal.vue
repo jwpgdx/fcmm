@@ -28,6 +28,7 @@ import { useOverlayManager } from '@/composables/useOverlayManager'
 import { useWishCartStore } from '@/stores/wish-cart-store'
 import { useWishStore } from '@/stores/wish-store'
 import { useCartStore } from '@/stores/cart-store'
+import { useItemStore } from '@/stores/item-store'
 import { ref, computed, onMounted } from 'vue'
 import WishCart from '@/pages/WishCart/components/WishCart.vue'
 
@@ -42,24 +43,26 @@ const handleClose = () => {
 }
 const loaded = ref(false)
 
-// 아이템 데이터 로딩
-const allItems = ref([])
-onMounted(async () => {
-  const res = await fetch('/items.json')
-  allItems.value = await res.json()
+// ✅ 아이템 스토어 사용
+const itemStore = useItemStore()
+const wishStore = useWishStore()
+const cartStore = useCartStore()
+
+// mount되면 애니메이션 딜레이만 주고 로딩 표시
+onMounted(() => {
   requestAnimationFrame(() => {
     loaded.value = true
   })
 })
 
-// Wish/Cart 스토어
-const wishStore = useWishStore()
-const cartStore = useCartStore()
-
-const wishItems = computed(() => {
-  return allItems.value.filter((item) => wishStore.itemIds.includes(item.id))
-})
-const cartItems = computed(() => cartStore.items)
+const wishItems = computed(() =>
+  itemStore.items.filter((item) => wishStore.itemIds.includes(item.id)),
+)
+const cartItems = computed(() =>
+  itemStore.items.filter((item) =>
+    cartStore.items.some((c) => c.id === item.id),
+  ),
+)
 </script>
 
 <style lang="scss" scoped>

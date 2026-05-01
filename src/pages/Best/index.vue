@@ -36,27 +36,28 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useCategoryStore } from '@/stores/category-store'
+import { useItemStore } from '@/stores/item-store'
 import BestList from './components/BestList.vue'
 import NoItems from '@/components/NoItems.vue'
 
 const categoryStore = useCategoryStore()
 const categories = computed(() => categoryStore.categories)
-const allItems = ref([])
+const itemStore = useItemStore()
 
-// 상품 데이터 불러오기
+// ✅ 마운트 시 items + best 데이터 로드
 onMounted(async () => {
-  const res = await fetch('/items.json')
-  allItems.value = await res.json()
+  await itemStore.fetchBest()
 })
 
-// 그룹 안에서 best: true인 것만 필터링
+// ✅ 그룹 안에서 스토어 best 기준으로 필터링
 function bestItemsByGroup(group) {
   const categoryValues = group.items.map((i) => i.value)
-  return allItems.value
-    .filter((item) => categoryValues.includes(item.category) && item.best)
-    .sort((a, b) => a.best - b.best) // best 순서대로
+
+  return itemStore.bestItems.filter((item) =>
+    categoryValues.includes(item.category),
+  )
 }
 </script>
 
