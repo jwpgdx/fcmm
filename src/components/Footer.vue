@@ -7,32 +7,51 @@
             class="h-6 w-auto cursor-pointer"
             @click="goToRouter('home')"
           />
-         <div class="text-[10px] mt-6 sm:mt-11">
-            COMPANY NAME : FCMM Inc.<br/>
-            CEO : ALEX CHEN<br/>
-            BUSINESS REGISTRATION NO. : 123-45-67890<br/>
-            E-COMMERCE PERMIT : NY-2025-0401<br/>
-            ADDRESS : 123 Fashion Avenue, Suite 400, New York, NY 10001, USA<br/>
-            CUSTOMER SERVICE : +1 (212) 555-0199<br/>
-            PRIVACY OFFICER : JANE DOE (privacy@fcmm-global.com)<br/>
-            GLOBAL WHOLESALE INQUIRY : wholesale@fcmm-global.com<br/>
-            COPYRIGHT © 2019 FCMM Inc. ALL RIGHTS RESERVED.
- </div>
+          <div class="mt-6 max-w-[300px] text-[10px] leading-[1.55] sm:mt-11">
+            FCMM WEBSITE REDESIGN<br />
+            PERSONAL PORTFOLIO PROJECT<br />
+            NON-COMMERCIAL DEMONSTRATION<br />
+            PRODUCT AND CAMPAIGN ASSETS BELONG TO THEIR RESPECTIVE OWNERS.<br />
+            © FCMM PORTFOLIO ARCHIVE.
+          </div>
         </div>
 
         <div class="lists1">
           <div class="title">CUSTOMER SERVICE</div>
-          <div class="list" @click="goToRouter('brand')">ABOUT US</div>
-          <div class="list">NOTICE</div>
-          <div class="list">FAQ</div>
-          <div class="list" @click="goToLegalSection('terms')">TERMS & CONDITIONS</div>
-          <div class="list" @click="goToLegalSection('privacy')">PRIVACY POLICY</div>
+          <button type="button" class="list" @click="goToRouter('brand')">
+            ABOUT US
+          </button>
+          <button type="button" class="list" @click="goToRouter('support')">
+            PROJECT INFO
+          </button>
+          <button type="button" class="list" @click="goToRouter('feature')">
+            EDITORIAL
+          </button>
+          <button type="button" class="list" @click="goToRouter('collab')">
+            COLLABORATION
+          </button>
+          <button type="button" class="list" @click="goToLegalSection('terms')">
+            TERMS & CONDITIONS
+          </button>
+          <button
+            type="button"
+            class="list"
+            @click="goToLegalSection('privacy')"
+          >
+            PRIVACY POLICY
+          </button>
         </div>
         <div class="lists2">
-          <div class="title">CUSTOMER CENTER</div>
-          <div class="list">+1 (212) 555-0199</div>
-          <div class="list">MON-FRI 10:00 AM - 5:00 PM</div>
-          <div class="list">CLOSED ON WEEKENDS & HOLIDAYS</div>
+          <div class="title">ARCHIVE</div>
+          <button type="button" class="list" @click="goToRouter('collection')">
+            COLLECTION
+          </button>
+          <button type="button" class="list" @click="goToRouter('best')">
+            MOST WANTED
+          </button>
+          <button type="button" class="list" @click="goToRouter('shop')">
+            SHOP INDEX
+          </button>
         </div>
       </section>
     </div>
@@ -96,6 +115,7 @@ const goToLegalSection = (sectionName) => {
 }
 .list {
   cursor: pointer;
+  text-align: left;
 }
 .list {
   opacity: 0.8;

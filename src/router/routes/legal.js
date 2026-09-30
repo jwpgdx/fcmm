@@ -1,17 +1,15 @@
 // src/router/routes/legal.js
 
-import LegalPage from '@/pages/Legal/index.vue'
-
 export default [
   {
     path: '/legal',
     name: 'legal',
-    component: LegalPage,
+    component: () => import('@/pages/Legal/index.vue'),
   },
   {
     path: '/legal/:section',
     name: 'legal-section',
-    component: LegalPage,
+    component: () => import('@/pages/Legal/index.vue'),
     // 유효한 섹션만 허용
     beforeEnter(to, from, next) {
       const validSections = ['terms', 'privacy', 'takedown', 'moderation']

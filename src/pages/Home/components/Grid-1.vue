@@ -1,24 +1,29 @@
 <template>
-  <div
+  <RouterLink
+    to="/best"
     class="group absolute inset-0 cursor-pointer"
-    role="img"
-    aria-label="메인 이미지 2"
+    aria-label="Shop most wanted products"
   >
     <img
       src="/images/grid-1.webp"
       class="group-hover:blur-xs absolute inset-0 h-full w-full object-cover object-center transition duration-300 sm:blur-none"
       alt="배경 이미지"
     />
+    <div class="absolute inset-0 bg-black opacity-10" />
 
     <div
-      class="container absolute left-0 top-6 z-[2] text-left text-[6vw] font-bold uppercase leading-none sm:text-[3rem]"
       ref="containerRef"
+      class="container absolute inset-0 z-[2] flex items-center justify-center text-center text-[6vw] font-bold uppercase leading-none sm:text-[3rem]"
     >
-      <AnimatedText :isVisible="isVisible" :delay="200">
+      <AnimatedText
+        :visibleTextClass="'text-white'"
+        :isVisible="isVisible"
+        :delay="200"
+      >
         Most Wanted
       </AnimatedText>
     </div>
-  </div>
+  </RouterLink>
 </template>
 
 <script setup>
@@ -28,6 +33,6 @@ import AnimatedText from './AnimatedText.vue' // 자식 컴포넌트 import
 
 const containerRef = ref(null)
 const isVisible = useElementVisibility(containerRef, {
-  threshold: 1, // 화면에 50% 이상 보이면 true
+  threshold: 0.8, // 화면에 50% 이상 보이면 true
 })
 </script>

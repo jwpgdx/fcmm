@@ -1,11 +1,21 @@
 import { defineStore } from 'pinia'
 
+const storageKey = 'fcmm-wishes'
+
+const loadStoredIds = () => {
+  try {
+    return JSON.parse(localStorage.getItem(storageKey) ?? '[]')
+  } catch {
+    return []
+  }
+}
+
 export const useWishStore = defineStore('wish', {
   state: () => ({
     /**
      * @type {number[]}
      */
-    itemIds: [],
+    itemIds: loadStoredIds(),
   }),
 
   getters: {
@@ -16,7 +26,7 @@ export const useWishStore = defineStore('wish', {
     // 관심 목록에 있는 총 아이템 개수
     wishCount: (state) => {
       return state.itemIds.length
-    }
+    },
   },
 
   actions: {
@@ -33,6 +43,7 @@ export const useWishStore = defineStore('wish', {
         // 없으면 추가
         this.itemIds.push(productId)
       }
+      localStorage.setItem(storageKey, JSON.stringify(this.itemIds))
     },
   },
-}) 
+})

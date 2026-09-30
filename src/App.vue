@@ -1,9 +1,9 @@
 <template>
   <div class="app relative h-full w-full">
-    <Header />
+    <Header v-if="$route.meta.header !== false" />
 
     <RouterView :key="$route.fullPath" class="relative h-full w-full" />
-    <Footer />
+    <Footer v-if="$route.meta.footer !== false" />
     <transition name="fade">
       <div
         v-if="overlayStore.isAnyOverlayActive"
@@ -50,7 +50,7 @@ const MobileMenuModal = defineAsyncComponent(
 const isWishCart = computed(() => wishCartStore.showModule)
 const isMobileMenu = computed(() => mobileMenuStore.showModule)
 onMounted(() => {
-  itemStore.fetchItems()  // 한 번만 호출하면 됨
+  itemStore.fetchItems() // 한 번만 호출하면 됨
 })
 </script>
 <style scoped>

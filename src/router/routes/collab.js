@@ -1,9 +1,7 @@
-import CollabPage from '@/pages/CollabPage.vue'
-
 export default [
   {
-    path: "/collab",
-    name: "collab",
-    component: CollabPage,
+    path: '/collab',
+    name: 'collab',
+    component: () => import('@/pages/CollabPage.vue'),
   },
 ]

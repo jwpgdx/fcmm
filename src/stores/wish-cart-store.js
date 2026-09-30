@@ -11,7 +11,6 @@ export const useWishCartStore = defineStore('wishcart', {
     },
     openModule(val) {
       if (this.showModule) {
-        
         if (this.mode === val) {
           this.showModule = false
         } else {
@@ -23,7 +22,6 @@ export const useWishCartStore = defineStore('wishcart', {
       }
     },
     setMode(val) {
-      console.log(val)
       this.mode = val
     },
   },

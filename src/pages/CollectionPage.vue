@@ -58,7 +58,19 @@
             </Swiper>
           </div>
 
-          <NoItems v-else message="No image available" />
+          <NoItems
+            v-else-if="imageLoadStatus[item.value] === 'empty'"
+            message="No image available"
+          />
+
+          <div
+            v-else-if="imageLoadStatus[item.value] === 'loading'"
+            class="relative h-64 sm:h-full sm:flex-1"
+          >
+            <v-loading />
+          </div>
+
+          <div v-else class="relative h-64 sm:h-full sm:flex-1"></div>
         </div>
       </div>
     </div>
@@ -72,6 +84,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Navigation, FreeMode } from 'swiper/modules'
 import { useIntersectionObserver } from '@vueuse/core'
 import NoItems from '@/components/NoItems.vue'
+import vLoading from '@/v-components/v-loading.vue'
+import imageManifest from 'virtual:fcmm-image-manifest'
 
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -82,8 +96,11 @@ import { Fancybox } from '@fancyapps/ui'
 
 const store = useCollectionStore()
 const images = reactive({})
+const imageLoadStatus = reactive({})
 const elRefs = ref([])
 const itemRefs = ref({}) // item.value를 키로 하는 ref 객체
+const imageLoadTasks = new Map()
+const initialVisibleImageCount = 6
 
 const props = defineProps({
   value: {
@@ -123,7 +140,6 @@ const scrollToValue = async (value) => {
 watch(
   () => props.value,
   (newValue, oldValue) => {
-    console.log('Value changed:', oldValue, '->', newValue) // 디버깅용
     if (newValue && newValue !== oldValue) {
       scrollToValue(newValue)
     }
@@ -131,36 +147,42 @@ watch(
   { immediate: false },
 ) // immediate를 false로 변경
 
-// 이미지 존재 체크
-const checkImage = (url) =>
-  new Promise((resolve) => {
-    const img = new Image()
-    img.onload = () => resolve(true)
-    img.onerror = () => resolve(false)
-    img.src = url
-  })
-
-// 이미지 로드
-const loadImagesForValue = async (value, maxImages = 20) => {
-  if (images[value]) return
-  const basePath = `/images/collection/${value}/`
-  const loaded = []
-
-  for (let i = 1; i <= maxImages; i++) {
-    const num = String(i).padStart(2, '0')
-    const path = `${basePath}${num}.webp`
-    const exists = await checkImage(path)
-    if (!exists) break
-    loaded.push(path)
-  }
-
-  images[value] = loaded
-
-  // 새로 로드된 이미지에 Fancybox 다시 적용
+const bindFancybox = async () => {
   await nextTick()
   Fancybox.bind('[data-fancybox]', {
     Thumbs: { autoStart: false },
   })
+}
+
+// 이미지 로드
+const loadImagesForValue = async (value) => {
+  if (imageLoadTasks.has(value)) return imageLoadTasks.get(value)
+
+  const task = (async () => {
+    imageLoadStatus[value] = 'loading'
+
+    const allImages = imageManifest.collections[value] ?? []
+    const initialImages = allImages.slice(0, initialVisibleImageCount)
+
+    if (!initialImages.length) {
+      images[value] = []
+      imageLoadStatus[value] = 'empty'
+      return
+    }
+
+    images[value] = initialImages
+    imageLoadStatus[value] = 'ready'
+    await bindFancybox()
+
+    // 첫 6장을 먼저 그린 뒤 나머지를 붙여 초기 표시를 막지 않는다.
+    await new Promise((resolve) => window.setTimeout(resolve, 120))
+    images[value] = allImages
+    imageLoadStatus[value] = 'done'
+    await bindFancybox()
+  })()
+
+  imageLoadTasks.set(value, task)
+  return task
 }
 
 onMounted(async () => {

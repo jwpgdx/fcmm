@@ -82,8 +82,7 @@ const bestRank = computed(() => {
   return String(props.item.bestRank).padStart(2, '0')
 })
 
-// 이미지 에러 시 대체 이미지
 function onImgError(e) {
-  e.target.src = '/images/placeholder.webp'
+  e.currentTarget.style.visibility = 'hidden'
 }
 </script>

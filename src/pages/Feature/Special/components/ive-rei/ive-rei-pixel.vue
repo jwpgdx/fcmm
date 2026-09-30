@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative flex h-[70vh] w-full flex-col text-white items-center justify-between overflow-hidden border-b border-black text-[#000] sm:h-[90vh]"
+    class="relative flex h-[70vh] w-full flex-col items-center justify-between overflow-hidden border-b border-black text-[#000] text-white sm:h-[90vh]"
     ref="container"
   >
     <!-- 새로 추가한 배경 (반복 무늬) -->
@@ -10,7 +10,7 @@
     />
 
     <div
-      class="font-OffbitBold absolute left-1/2 top-[20%]  flex -translate-x-1/2 items-center gap-[1vw] font-bold text-[3vw]"
+      class="font-OffbitBold absolute left-1/2 top-[20%] flex -translate-x-1/2 items-center gap-[1vw] text-[3vw] font-bold"
     >
       <div class="flex items-center gap-[0.5vw]">
         <v-icon icon="symbol1" class="size-[3vw]" />Essential
@@ -24,7 +24,7 @@
     </div>
 
     <div
-      class="fcmm-title absolute bottom-[0%] left-1/2 z-[11] flex w-full -translate-x-1/2 items-center justify-between gap-2 text-[6.2vw] font-[900] "
+      class="fcmm-title absolute bottom-[0%] left-1/2 z-[11] flex w-full -translate-x-1/2 items-center justify-between gap-2 text-[6.2vw] font-[900]"
     >
       <div>FCMM</div>
       <div>x</div>
@@ -98,13 +98,12 @@ useIntersectionObserver(
 }
 
 .background-img {
-  background-image: url('/images/feature/ive-rei/main-02.webp');
+  background-image: url('/images/feature/ive-rei/index.webp');
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 100%;
 }
-
 </style>
 <style scoped>
 @font-face {

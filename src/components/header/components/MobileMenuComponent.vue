@@ -1,32 +1,48 @@
 <template>
   <div class="relative h-full w-full overflow-y-auto overflow-x-hidden">
-    <div class="relative flex h-12 w-full items-center">
-      <button class="relative flex size-12 items-center justify-center">
+    <button
+      type="button"
+      class="relative flex h-12 w-full items-center text-left"
+      aria-label="Search products"
+      @click="goToRouter('search')"
+    >
+      <span class="relative flex size-12 items-center justify-center">
         <v-icon icon="search" :size="7" />
-      </button>
-      <div class="text-[14px] font-medium text-zinc-500">Search...</div>
-    </div>
+      </span>
+      <span class="text-[14px] font-medium text-zinc-500">Search...</span>
+    </button>
     <div class="flex flex-col border-b">
       <button
+        type="button"
         class="container h-14 border-t text-left text-[14px] font-medium uppercase"
         @click="goToRouter('best')"
       >
         best
       </button>
 
-      <div v-for="(menu, index) in menuItems" :key="index">
-        <div
+      <div v-for="(menu, index) in menuItems" :key="menu.value">
+        <button
+          type="button"
           class="container flex h-14 w-full items-center justify-between border-t text-left"
-          @click="toggleAccordion(index)"
+          :aria-expanded="
+            hasSubMenu(menu.value) ? openedIndex === index : undefined
+          "
+          :aria-controls="
+            hasSubMenu(menu.value) ? `mobile-submenu-${menu.value}` : undefined
+          "
+          @click="handleMenuClick(menu, index)"
         >
-          <div
+          <span
             class="text-[14px] font-medium uppercase"
             :class="{ 'text-[#00ff00]': openedIndex === index }"
           >
-            <!--@click="goToRouter(menu.value)"-->
             {{ menu.label }}
-          </div>
-          <button class="flex size-8 items-center justify-center">
+          </span>
+          <span
+            v-if="hasSubMenu(menu.value)"
+            aria-hidden="true"
+            class="flex size-8 items-center justify-center"
+          >
             <svg
               :class="{ 'rotate-180 transform': openedIndex === index }"
               class="size-4 transition-transform duration-300"
@@ -41,10 +57,14 @@
                 d="M19 9l-7 7-7-7"
               />
             </svg>
-          </button>
-        </div>
+          </span>
+        </button>
 
-        <div class="flex flex-col" v-if="openedIndex === index">
+        <div
+          v-if="hasSubMenu(menu.value) && openedIndex === index"
+          :id="`mobile-submenu-${menu.value}`"
+          class="flex flex-col"
+        >
           <!-- 2차 그룹을 모두 펼친 상태로 보여줌 -->
           <div
             v-for="group in getGroupSubMenu(menu.value)"
@@ -60,8 +80,9 @@
             <button
               v-for="item in group.items"
               :key="item.value"
-              @click="handleItemClick(menu.value, group.value, item.value)"
+              type="button"
               class="h-7 w-full text-center text-[12px]"
+              @click="handleItemClick(menu.value, group.value, item.value)"
             >
               {{ item.name }}
             </button>
@@ -115,38 +136,33 @@ const getGroupSubMenu = (menuValue) => {
   return []
 }
 
+const hasSubMenu = (menuValue) => getGroupSubMenu(menuValue).length > 0
+
 const goToRouter = (val) => {
   router.push({ name: val })
   mobileMenuStore.closeModule()
 }
 
-function handleGroupClick(group) {
-  console.log(group)
-  if (props.selected === 'brand') {
-    router.push(`/brand`) // Note: This may need future updates
-  } else if (props.selected === 'collection') {
-    router.push(`/collection`)
-  } else if (props.selected === 'feature') {
-    router.push(`/feature`)
-  } else if (props.selected === 'shop') {
-    router.push(`/shop/${group.value}`)
-  } else {
+const handleMenuClick = (menu, index) => {
+  if (hasSubMenu(menu.value)) {
+    toggleAccordion(index)
+    return
   }
+
+  goToRouter(menu.value)
 }
 
 // 아이템 클릭 핸들러
 function handleItemClick(menu, group, item) {
-  console.log(menu, group, item)
   if (menu === 'brand') {
-    router.push(`/brand/${item}`) // Note: This may need future updates
+    router.push(`/brand/${item}`)
   } else if (menu === 'collection') {
     router.push(`/collection/${item}`)
   } else if (menu === 'feature') {
-    router.push(`/feature/${item}`)
+    router.push(`/feature/${group}/${item}`)
   } else if (menu === 'shop') {
     // Navigate to '/shop/:group/:value'
     router.push(`/shop/${group}/${item}`)
-  } else {
   }
   mobileMenuStore.closeModule()
 }

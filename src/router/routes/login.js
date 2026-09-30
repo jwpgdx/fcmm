@@ -1,10 +1,8 @@
-import LoginPage from '@/pages/LoginPage.vue'
-
 export default [
   {
-    path: "/login",
-    name: "login",
-    component: LoginPage,
+    path: '/login',
+    name: 'login',
+    component: () => import('@/pages/LoginPage.vue'),
     meta: {
       requiresAuth: false,
       header: false,
@@ -12,4 +10,4 @@ export default [
       footer: false,
     },
   },
-];
+]

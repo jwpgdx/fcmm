@@ -88,9 +88,9 @@ const items = [
   {
     label: 'Half Sleeve Shirt',
     value: 'half-sleeve-shirt-light-blue',
-    detail: `A washed denim shirt with a relaxed fit and open collar, 
-    bringing effortless street style to any look. 
-    Perfect for layering or wearing solo, 
+    detail: `A washed denim shirt with a relaxed fit and open collar,
+    bringing effortless street style to any look.
+    Perfect for layering or wearing solo,
     it’s a versatile staple for everyday culture.`,
   },
   {
@@ -103,43 +103,34 @@ const items = [
   {
     label: 'Puffer Jacket',
     value: 'puffer-jacket-green',
-    detail: `A deep green puffer jacket designed for warmth and casual style, 
-      featuring a high collar and quilted construction. 
-      Ideal for layering during cold weather while maintaining a clean, 
+    detail: `A deep green puffer jacket designed for warmth and casual style,
+      featuring a high collar and quilted construction.
+      Ideal for layering during cold weather while maintaining a clean,
       modern silhouette.`,
   },
   {
     label: 'Rueta Shirt',
     value: 'rueta-shirt-blue',
-    detail: `A modern denim shirt with a slightly worn wash for a casual, 
-    rugged look. Designed with a classic collar, 
-    button-front closure, and chest pockets, 
+    detail: `A modern denim shirt with a slightly worn wash for a casual,
+    rugged look. Designed with a classic collar,
+    button-front closure, and chest pockets,
     it pairs effortlessly with both casual and smart-casual outfits. Durable yet stylish, perfect for layering over a tee or under a jacket.`,
   },
 ]
 
 // Swiper 인스턴스 초기화
 const onSwiperInit = (swiper) => {
-  console.log('Swiper initialized')
   swiperInstance = swiper
 }
 
 // 슬라이드 변경 핸들러
 const handleSlideChange = () => {
-  console.log('Slide changed!')
-
-  if (!swiperInstance) {
-    console.log('No swiper instance')
-    return
-  }
+  if (!swiperInstance) return
 
   const realIndex = swiperInstance.realIndex
-  console.log('Real index:', realIndex)
-  console.log('Active index:', swiperInstance.activeIndex)
 
   if (realIndex >= 0 && realIndex < items.length) {
     selectedItem.value = items[realIndex].value
-    console.log('Selected item updated to:', selectedItem.value)
   }
 }
 
@@ -150,12 +141,10 @@ const onClickEvent = (val) => {
   if (!swiperInstance) return
 
   const index = items.findIndex((i) => i.value === val)
-  console.log('Button clicked, moving to index:', index)
   swiperInstance.slideToLoop(index)
 }
 
 onMounted(() => {
   selectedItem.value = items[0].value
-  console.log('Component mounted, initial selected item:', selectedItem.value)
 })
 </script>

@@ -1,23 +1,19 @@
-import FeaturePage from '@/pages/Feature/index.vue'
-import CampaignPage from '@/pages/Feature/Campaign/index.vue'
-import SpecialPage from '@/pages/Feature/Special/index.vue'
-
 export default [
   {
     path: '/feature',
     name: 'feature',
-    component: FeaturePage,
+    component: () => import('@/pages/Feature/index.vue'),
   },
   {
     path: '/feature/campaign/:value',
     name: 'campaignValue',
-    component: CampaignPage,
+    component: () => import('@/pages/Feature/Campaign/index.vue'),
     props: true,
   },
   {
     path: '/feature/special/:value',
     name: 'specialValue',
-    component: SpecialPage,
+    component: () => import('@/pages/Feature/Special/index.vue'),
     props: true,
   },
 ]

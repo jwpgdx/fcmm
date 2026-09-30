@@ -1,11 +1,21 @@
 import { defineStore } from 'pinia'
 
+const storageKey = 'fcmm-cart'
+
+const loadStoredItems = () => {
+  try {
+    return JSON.parse(localStorage.getItem(storageKey) ?? '[]')
+  } catch {
+    return []
+  }
+}
+
 export const useCartStore = defineStore('cart', {
   state: () => ({
     /**
      * @type {{id: number, category: string, name: string, price: number, color: object, size: string, quantity: number}[]}
      */
-    items: [],
+    items: loadStoredItems(),
   }),
 
   getters: {
@@ -15,14 +25,23 @@ export const useCartStore = defineStore('cart', {
     },
     // 장바구니 총 가격
     cartTotalPrice: (state) => {
-      return state.items.reduce((total, item) => total + (item.price * item.quantity), 0)
+      return state.items.reduce((total, item) => {
+        const price =
+          typeof item.price === 'number'
+            ? item.price
+            : (item.price?.discounted ?? item.price?.original ?? 0)
+        return total + price * item.quantity
+      }, 0)
     },
   },
 
   actions: {
+    persist() {
+      localStorage.setItem(storageKey, JSON.stringify(this.items))
+    },
     /**
      * 장바구니에 상품 추가
-     * @param {{id: number, category: string, name: string, price: number, color: object, size: string}} product 
+     * @param {{id: number, category: string, name: string, price: number, color: object, size: string}} product
      */
     addToCart(product) {
       // 이미 장바구니에 동일한 상품(id, color, size)이 있는지 확인
@@ -40,11 +59,12 @@ export const useCartStore = defineStore('cart', {
         // 없으면 새로 추가
         this.items.push({ ...product, quantity: 1 })
       }
+      this.persist()
     },
 
     /**
      * 장바구니에서 상품 제거
-     * @param {{id: number, color: {name: string}, size: string}} productToRemove 
+     * @param {{id: number, color: {name: string}, size: string}} productToRemove
      */
     removeFromCart(productToRemove) {
       this.items = this.items.filter(
@@ -55,6 +75,7 @@ export const useCartStore = defineStore('cart', {
             item.size === productToRemove.size
           ),
       )
+      this.persist()
     },
 
     /**
@@ -63,20 +84,21 @@ export const useCartStore = defineStore('cart', {
      * @param {number} quantity
      */
     updateQuantity(productToUpdate, quantity) {
-        const item = this.items.find(
-            (i) =>
-              i.id === productToUpdate.id &&
-              i.color.name === productToUpdate.color.name &&
-              i.size === productToUpdate.size,
-          )
-          if(item) {
-              if (quantity > 0) {
-                  item.quantity = quantity
-              } else {
-                  // 수량이 0 이하면 제거
-                  this.removeFromCart(productToUpdate)
-              }
-          }
-    }
+      const item = this.items.find(
+        (i) =>
+          i.id === productToUpdate.id &&
+          i.color.name === productToUpdate.color.name &&
+          i.size === productToUpdate.size,
+      )
+      if (item) {
+        if (quantity > 0) {
+          item.quantity = quantity
+        } else {
+          // 수량이 0 이하면 제거
+          this.removeFromCart(productToUpdate)
+        }
+        this.persist()
+      }
+    },
   },
-}) 
+})

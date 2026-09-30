@@ -19,18 +19,13 @@
             :src="`/images/products/${item.category}/${item.id}/04.webp`"
             :alt="item.name"
             @error="onSecondThumbError"
-            ref="secondThumbImg"
           />
         </div>
       </div>
 
-      <div class="relative z-10 flex w-full items-start justify-between gap-2">
+      <div class="relative z-10 flex w-full items-start">
         <div class="flex flex-col items-start">
           <div class="text-[11px]">{{ item.name }}</div>
-
-
-
-
           <div class="flex gap-2 text-[11px] font-normal">
             <div
               v-if="item.price.discounted"
@@ -39,10 +34,11 @@
               <v-icon icon="won" :size="3" />
               {{ item.price.discounted.toLocaleString() }}
             </div>
-            <div 
+            <div
               class="relative flex items-center"
-              :class="{ 'opacity-50': item.price.discounted }">
-               <v-icon icon="won" :size="3" />
+              :class="{ 'opacity-50': item.price.discounted }"
+            >
+              <v-icon icon="won" :size="3" />
               {{ item.price.original.toLocaleString() }}
               <div
                 v-if="item.price.discounted"
@@ -50,23 +46,7 @@
               />
             </div>
           </div>
-
-
-
-
-
-
         </div>
-
-        <button @click.prevent="toggleWish">
-          <v-icon
-            :class="{
-              '!fill-[#00FF00]': isWished,
-            }"
-            :size="5"
-            icon="wish"
-          />
-        </button>
       </div>
 
       <div
@@ -85,6 +65,25 @@
         </div>
       </div>
     </router-link>
+
+    <button
+      type="button"
+      class="absolute right-[var(--padding)] top-2 z-20 sm:top-4"
+      :aria-label="
+        isWished
+          ? `Remove ${item.name} from wishlist`
+          : `Add ${item.name} to wishlist`
+      "
+      @click="toggleWish"
+    >
+      <v-icon
+        :class="{
+          '!fill-[#00FF00]': isWished,
+        }"
+        :size="5"
+        icon="wish"
+      />
+    </button>
   </div>
 </template>
 

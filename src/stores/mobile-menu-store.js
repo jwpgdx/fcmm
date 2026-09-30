@@ -25,7 +25,6 @@ export const useMobileMenuStore = defineStore('mobileMenu', {
       this.showModule = !this.showModule
     },
     setMode(val) {
-      console.log(val)
       this.mode = val
     },
   },

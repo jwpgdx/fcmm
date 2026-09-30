@@ -4,14 +4,14 @@
   >
     <div class="flex h-12 w-full border-b border-black font-mono text-[12px]">
       <button
-        class="flex flex-1 items-center justify-center "
+        class="flex flex-1 items-center justify-center"
         :class="{ 'bg-black text-white': mode === 'cart' }"
         @click="wishCartStore.setMode('cart')"
       >
         CART
       </button>
       <button
-        class="flex flex-1 items-center justify-center "
+        class="flex flex-1 items-center justify-center"
         :class="{ 'bg-black text-white': mode === 'wish' }"
         @click="wishCartStore.setMode('wish')"
       >
@@ -22,7 +22,12 @@
     <div class="item-list w-full">
       <div v-if="mode === 'wish'" class="relative h-full w-full">
         <div v-if="wishItems.length" class="relative w-full">
-          <ItemCard v-for="item in wishItems" :key="item.id" :item="item" />
+          <ItemCard
+            v-for="item in wishItems"
+            :key="item.id"
+            :item="item"
+            mode="wish"
+          />
         </div>
 
         <NoItems message="No wish products yet." v-else />
@@ -30,7 +35,12 @@
 
       <div v-else-if="mode === 'cart'" class="relative h-full w-full">
         <div v-if="cartItems.length">
-          <ItemCard v-for="item in cartItems" :key="item.id" :item="item" />
+          <ItemCard
+            v-for="item in cartItems"
+            :key="`${item.id}-${item.color?.name}-${item.size}`"
+            :item="item"
+            mode="cart"
+          />
           <div
             class="flex w-full justify-between px-3 py-2 text-[14px] shadow-[0_1px_0_0_black]"
           >
@@ -43,8 +53,8 @@
     </div>
 
     <button
-      class="h-16 w-full items-center justify-center bg-black text-[12px] text-white uppercase font-mono"
-      @click="wishCartStore.toggleModule(mode === 'wish' ? 'cart' : 'wish')"
+      class="h-16 w-full items-center justify-center bg-black font-mono text-[12px] uppercase text-white"
+      @click="wishCartStore.setMode(mode === 'wish' ? 'cart' : 'wish')"
     >
       {{ mode === 'wish' ? 'Go to Cart' : 'Go to Wish' }}
     </button>
@@ -77,9 +87,10 @@ const wishItems = computed(() =>
   itemStore.items.filter((item) => wishStore.itemIds.includes(item.id)),
 )
 const cartItems = computed(() =>
-  itemStore.items.filter((item) =>
-    cartStore.items.some((c) => c.id === item.id),
-  ),
+  cartStore.items.map((cartItem) => {
+    const product = itemStore.items.find((item) => item.id === cartItem.id)
+    return product ? { ...product, ...cartItem } : cartItem
+  }),
 )
 </script>
 

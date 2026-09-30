@@ -2,16 +2,32 @@
   <header class="z-header" :class="{ 'header--hidden': isHidden }">
     <div class="relative w-full bg-black text-white">
       <div class="container flex h-9 w-full items-center justify-between">
-        <logo-sports_dept
-          class="h-[18px] w-auto cursor-pointer text-white hover:text-[#00FF00]"
+        <button
+          type="button"
+          aria-label="Go to homepage"
+          class="text-white hover:text-[#00FF00]"
           @click="goToRouter('home')"
-        />
+        >
+          <logo-sports_dept class="h-[18px] w-auto" />
+        </button>
         <div
-          class="flex h-full items-center gap-3 text-[11px] font-medium leading-none uppercase"
-        @click="goToRouter('login')">
-          <span class="flex h-full items-center cursor-pointer" >Login / Join</span>
+          class="flex h-full items-center gap-3 text-[11px] font-medium uppercase leading-none"
+        >
+          <button
+            type="button"
+            class="flex h-full items-center"
+            @click="goToRouter('login')"
+          >
+            Login / Join
+          </button>
           <span class="flex h-full items-center">|</span>
-          <span class="flex h-full items-center cursor-pointer">Order</span>
+          <button
+            type="button"
+            class="flex h-full items-center"
+            @click="goToRouter('login')"
+          >
+            Order
+          </button>
         </div>
       </div>
     </div>
@@ -23,16 +39,16 @@
       @mouseleave="onMenuLeave"
     >
       <div
-        class="relative flex transition-colors duration-300 sm:group-hover:!border-b sm:group-hover:!border-black sm:group-hover:!bg-white sm:group-hover:duration-0"
+        class="relative flex transition-colors duration-300 md:group-hover:!border-b md:group-hover:!border-black md:group-hover:!bg-white md:group-hover:duration-0"
         :style="`background: rgba(255,255,255,${bgAlpha}); border-bottom: 1px solid rgba(0,0,0,${bgAlpha})`"
       >
         <div
-          class="flex h-14 w-full items-center justify-between px-0 sm:container"
+          class="flex h-14 w-full items-center justify-between px-0 md:container"
         >
-          <MobileMenu class="flex h-full items-center sm:hidden" />
+          <MobileMenu class="flex h-full items-center md:hidden" />
 
           <div
-            class="header-menu-button hidden h-full items-center gap-8 sm:flex"
+            class="header-menu-button hidden h-full items-center gap-8 md:flex"
           >
             <button
               class="text-[12px] font-normal uppercase hover:bg-[#00FF00]"
@@ -52,18 +68,25 @@
               {{ item.label }}
             </button>
           </div>
-          <logo-fcmm
-            class="absolute left-1/2 top-1/2 h-6 w-auto -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+          <button
+            type="button"
+            aria-label="Go to homepage"
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             @click="goToRouter('home')"
-          />
+          >
+            <logo-fcmm class="h-6 w-auto" />
+          </button>
           <div class="flex items-center">
             <button
-              class="relative hidden size-12 items-center justify-center sm:flex"
+              class="relative hidden size-12 items-center justify-center md:flex"
+              aria-label="Search products"
+              @click="goToRouter('search')"
             >
               <v-icon icon="search" :size="7" class="hover:fill-[#00FF00]" />
             </button>
             <button
               class="relative flex size-12 items-center justify-center"
+              aria-label="Open cart"
               @click="wishCartStore.openModule('cart')"
             >
               <v-icon
@@ -73,13 +96,14 @@
                   '!fill-[#00FF00]':
                     wishCartStore.mode === 'cart' && wishCartStore.showModule,
                 }"
-                class="sm:hover:fill-[#00FF00]"
+                class="md:hover:fill-[#00FF00]"
               />
               <span v-if="cartCount > 0" class="badge">{{ cartCount }}</span>
             </button>
 
             <button
               class="relative flex size-12 items-center justify-center"
+              aria-label="Open wishlist"
               @click="wishCartStore.openModule('wish')"
             >
               <v-icon
@@ -89,7 +113,7 @@
                   '!fill-[#00FF00]':
                     wishCartStore.mode === 'wish' && wishCartStore.showModule,
                 }"
-                class="sm:hover:fill-[#00FF00]"
+                class="md:hover:fill-[#00FF00]"
               />
               <span v-if="wishCount > 0" class="badge">{{ wishCount }}</span>
             </button>

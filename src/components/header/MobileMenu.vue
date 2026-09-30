@@ -2,7 +2,7 @@
   <button
     @click="mobileMenuStore.toggleModule"
     class="relative z-[51] flex size-12 items-center justify-center p-2 text-black focus:outline-none"
-    aria-label="메뉴 열기"
+    :aria-label="mobileMenuStore.showModule ? '메뉴 닫기' : '메뉴 열기'"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

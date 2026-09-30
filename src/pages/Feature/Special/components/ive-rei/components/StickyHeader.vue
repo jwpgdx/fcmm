@@ -1,8 +1,7 @@
 <template>
   <div
-    class="sticky left-0 top-[25vh] flex w-full flex-col items-center justify-center gap-6 h-[50vh] "
+    class="flex h-full w-full flex-col items-center justify-center gap-6 px-5"
   >
-    <!-- Logo Section -->
     <div
       class="relative flex w-full max-w-md items-center justify-center gap-2"
     >
@@ -11,9 +10,8 @@
       <logoFcmm class="h-5" />
     </div>
 
-    <!-- Description Text -->
     <div
-      class="relative w-full max-w-lg px-4 text-center text-sm leading-relaxed"
+      class="relative w-full max-w-[34rem] text-center text-[13px] leading-[1.65] sm:text-sm"
     >
       <p class="mb-3">
         Offer a new paradigm to the Athletic Look. Most athletic apparel is

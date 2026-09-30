@@ -12,11 +12,14 @@
         >
           <div
             v-if="loaded"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site navigation"
             class="relative flex h-full w-full flex-1 flex-col items-center justify-start bg-white"
             @click.stop
           >
-        <MobileMenuComponent />
-        </div>
+            <MobileMenuComponent />
+          </div>
         </transition>
       </div>
     </div>

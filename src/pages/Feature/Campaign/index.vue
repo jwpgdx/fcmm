@@ -46,7 +46,6 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { marked } from 'marked'
 
 import DOMPurify from 'dompurify'
-import fm from 'front-matter'
 import vLoading from '@/v-components/v-loading.vue'
 import ProductList from '@/pages/Shop/components/ProductList.vue'
 import AnimatedButton from '@/components/button/AnimatedButton.vue'
@@ -62,6 +61,24 @@ const frontmatter = ref({})
 const loading = ref(false)
 
 const router = useRouter()
+
+const parseFrontMatter = (raw) => {
+  const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/)
+  if (!match) return { attributes: {}, body: raw }
+
+  const attributes = Object.fromEntries(
+    match[1]
+      .split('\n')
+      .map((line) => line.match(/^([\w-]+):\s*(.*)$/))
+      .filter(Boolean)
+      .map(([, key, value]) => [
+        key,
+        value.trim().replace(/^(['"])(.*)\1$/, '$2'),
+      ]),
+  )
+
+  return { attributes, body: raw.slice(match[0].length) }
+}
 
 // 마크다운 렌더링
 const renderedContent = computed(() => {
@@ -88,8 +105,7 @@ async function loadContent(slug) {
     const res = await fetch(mdFile)
     const raw = res.ok ? await res.text() : '# Not Found\n\nContent not found.'
 
-    // front-matter로 Frontmatter와 본문 분리 (브라우저 호환)
-    const parsed = fm(raw)
+    const parsed = parseFrontMatter(raw)
     frontmatter.value = parsed.attributes
     content.value = parsed.body
   } catch (err) {

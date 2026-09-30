@@ -1,5 +1,7 @@
 <template>
-  <div class="container relative flex flex-col gap-12 sm:gap-12 sm:px-32">
+  <div
+    class="sidebar__inner container relative flex w-full min-w-0 flex-col gap-12 pb-24 sm:gap-12 sm:px-32 md:pb-0"
+  >
     <div class="h-16" />
     <div class="flex flex-col text-[20px] font-semibold uppercase">
       <div class="relative flex items-start justify-between gap-4">
@@ -8,6 +10,11 @@
         </div>
         <button
           class="flex size-7 items-center justify-center"
+          :aria-label="
+            isProductWish
+              ? `Remove ${product.name} from wishlist`
+              : `Add ${product.name} to wishlist`
+          "
           @click="handleToggleWish"
         >
           <v-icon
@@ -27,7 +34,7 @@
         </div>
 
         <div
-          class="relative flex items-center gap-1 "
+          class="relative flex items-center gap-1"
           :class="{
             'font-normal opacity-50': product.price.discounted,
           }"
@@ -92,7 +99,8 @@
     </div>
 
     <button
-      class="sticky bottom-0 flex h-11 items-center justify-center bg-black text-[12px] uppercase font-mono text-white sm:static"
+      ref="addToBagButtonRef"
+      class="flex h-11 items-center justify-center bg-black font-mono text-[12px] uppercase text-white"
       @click="handleAddToCart"
     >
       Add to bag
@@ -104,26 +112,17 @@
       <!-- Product Description -->
       <ProductInfoSection title="Description">
         <template #content>
-          <span class="font-mono">
-            The Be Right Back sneakers channel performance running aesthetics
-            into an everyday silhouette. Crafted from a combination of mesh and
-            synthetic leather, they feature multiple signature brand design
-            elements and dynamic arrow language.</span
-          >
+          <span class="font-mono">{{ productDescription }}</span>
         </template>
       </ProductInfoSection>
 
       <ProductInfoSection title="Details">
         <template #content>
           <span class="font-mono">
-            Main material: 100% cotton<br />
-            Trimming: 99% cotton, 1% elastane<br />
-            Main material: 100% embroidery<br /><br />
-            Product ID: 764235TSV879374<br /><br /><br />
-            • Painted dry jersey<br />
-            • Crewneck<br />
-            • Short sleeves<br />
-            • Made in Portugal
+            Category: {{ categoryLabel }}<br />
+            Colour: {{ availableColorNames }}<br />
+            Available sizes: {{ availableSizes }}<br /><br />
+            Product reference: {{ product.id }}
           </span>
         </template>
       </ProductInfoSection>
@@ -155,14 +154,27 @@
       />
     </v-dialog>
   </div>
+
+  <button
+    :class="[
+      'fixed inset-x-0 bottom-0 z-40 bg-black pb-[env(safe-area-inset-bottom)] font-mono text-[12px] uppercase text-white shadow-[0_-1px_0_0_rgba(0,0,0,0.12)] transition-all duration-300 ease-out md:hidden',
+      isInlineAddToBagVisible
+        ? 'pointer-events-none translate-y-full opacity-0'
+        : 'translate-y-0 opacity-100',
+    ]"
+    @click="handleAddToCart"
+  >
+    <span class="flex h-11 items-center justify-center">Add to bag</span>
+  </button>
 </template>
 
 <script setup>
 import { ref, computed, watch } from 'vue'
+import { useElementVisibility } from '@vueuse/core'
 import { useCartStore } from '@/stores/cart-store'
 import { useWishStore } from '@/stores/wish-store'
 import { useToast } from '@/composables/useToast'
-import { useRouter } from 'vue-router' // ✅ 추가
+import { useRouter } from 'vue-router'
 
 import ProductInfoSection from './ProductInfoSection.vue'
 import ProductGuideSize from './ProductGuideSize.vue'
@@ -173,10 +185,11 @@ const props = defineProps({
   product: { type: Object, required: true },
 })
 const toast = useToast()
-const router = useRouter() // ✅ 라우터 사용
+const router = useRouter()
 
 const selectedColor = ref(null)
 const selectedSize = ref(null)
+const addToBagButtonRef = ref(null)
 
 const isGuideOpen = ref(false)
 const selectedGuide = ref(null)
@@ -184,12 +197,27 @@ const selectedGuide = ref(null)
 const cartStore = useCartStore()
 
 const wishStore = useWishStore()
+const isInlineAddToBagVisible = useElementVisibility(addToBagButtonRef, {
+  threshold: 0.6,
+})
 
 const guideGroup = [
   { value: 1, label: 'Size Guide' },
   { value: 2, label: 'Notice' },
   { value: 3, label: 'Shipping & Returns' },
 ]
+
+const categoryLabel = computed(() =>
+  props.product.category.replaceAll('-', ' ').toUpperCase(),
+)
+const availableColorNames = computed(() =>
+  (props.product.colors ?? []).map((color) => color.name).join(' / '),
+)
+const availableSizes = computed(() => (props.product.sizes ?? []).join(' / '))
+const productDescription = computed(
+  () =>
+    `${props.product.name} is part of the FCMM ${categoryLabel.value.toLowerCase()} edit, presented through the product imagery and available options shown on this page.`,
+)
 
 watch(
   () => props.product,
@@ -213,7 +241,7 @@ function handleAddToCart() {
     id: props.product.id,
     name: props.product.name,
     category: props.product.category,
-    price: props.product.price,
+    price: props.product.price.discounted ?? props.product.price.original ?? 0,
     color: selectedColor.value,
     size: selectedSize.value,
   })
@@ -242,9 +270,7 @@ function getGuideComponent(value) {
   }
 }
 
-// 색상 변경 함수 (간단해짐!)
 function handleColorChange(color) {
-  // 현재 선택된 색상과 같으면 아무것도 하지 않음
   if (selectedColor.value?.name === color.name) return
 
   // 새로운 제품 ID 생성 (기본 제품명에서 색상 부분 교체)
@@ -252,7 +278,6 @@ function handleColorChange(color) {
   const colorSuffix = color.name.toLowerCase().replace(/\s+/g, '-')
   const newProductId = `${baseProductName}-${colorSuffix}`
 
-  // 제품 데이터에서 직접 그룹값 사용
   const newPath = `/shop/${props.product.group}/${props.product.category}/${newProductId}`
   router.push(newPath)
 }

@@ -18,7 +18,7 @@
 
     
     <div
-        class="flex w-full flex-wrap text-left text-[2.6rem] font-bold leading-[105%] sm:max-w-[80%] sm:justify-start sm:text-[5.5rem]"
+        class="flex w-full flex-wrap text-left text-[2.6rem] font-bold leading-[110%] sm:max-w-[80%] sm:justify-start sm:text-[5.5rem]"
       >
         <AnimatedText
           :isVisible="isVisible"

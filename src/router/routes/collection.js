@@ -1,15 +1,13 @@
-import CollectionPage from '@/pages/CollectionPage.vue'
-
 export default [
   {
     path: '/collection',
     name: 'collection',
-    component: CollectionPage,
+    component: () => import('@/pages/CollectionPage.vue'),
   },
   {
     path: '/collection/:value',
     name: 'collectionValue',
-    component: CollectionPage,
+    component: () => import('@/pages/CollectionPage.vue'),
     props: true,
   },
 ]

@@ -13,49 +13,38 @@
         class="container flex w-full flex-col gap-72 pb-72 pt-32 uppercase sm:w-[60%] sm:gap-96 sm:pb-96"
       >
         <BrandSection ref="missionRef" isMain :title="'Our Mission'">
-          <template #content>
-            A new chapter begins — bold minds move the future
-          </template>
+          <template #content> Athletic movement, built for every day </template>
         </BrandSection>
 
         <BrandSection ref="aboutRef" :title="'About Us'">
           <template #content>
-            Offer a new paradigm to the Athletic LookMost athletic apparel is
-            either too expensive or too formalWe make clothes that are stylish
-            and functional, but easily accessible to everyone “Fitness Culture
-            Maketh Man”That’s the only motoo of the clothes we want to make
+            FCMM interprets the athletic look through practical silhouettes and
+            everyday styling. Performance references meet an accessible, direct
+            visual language designed to move beyond the gym.
           </template>
         </BrandSection>
 
         <BrandSection ref="productRef" :title="'Seasonal Product'">
           <template #content>
             <div class="text-[#00ff00]">
-              We make clothing that can wear comfortably regardless of the
-              season
+              Seasonal layers connect sportswear function with daily wear.
             </div>
-            FCMM stands for sportswear, but pursue easily wearable dailywear Our
-            key strength is leading fashion trend and It is not too showy or
-            monotonus Especially T-shirt, Sweatshirt and hoodie is loved by many
-            customers already Of course we do not miss seasonal special product
-            Bench coat, Long padding is the representative product of FCMM You
-            can easily see it on the street.
+            The collection moves between lightweight T-shirts, sweatshirts,
+            hoodies, windbreakers, and cold-weather outerwear. Each category is
+            presented as part of one flexible wardrobe.
             <div class="mt-12 flex flex-col items-start gap-2 underline">
-              <button>Archive Movie</button>
-              <button>Latest Lookbook</button>
+              <RouterLink to="/feature">Archive Editorial</RouterLink>
+              <RouterLink to="/collection">Latest Lookbook</RouterLink>
             </div>
           </template>
         </BrandSection>
 
-        <BrandSection ref="supportRef" :title="'Support Team'">
+        <BrandSection ref="supportRef" :title="'Sports Culture'">
           <template #content>
-            <div class="text-[#00ff00]">
-              We are interested in various kinds of sports teams and support
-              them
-            </div>
-            The founding philosophy of fcmm is that many people interst and
-            enjoy sports It does not matter whether the type of sport is
-            mainstream or not Every team with fcmm wants to be always in the
-            spotlight
+            <div class="text-[#00ff00]">Movement takes many forms.</div>
+            The FCMM visual system draws from a broad field of sport, from team
+            competition to individual rhythm. Each discipline adds a different
+            shape, pace, and attitude to the archive.
 
             <div class="mt-12 flex items-start gap-8 sm:gap-12">
               <div
@@ -74,13 +63,13 @@
           </template>
         </BrandSection>
 
-        <BrandSection ref="socialRef" :title="'Social Activity'">
+        <BrandSection ref="socialRef" :title="'Community'">
           <template #content>
             <div class="text-[#00ff00]">
-              We are making donations to make the world we live better together
+              Sport becomes culture when it is shared.
             </div>
-            FCMM is helping neighbors who taking hard times every year We share
-            good ideas with the following associations
+            Campaigns, collaborations, and local scenes are presented together
+            as one evolving record of people, clothing, and movement.
           </template>
         </BrandSection>
       </div>
@@ -105,20 +94,15 @@
       :title="'Vision'"
     >
       <template #content>
-        FCMM’s vision is rooted in redefining the future of sportswear — not
-        just as functional apparel, but as a cultural statement that blends
-        athleticism, daily wear, and identity.
+        FCMM approaches sportswear as both functional clothing and a cultural
+        expression that connects athleticism, daily wear, and identity.
         <br /><br />
-        By 2030, we aim to lead a new global lifestyle trend that transcends the
-        boundary between performance and fashion. Our ambition is to become a
-        globally recognized brand known for its innovation in materials,
-        inclusive sizing, and sustainable production methods.
+        The design language moves between performance references and direct,
+        wearable silhouettes. Campaigns and products share the same focus on
+        motion, proportion, and everyday adaptability.
         <br /><br />
-        We believe that everyone — from amateur athletes to professional teams —
-        deserves gear that empowers movement and self-expression. Through
-        continuous R&D and collaboration with creators, athletes, and
-        communities, FCMM will pioneer a future where sport is not just played,
-        but lived — every day, everywhere.
+        Collaboration expands that language through new people and contexts,
+        while the collection archive keeps each chapter connected.
       </template>
     </BrandSection>
 
@@ -134,21 +118,14 @@
       :title="'The People'"
     >
       <template #content>
-        Behind every design, campaign, and product is a team that lives and
-        breathes the values of FCMM.
+        Every design, campaign, and product begins with a shared point of view.
         <br /><br />
-        We are a diverse group of designers, former athletes, strategists, and
-        culture-makers who believe that sport is more than competition — it’s a
-        mindset. Our creative process is rooted in collaboration, driven by
-        passion, and guided by the experiences of real people pushing their
-        limits every day.
+        Product, image, styling, and motion work together to turn sportswear
+        into a complete visual experience. The process is collaborative and
+        changes with every season and partner.
         <br /><br />
-        Whether it's sourcing innovative fabric, designing a future-forward
-        hoodie, or supporting a local futsal team, our team acts with purpose.
-        We are united by a shared mission: to make athletic style accessible,
-        exciting, and authentic for all.
-        <br /><br />
-        FCMM isn’t just a brand — it’s the people behind it.
+        The result is an archive shaped by many contributors but held together
+        by one clear idea: keep moving forward.
       </template>
     </BrandSection>
   </div>
@@ -218,5 +195,4 @@ watch(
   },
   { immediate: true, deep: true },
 )
-
 </script>

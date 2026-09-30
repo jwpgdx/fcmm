@@ -32,15 +32,21 @@
           class="relative flex h-auto w-[50vw] items-center justify-center sm:w-[16.5vw]"
         >
           <div
-            class="relative z-[3] flex items-center justify-center whitespace-nowrap px-4 py-[3px] text-[12px] sm:text-[13px] font-bold leading-none"
+            class="relative z-[3] flex items-center justify-center whitespace-nowrap px-4 py-[1px] text-[12px] sm:text-[13px] font-bold leading-none"
           >
-            2023 SEOUL FASHION WEEK
+            TRACK SESSION 400M
           </div>
           <div
             class="absolute inset-0 z-[2] bg-white group-hover:bg-[#00ff00]"
           ></div>
           <div
-            class="absolute left-1/2 top-1/2 z-[1] h-[20px] w-[110px] -translate-x-1/2 -translate-y-1/2 rotate-[-18deg] rounded-[100%] border border-inherit"
+            class="absolute left-1/2 top-1/2 z-[1] h-[20px] w-[100px] -translate-x-1/2 -translate-y-1/2 rotate-[-18deg] rounded-[100%] border border-inherit"
+          ></div>
+          <div
+            class="absolute left-1/2 top-1/2 z-[1] h-[14px] w-[80px] -translate-x-1/2 -translate-y-1/2 rotate-[-18deg] rounded-[100%] border border-inherit"
+          ></div>
+          <div
+            class="absolute left-1/2 top-1/2 z-[1] h-[8px] w-[60px] -translate-x-1/2 -translate-y-1/2 rotate-[-18deg] rounded-[100%] border border-inherit"
           ></div>
         </div>
       </div>

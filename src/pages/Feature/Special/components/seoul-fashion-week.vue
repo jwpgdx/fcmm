@@ -3,17 +3,19 @@
     class="relative w-full bg-black text-center text-[11px] text-white sm:text-[13px]"
   >
     <v-loading v-show="loading" />
-    <div class="relative h-[480px] w-full bg-slate-400 sm:h-auto">
+    <div
+      class="relative h-[480px] w-full overflow-hidden bg-slate-400 sm:h-auto"
+    >
       <video
-        ref="videoRef"
-        class="h-full w-auto object-cover object-center sm:h-auto sm:w-full"
+        class="h-full w-full object-cover object-center sm:h-auto"
         autoplay
         muted
         loop
         playsinline
+        poster="/images/feature/seoul-fashion-week/main.webp"
         v-show="!loading"
-        @canplaythrough="loading = false"
-        @error="(e) => console.error('video error', e)"
+        @loadeddata="loading = false"
+        @error="loading = false"
       >
         <source
           src="/images/feature/seoul-fashion-week/video.mp4"
@@ -27,23 +29,18 @@
     <div
       class="px-var relative flex w-full flex-col items-center justify-center py-12"
     >
-      <div class="uppercase">The Collection</div>
+      <div class="uppercase">FCMM Runway</div>
       <div class="max-w-[480px] py-6">
-        The new collection showcases 8 sunglasses and 12 glasses, offering
-        metallic statement pieces in silver and green. The glasses feature a
-        sensual end-tip design and are available in signature black, gray, navy,
-        ivory, red, and tortoiseshell colorways.
+        FCMM presents a runway-focused edit for Seoul Fashion Week. The film,
+        panoramic image, and look series document the collection across the
+        event space.
       </div>
     </div>
 
     <div class="px-var relative flex w-full items-center justify-center">
       <div class="max-w-[480px] py-12">
-        FIFTY-THREE YEARS HAVE PASSED SINCE CRISTÓBAL BALENCIAGA CLOSED THE
-        DOORS OF HIS HOUSE, LARGELY DUE TO THE BIRTH OF READY-TO-WEAR, WHICH
-        QUESTIONED THE RAISON D'ÊTRE FOR THE CONCEPT OF HAUTE COUTURE.<br /><br />OVER
-        HALF A CENTURY LATER I SEE IT AS MY CREATIVE OBLIGATION TO THE UNIQUE
-        HERITAGE OF M. BALENCIAGA TO BRING THE COUTURE BACK TO HIS HOUSE. IT IS
-        THE VERY FOUNDATION OF THIS CENTURY-OLD MAISON.
+        FCMM AT SEOUL FASHION WEEK. THE RUNWAY EDIT IS PRESENTED THROUGH FILM, A
+        PANORAMIC IMAGE, AND A SEQUENCE OF EIGHT LOOKS.
       </div>
     </div>
 
@@ -51,6 +48,7 @@
       <img
         class="h-full w-full object-cover"
         :src="`/images/feature/seoul-fashion-week/main.webp`"
+        alt="FCMM Seoul Fashion Week runway"
       />
     </div>
     <div class="h-60" />
@@ -58,11 +56,10 @@
     <div
       class="px-var relative flex w-full flex-col items-center justify-center"
     >
-      <div class="uppercase">Campaign</div>
+      <div class="uppercase">Runway Looks</div>
       <div class="max-w-[480px] pb-48 pt-6">
-        Starring Colin Jones and Georgia Palmer, lensed by creative Theo Liu,
-        the MUGLER x GENTLE MONSTER campaign pays homage to iconic visual
-        innovators such as Helmut Newton and Manfred Thierry Mugler.
+        Eight runway images keep the focus on the collection's silhouettes,
+        layers, and movement.
       </div>
     </div>
 
@@ -74,6 +71,7 @@
         <img
           class="aspect-[3/4] h-full w-full object-cover shadow-[0_1px_0_0_black]"
           :src="`/images/feature/seoul-fashion-week/${item}.webp`"
+          :alt="`FCMM Seoul Fashion Week look ${item}`"
         />
       </div>
     </div>
@@ -85,32 +83,19 @@
       class="px-var relative flex w-full flex-col items-center justify-center bg-white text-black"
     >
       <div class="max-w-[480px] pb-24">
-        OVER HALF A CENTURY LATER I SEE IT AS MY CREATIVE OBLIGATION TO THE
-        UNIQUE HERITAGE OF M. BALENCIAGA TO BRING THE COUTURE BACK TO HIS HOUSE.
-        IT IS THE VERY FOUNDATION OF THIS CENTURY-OLD MAISON.
+        FCMM AT SEOUL FASHION WEEK. RUNWAY FILM, EVENT IMAGERY, AND EIGHT
+        COLLECTION LOOKS.
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import vLoading from '@/v-components/v-loading.vue'
 import svgShowcase from '@/components/svg/svg-showcase.vue'
 
 const loading = ref(true)
-const videoRef = ref(null)
-
-onMounted(() => {
-  const video = videoRef.value
-  console.log('onMounted videoRef:', video)
-  if (video) {
-    video
-      .play()
-      .then(() => console.log('▶️ video 재생 시작'))
-      .catch((err) => console.error('❌ video 재생 에러', err))
-  }
-})
 
 const filteredItems = ref(
   Array.from({ length: 8 }, (_, i) => String(i + 1).padStart(2, '0')),

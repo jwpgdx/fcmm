@@ -4,7 +4,23 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/*.psd",
+      "**/*.mov",
+      "**/2025 SS OPENING PROJECT REI x REI x REI.mp4",
+      "**/*BEHIND.mp4",
+      "**/bec004f5-d8eb-40d5-89e6-63c60543e1ec.png"
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow, noarchive, nosnippet"
+          }
+        ]
+      }
     ],
     "rewrites": [
       {

@@ -23,11 +23,10 @@ export const useCollectionStore = defineStore('collection', {
             name: 'Ebbets Field x FCMM',
             value: 'ebbets-field-x-fcmm',
           },
-  {
+          {
             name: 'NCT x FCMM',
             value: 'nct-x-fcmm',
           },
-          
         ],
       },
       {

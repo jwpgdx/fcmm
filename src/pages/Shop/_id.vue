@@ -6,11 +6,11 @@
     <v-loading v-if="isResolvingProduct" />
 
     <div
-      class="relative flex w-full flex-col items-start shadow-[0_1px_0_0_black] sm:flex-row"
+      class="relative flex w-full flex-col items-start shadow-[0_1px_0_0_black] md:flex-row"
       v-else-if="product"
     >
       <div
-        class="sticky__container relative flex flex-1 flex-wrap"
+        class="sticky__container relative flex w-full min-w-0 flex-1 flex-wrap md:w-auto"
         :style="{ height: containerHeight + 'px' }"
       >
         <ProductImage
@@ -22,12 +22,10 @@
       </div>
 
       <div
-        class="sidebar relative flex h-auto flex-1 items-start justify-center"
+        class="sidebar relative flex h-auto w-full min-w-0 flex-1 items-start justify-center md:w-auto"
       >
         <ProductInfo
-          class="sidebar__inner"
           :product="product"
-          @volumeChanged="initStickySidebar"
         />
       </div>
     </div>
@@ -36,7 +34,9 @@
       v-else
       class="flex min-h-[calc(100vh-136px)] flex-col items-center justify-center gap-4 px-6 py-20 text-center"
     >
-      <div class="font-mono text-[12px] uppercase tracking-[0.24em] text-neutral-500">
+      <div
+        class="font-mono text-[12px] uppercase tracking-[0.24em] text-neutral-500"
+      >
         Product Missing
       </div>
       <h1 class="text-[28px] font-semibold uppercase sm:text-[40px]">

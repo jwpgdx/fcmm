@@ -3,20 +3,12 @@
     <div class="h-[92px]" />
 
     <div
-      class="p-var flex-wrap flex w-full gap-2 sm:gap-0 leading-[100%] justify-center sm:justify-between overflow-hidden text-[10vw] sm:text-[6.2vw] font-[900]"
+      class="p-var flex w-full flex-wrap justify-center gap-2 overflow-hidden text-[10vw] font-[900] leading-[100%] sm:justify-between sm:gap-0 sm:text-[6.2vw]"
     >
-
-
-
       <div>FCMM</div>
       <div>x</div>
       <div>ESPACIO</div>
       <div>COLLECTION</div>
-
-
-
-
-
     </div>
 
     <div
@@ -38,14 +30,13 @@
           class="mt-6 flex max-w-[480px] flex-col items-center justify-center gap-6 text-center"
         >
           <div class="font-[600]">
-            Our third collaborative collection with Espacio will be unveiled on
-            March 6th.
+            FCMM x ESPACIO is presented through campaign film, still imagery,
+            and a focused product edit.
           </div>
 
           <div>
-            Starring Colin Jones and Georgia Palmer, lensed by creative Theo
-            Liu, the FCMM x ESPACIO campaign pays homage to iconic visual
-            innovators such as Helmut Newton and Manfred Thierry Mugler.
+            Sportswear silhouettes, graphic details, and layered styling shape
+            the collection shown across this editorial.
           </div>
         </div>
       </div>
@@ -58,9 +49,8 @@
         <div class="mb-6 font-[600]">Shop the Collection</div>
 
         <div class="max-w-[480px]">
-          Where FCMM sporty energy meets ESPACIO futuristic minimalism. Bold
-          silhouettes and functional details define this collaboration, bringing
-          urban energy into a new lifestyle.
+          Explore the campaign imagery and selected pieces from the FCMM x
+          ESPACIO collection.
         </div>
       </div>
     </div>
@@ -69,6 +59,4 @@
 <script setup>
 import espacioSwiper from './espacio-swiper.vue'
 import espacioGrid from './espacio-grid.vue'
-
-
 </script>

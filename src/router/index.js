@@ -12,6 +12,7 @@ import shopRoutes from './routes/shop'
 import supportRoutes from './routes/support'
 import wishCartRoutes from './routes/wish-cart'
 import legalRoutes from './routes/legal'
+import searchRoutes from './routes/search'
 
 const routes = [
   ...bestRoutes,
@@ -26,6 +27,7 @@ const routes = [
   ...supportRoutes,
   ...wishCartRoutes,
   ...legalRoutes,
+  ...searchRoutes,
 ]
 
 const router = createRouter({

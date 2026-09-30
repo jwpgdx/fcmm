@@ -1,6 +1,5 @@
 <template>
-  <div class="relative w-full bg-[#fff] pt-[10vh] pb-[5vh]">
-
+  <div class="relative w-full bg-[#fff] pb-[5vh] pt-[10vh]">
     <!-- 메인 슬라이더 -->
     <Swiper
       ref="mainSwiperRef"
@@ -12,12 +11,12 @@
       :modules="modules"
       @swiper="onMainSwiperInit"
       @slide-change="handleMainSlideChange"
-      class="mySwiper relative w-full "
+      class="mySwiper relative w-full"
     >
       <SwiperSlide
         v-for="item in items"
         :key="item.value"
-        class="h-auto w-[60%] flex-shrink-0  sm:w-[24%]"
+        class="h-auto w-[60%] flex-shrink-0 sm:w-[24%]"
       >
         <video
           v-if="selectedItem === item.value"
@@ -39,7 +38,7 @@
     </Swiper>
 
     <!-- 썸네일 슬라이더 -->
-    <div class="relative flex w-full justify-center  py-8">
+    <div class="relative flex w-full justify-center py-8">
       <Swiper
         ref="thumbSwiperRef"
         :space-between="10"
@@ -52,7 +51,7 @@
         <SwiperSlide
           v-for="(item, index) in items"
           :key="`thumb-${item.value}`"
-          class="flex aspect-square w-[64px] cursor-pointer items-center justify-center "
+          class="flex aspect-square w-[64px] cursor-pointer items-center justify-center"
           @click="selectItem(item.value, index)"
         >
           <img
@@ -109,32 +108,22 @@ const items = [
 
 // 메인 Swiper 인스턴스 초기화
 const onMainSwiperInit = (swiper) => {
-  console.log('Main Swiper initialized')
   mainSwiperInstance = swiper
 }
 
 // 썸네일 Swiper 인스턴스 초기화
 const onThumbSwiperInit = (swiper) => {
-  console.log('Thumb Swiper initialized')
   thumbSwiperInstance = swiper
 }
 
 // 메인 슬라이드 변경 핸들러
 const handleMainSlideChange = () => {
-  console.log('Main slide changed!')
-
-  if (!mainSwiperInstance) {
-    console.log('No main swiper instance')
-    return
-  }
+  if (!mainSwiperInstance) return
 
   const realIndex = mainSwiperInstance.realIndex
-  console.log('Real index:', realIndex)
-  console.log('Active index:', mainSwiperInstance.activeIndex)
 
   if (realIndex >= 0 && realIndex < items.length) {
     selectedItem.value = items[realIndex].value
-    console.log('Selected item updated to:', selectedItem.value)
 
     // 썸네일 슬라이더도 동기화
     if (thumbSwiperInstance) {
@@ -145,7 +134,6 @@ const handleMainSlideChange = () => {
 
 // 썸네일 클릭으로 아이템 선택
 const selectItem = (itemValue, index) => {
-  console.log('Thumbnail clicked:', itemValue, index)
   selectedItem.value = itemValue
 
   // 메인 슬라이더를 해당 인덱스로 이동
@@ -156,6 +144,5 @@ const selectItem = (itemValue, index) => {
 
 onMounted(() => {
   selectedItem.value = items[0].value
-  console.log('Component mounted, initial selected item:', selectedItem.value)
 })
 </script>

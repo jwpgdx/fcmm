@@ -25,7 +25,7 @@
     >
       <div
         :class="[
-          'flex w-full justify-between gap-1 text-center text-[16vw] font-bold leading-none transition-all duration-700 sm:text-[5.5rem]',
+          'flex w-full justify-between gap-0 text-center text-[16vw] font-bold leading-none transition-all duration-700 sm:text-[5.5rem]',
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         ]"
       >
@@ -34,23 +34,22 @@
 
       <div
         :class="[
-          'flex w-full justify-between text-center text-[3vw] uppercase tracking-wider transition-all delay-200 duration-700 sm:text-[1.2rem]',
+          'flex w-full justify-between text-center text-[3vw] uppercase transition-all delay-200 duration-700 sm:text-[1.2rem]',
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         ]"
       >
         <span>Online</span><span>and</span><span>in</span><span>Stores</span>
       </div>
 
-      <button
+      <AnimatedButton
         :class="[
           'delay-400 mt-2 sm:mt-4',
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         ]"
+        @click="goToRouter('ss23-sale')"
       >
-        <animated-button @click="goToRouter('ss23-sale')"
-          >shop now</animated-button
-        >
-      </button>
+        shop now
+      </AnimatedButton>
     </div>
   </div>
 </template>
@@ -70,7 +69,7 @@ const route = useRoute()
 
 const containerRef = ref(null)
 const isVisible = useElementVisibility(containerRef, {
-  threshold: 0.8, // 화면에 50% 이상 보이면 true
+  threshold: 0.6, // 화면에 50% 이상 보이면 true
 })
 // 컴포넌트 위치 계산
 const { top, height } = useElementBounding(containerRef)
@@ -105,24 +104,26 @@ const imgHeight = computed(() => {
   // progress 0~0.5만 사용
   let progress = Math.min(rawProgress / 0.6, 1)
 
-  const minHeight = height.value * 0.6
-  const maxHeight = height.value * 0.7
+  const minHeight = height.value * 0.7
+  const maxHeight = height.value * 0.8
   return minHeight + (maxHeight - minHeight) * progress
 })
 
 const { y } = useWindowScroll()
+const visualOffsetY = -30
 
 const parallaxY = computed(() => {
   if (!top.value || !height.value) return 0
 
   const windowHeight = window.innerHeight
-  // 0~1 범위로 컴포넌트 화면 안 보이는 정도 계산
-  let progress = (windowHeight - top.value) / (windowHeight + height.value)
-  progress = Math.min(Math.max(progress, 0), 1)
+  const sectionCenter = top.value + height.value / 2
+  const viewportCenter = windowHeight / 2
+  const distanceFromCenter = sectionCenter - viewportCenter
 
-  // 패럴럭스 이동량 계산 (최대 200px)
+  // 섹션 중심이 화면 중심에 오면 0px, 그 전까지만 아래에서 올라오게 처리
   const maxShift = 200
-  return -maxShift * progress
+  const normalized = Math.min(Math.max(distanceFromCenter / windowHeight, 0), 1)
+  return maxShift * normalized + visualOffsetY
 })
 
 const goToRouter = (val) => {

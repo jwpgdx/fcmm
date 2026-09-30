@@ -7,19 +7,18 @@
       class="p-var absolute left-0 top-[24px] flex w-full flex-col gap-2 sm:flex-row sm:items-stretch sm:gap-[10%]"
     >
       <div class="w-fit text-[14px] font-semibold sm:text-[1.2rem]">
-        Website Under Construction
+        FCMM x IVE REI
       </div>
       <div class="w-full text-[14px] font-medium sm:w-[50%] sm:text-[1.2rem]">
-        Offer a new paradigm to the Athletic LookMost athletic apparel is either
-        too expensive or too formalWe make clothes that are stylish and
-        functional, but easily accessible to everyone “Fitness Culture Maketh
-        Man”That’s the only motoo of the clothes we want to make
+        FCMM x IVE REI explores an athletic look through essential silhouettes,
+        fluid movement, and adaptable styling. The collection brings functional
+        sportswear into an everyday wardrobe.
       </div>
     </div>
 
     <div
       ref="marqueeRef"
-      class="absolute left-1/2 bottom-[20%] sm:bottom-[30%] flex w-[240%] -translate-x-1/2  rotate-[-15deg] flex-col gap-2 sm:gap-4 overflow-y-hidden bg-black py-4 sm:py-8 transition-transform sm:w-[140%]"
+      class="absolute bottom-[20%] left-1/2 flex w-[240%] -translate-x-1/2 rotate-[-15deg] flex-col gap-2 overflow-y-hidden bg-black py-4 transition-transform sm:bottom-[30%] sm:w-[140%] sm:gap-4 sm:py-8"
     >
       <!-- 위줄: 홀수 인덱스 -->
       <div class="inline-flex flex-nowrap justify-start gap-2 sm:gap-4">

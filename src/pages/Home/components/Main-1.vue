@@ -36,8 +36,8 @@
         transition: 'transform 0.05s linear',
       }"
     >
-      <div
-        class="flex w-full flex-wrap text-left text-[10vw] font-bold leading-[105%] sm:max-w-[80%] sm:text-[5.5rem]"
+      <h1
+        class="flex w-full flex-wrap text-left text-[10vw] font-bold leading-[110%] sm:max-w-[80%] sm:text-[5.5rem]"
       >
         <AnimatedText :isVisible="isVisible" :delay="0">
           Fall Winter 2023 Show
@@ -45,7 +45,7 @@
         <AnimatedText :isVisible="isVisible" :delay="200">
           Season: FW23
         </AnimatedText>
-      </div>
+      </h1>
 
       <div
         :class="[

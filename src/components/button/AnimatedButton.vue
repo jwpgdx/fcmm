@@ -1,8 +1,6 @@
 <template>
   <button
-    href="https://chainlist.org/chain/1625"
-    target="_blank"
-    rel="noopener"
+    type="button"
     class="relative flex items-center gap-2 font-mono text-[12px] uppercase tracking-widest sm:text-[14px]"
   >
     <v-icon

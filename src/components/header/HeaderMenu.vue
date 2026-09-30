@@ -1,13 +1,13 @@
 <template>
   <div
     v-if="selected && selectedList && selectedList.length > 0"
-    class="relative w-full border-b border-black bg-white "
+    class="relative w-full border-b border-black bg-white"
   >
     <div class="grid w-full grid-cols-2 sm:grid-cols-6">
       <div
         v-for="group in selectedList"
         :key="group.group"
-        class="px-var col-span-1 py-10 cursor-pointer  hover:bg-gray-100"
+        class="px-var col-span-1 cursor-pointer py-10 hover:bg-gray-100"
       >
         <div
           class="mb-6 cursor-pointer text-sm font-medium uppercase"
@@ -59,7 +59,7 @@ const router = useRouter()
 // 그룹 클릭 핸들러
 function handleGroupClick(group) {
   if (props.selected === 'brand') {
-    router.push(`/brand`) // Note: This may need future updates
+    router.push(`/brand`)
   } else if (props.selected === 'collection') {
     router.push(`/collection`)
   } else if (props.selected === 'feature') {
@@ -73,11 +73,11 @@ function handleGroupClick(group) {
 // 아이템 클릭 핸들러
 function handleItemClick(group, item) {
   if (props.selected === 'brand') {
-    router.push(`/brand/${item.value}`) // Note: This may need future updates
+    router.push(`/brand/${item.value}`)
   } else if (props.selected === 'collection') {
-    router.push(`/collection/${item.value}`) // Note: This may need future updates
+    router.push(`/collection/${item.value}`)
   } else if (props.selected === 'feature') {
-    router.push(`/feature/${group.value}/${item.value}`) // Note: This may need future updates
+    router.push(`/feature/${group.value}/${item.value}`)
   } else if (props.selected === 'shop') {
     // Navigate to '/shop/:group/:value'
     router.push(`/shop/${group.value}/${item.value}`)

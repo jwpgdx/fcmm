@@ -9,9 +9,6 @@
       :class="{ 'animate-bg-zoom': isVisible }"
     />
 
-  
-
-    
     <img
       :src="`/images/feature/ive-rei/main-01.webp`"
       class="absolute bottom-[-30%] left-1/2 z-[10] h-[120%] w-auto -translate-x-1/2 object-cover"
@@ -75,13 +72,13 @@ useIntersectionObserver(
 }
 
 .animate-fg-zoom {
-  animation: fg-zoom 4s ease-in ;
+  animation: fg-zoom 4s ease-in;
 }
 .animate-bg-zoom {
   animation: bg-zoom 6s ease-out forwards;
 }
 .background-img {
-  background-image: url('/images/feature/ive-rei/main-02.webp');
+  background-image: url('/images/feature/ive-rei/index.webp');
   background-size: cover;
   background-position: center;
   width: 100%;

@@ -13,10 +13,7 @@
       <div class="relative mr-12 flex flex-1 flex-col items-start p-3">
         <div class="text-[14px]">{{ item.name }}</div>
 
-        <div
-          class="mt-1 flex items-center gap-2"
-          v-if="item.color || item.size || item.quantity"
-        >
+        <div class="mt-1 flex items-center gap-2" v-if="mode === 'cart'">
           <div v-if="item.color" class="flex items-center gap-1">
             <div class="text-[10px] leading-none">
               {{ item.color.name }}
@@ -41,8 +38,11 @@
         </div>
 
         <div class="mt-1 flex items-center gap-4">
-          <div class="text-[11px]">₩ {{ item.price.toLocaleString() }}</div>
-          <div class="flex items-center justify-center gap-1">
+          <div class="text-[11px]">₩ {{ displayPrice.toLocaleString() }}</div>
+          <div
+            v-if="mode === 'wish'"
+            class="flex items-center justify-center gap-1"
+          >
             <div
               v-for="(color, index) in item.colors"
               :key="index"
@@ -62,7 +62,12 @@
       </div>
     </router-link>
 
-    <button @click.prevent="toggleWish" class="absolute right-0 top-0 p-4">
+    <button
+      type="button"
+      :aria-label="mode === 'cart' ? 'Remove from cart' : 'Remove from wishes'"
+      class="absolute right-0 top-0 p-4"
+      @click.prevent="removeItem"
+    >
       <v-icon icon="x" :size="4" />
     </button>
   </div>
@@ -71,6 +76,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useWishStore } from '@/stores/wish-store'
+import { useCartStore } from '@/stores/cart-store'
 import { useCategoryStore } from '@/stores/category-store'
 
 const props = defineProps({
@@ -82,12 +88,27 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  mode: {
+    type: String,
+    default: 'wish',
+    validator: (value) => ['wish', 'cart'].includes(value),
+  },
 })
 
-// 찜 상태
 const wishStore = useWishStore()
-const isWished = computed(() => wishStore.isWish(props.item.id))
-const toggleWish = () => {
+const cartStore = useCartStore()
+
+const displayPrice = computed(() => {
+  if (typeof props.item.price === 'number') return props.item.price
+  return props.item.price?.discounted ?? props.item.price?.original ?? 0
+})
+
+const removeItem = () => {
+  if (props.mode === 'cart') {
+    cartStore.removeFromCart(props.item)
+    return
+  }
+
   wishStore.toggleWish(props.item.id)
 }
 

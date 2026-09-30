@@ -1,36 +1,20 @@
 <template>
   <div class="w-full">
-    <!-- Title -->
     <div class="mb-8">
-      Please read the following important information before making your
-      purchase.
+      This product page is an interactive portfolio prototype, not a commercial
+      storefront.
     </div>
 
-    <!-- Notice List -->
     <ul class="list-inside list-disc space-y-2">
-      <li>
-        Colors may appear slightly different depending on your monitor settings.
-      </li>
-      <li>Due to high demand, some items may sell out quickly.</li>
-      <li>
-        Once an order is placed, changes or cancellations may not be possible.
-      </li>
-      <li>Custom or personalized products are non-returnable.</li>
-      <li>We are not responsible for delays caused by the shipping carrier.</li>
+      <li>Product availability and stock are not tracked.</li>
+      <li>Prices, colours, and sizes are used for interface demonstration.</li>
+      <li>Adding an item to the bag does not create an order.</li>
+      <li>No personal or payment information is collected.</li>
+      <li>Colours may vary depending on the display.</li>
     </ul>
 
-    <!-- Divider -->
-
-    <!-- Additional Info -->
     <div class="mt-8">
-      * For further inquiries, please contact our customer service team at
-      <a href="mailto:support@example.com" class="text-blue-600 underline"
-        >support@fcmm.com</a
-      >.
+      * See Project Info for the scope and asset attribution of this redesign.
     </div>
   </div>
 </template>
-
-<script setup>
-// 데모라 로직 없음
-</script>

@@ -1,37 +1,56 @@
 <template>
-  <div class="transition-transform duration-75 ease-linear">
+  <div ref="root" class="h-full w-full overflow-hidden bg-black/5">
     <img
       :src="src"
+      :alt="alt"
       :class="[
-        'transition-all duration-700',
-        hasBeenVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-sm',
+        'h-full w-full object-cover transition-[opacity,transform] duration-700 ease-out',
+        hasEntered ? 'scale-100 opacity-100' : 'scale-[1.035] opacity-0',
       ]"
-      class="h-full w-auto object-cover"
+      :style="{ objectPosition }"
       loading="lazy"
+      decoding="async"
+      @load="emit('loaded')"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 
-const props = defineProps({
-  isVisible: {
-    type: Boolean,
-    required: true,
-  },
+defineProps({
   src: {
     type: String,
     default: '',
   },
+  alt: {
+    type: String,
+    default: '',
+  },
+  objectPosition: {
+    type: String,
+    default: '50% 50%',
+  },
 })
 
-const hasBeenVisible = ref(false)
+const emit = defineEmits(['loaded'])
+const root = ref(null)
+const hasEntered = ref(false)
 
-watch(
-  () => props.isVisible,
-  (newVal) => {
-    if (newVal) hasBeenVisible.value = true
+useIntersectionObserver(
+  root,
+  ([entry]) => {
+    if (entry.isIntersecting) hasEntered.value = true
   },
+  { rootMargin: '12% 0px', threshold: 0.05 },
 )
 </script>
+
+<style scoped>
+@media (prefers-reduced-motion: reduce) {
+  img {
+    transition: none;
+  }
+}
+</style>

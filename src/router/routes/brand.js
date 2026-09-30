@@ -1,15 +1,13 @@
-import BrandPage from '@/pages/Brand/index.vue'
-
 export default [
   {
     path: '/brand',
     name: 'brand',
-    component: BrandPage,
+    component: () => import('@/pages/Brand/index.vue'),
   },
   {
-    path: "/brand/:value",
-    name: "brandValue",
-    component: BrandPage,
+    path: '/brand/:value',
+    name: 'brandValue',
+    component: () => import('@/pages/Brand/index.vue'),
     props: true,
   },
 ]
