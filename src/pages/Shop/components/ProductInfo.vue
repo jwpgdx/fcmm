@@ -273,12 +273,12 @@ function getGuideComponent(value) {
 function handleColorChange(color) {
   if (selectedColor.value?.name === color.name) return
 
-  // 새로운 제품 ID 생성 (기본 제품명에서 색상 부분 교체)
-  const baseProductName = props.product.name.toLowerCase().replace(/\s+/g, '-')
-  const colorSuffix = color.name.toLowerCase().replace(/\s+/g, '-')
-  const newProductId = `${baseProductName}-${colorSuffix}`
+  if (!color.productId) {
+    toast.error('This colour variant is not available.')
+    return
+  }
 
-  const newPath = `/shop/${props.product.group}/${props.product.category}/${newProductId}`
+  const newPath = `/shop/${props.product.group}/${props.product.category}/${color.productId}`
   router.push(newPath)
 }
 </script>
