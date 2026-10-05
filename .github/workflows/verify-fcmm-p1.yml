@@ -15,9 +15,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - run: npm ci
       - run: npm run build
       - run: git diff --check a65743fc347b736650bdab3a1e2d0b720d0589a7...HEAD
+
       - name: Verify variant targets and stale legal copy
         run: |
           node <<'NODE'
@@ -77,4 +79,150 @@ jobs:
             process.exit(1)
           }
           console.log(`P1 static verification PASS: ${refs} variant refs checked`)
+          NODE
+
+      - name: Install browser verifier
+        run: npm install --no-save --package-lock=false puppeteer-core@24.22.3
+
+      - name: Browser acceptance at 390 and 1440
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/fcmm-vite.log 2>&1 &
+          PREVIEW_PID=$!
+          trap 'kill $PREVIEW_PID || true' EXIT
+
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+
+          curl -fsS http://127.0.0.1:4173/ >/dev/null
+
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import puppeteer from 'puppeteer-core'
+
+          const chromePath = [
+            '/usr/bin/google-chrome',
+            '/usr/bin/google-chrome-stable',
+            '/usr/bin/chromium',
+            '/usr/bin/chromium-browser',
+          ].find((candidate) => fs.existsSync(candidate))
+
+          if (!chromePath) throw new Error('No system Chrome/Chromium found')
+
+          const browser = await puppeteer.launch({
+            executablePath: chromePath,
+            headless: true,
+            args: ['--no-sandbox', '--disable-dev-shm-usage'],
+          })
+
+          const base = 'http://127.0.0.1:4173'
+          const widths = [390, 1440]
+
+          const assert = (condition, message) => {
+            if (!condition) throw new Error(message)
+          }
+
+          async function open(page, path, expectedText) {
+            await page.goto(base + path, { waitUntil: 'domcontentloaded' })
+            await page.waitForFunction(
+              (text) => document.body.innerText.includes(text),
+              { timeout: 15000 },
+              expectedText,
+            )
+          }
+
+          async function clickColour(page, title, expectedSuffix) {
+            const clicked = await page.evaluate((wanted) => {
+              const swatch = [...document.querySelectorAll('[title]')].find(
+                (element) => element.getAttribute('title') === wanted,
+              )
+              const button = swatch?.closest('button')
+              if (!button) return false
+              button.click()
+              return true
+            }, title)
+            assert(clicked, `Colour swatch not found: ${title}`)
+            await page.waitForFunction(
+              (suffix) => location.pathname.endsWith(suffix),
+              { timeout: 10000 },
+              expectedSuffix,
+            )
+            await page.waitForFunction(
+              () => !document.body.innerText.includes('Product Not Found'),
+              { timeout: 10000 },
+            )
+          }
+
+          for (const width of widths) {
+            const page = await browser.newPage()
+            await page.setViewport({ width, height: width === 390 ? 844 : 900 })
+
+            await open(
+              page,
+              '/shop/ready-to-wear/sweatshirts-hoodies/v-neck-sweatshirt-grey',
+              'V-Neck Sweatshirt',
+            )
+            await clickColour(page, 'Blue', '/v-neck-sweatshirt-blue')
+            assert(
+              (await page.evaluate(() => document.body.innerText)).includes('V-Neck Sweatshirt'),
+              `V-Neck blue content missing at ${width}px`,
+            )
+            await clickColour(page, 'Grey', '/v-neck-sweatshirt-grey')
+
+            await open(
+              page,
+              '/shop/ready-to-wear/tops-shirts/half-sleeve-shirt-light-blue',
+              'Half Sleeve Shirt',
+            )
+            await clickColour(page, 'Noir', '/half-sleeve-shirt-light-noir')
+
+            await open(
+              page,
+              '/shop/ready-to-wear/t-shirts/tatom-logo-t-shirt',
+              'Tatom logo T-Shirt',
+            )
+            const sizeGuideClicked = await page.evaluate(() => {
+              const target = [...document.querySelectorAll('div')].find(
+                (element) => element.textContent?.trim() === 'Size Guide',
+              )
+              if (!target) return false
+              target.click()
+              return true
+            })
+            assert(sizeGuideClicked, `Size Guide control missing at ${width}px`)
+            await page.waitForFunction(
+              () =>
+                document.body.innerText.includes(
+                  'Verified garment measurements are not provided in this portfolio demo.',
+                ),
+              { timeout: 10000 },
+            )
+            const sizeText = await page.evaluate(() => document.body.innerText)
+            assert(!sizeText.includes('Foot Length (cm)'), `Shoe size guide leaked at ${width}px`)
+            assert(sizeText.includes('XXL'), `XXL demo size missing at ${width}px`)
+
+            await open(page, '/legal/privacy', 'Privacy Notice')
+            const privacyText = await page.evaluate(() => document.body.innerText)
+            assert(
+              privacyText.includes('non-commercial portfolio presentation'),
+              `Privacy portfolio boundary missing at ${width}px`,
+            )
+            assert(!/wedding invitation/i.test(privacyText), `Wedding copy remains at ${width}px`)
+
+            await open(page, '/legal/terms', 'Portfolio Notice')
+            const termsText = await page.evaluate(() => document.body.innerText)
+            assert(
+              termsText.includes('does not provide live FCMM commerce operations'),
+              `Portfolio Notice boundary missing at ${width}px`,
+            )
+            assert(!/Effective Date:/i.test(termsText), `Terms placeholder remains at ${width}px`)
+
+            await page.close()
+          }
+
+          await browser.close()
+          console.log('Browser acceptance PASS at 390px and 1440px')
           NODE
