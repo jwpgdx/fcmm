@@ -31,7 +31,7 @@
             COLLABORATION
           </button>
           <button type="button" class="list" @click="goToLegalSection('terms')">
-            TERMS & CONDITIONS
+            PORTFOLIO NOTICE
           </button>
           <button
             type="button"

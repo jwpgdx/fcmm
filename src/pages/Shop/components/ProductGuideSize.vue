@@ -1,54 +1,39 @@
 <template>
   <div class="w-full">
-    <!-- Title -->
-    <div class="mb-4">
-      Please refer to the size chart below to find your perfect fit.
+    <div class="mb-6">
+      Verified garment measurements are not provided in this portfolio demo.
     </div>
-    <!-- Size Table -->
-    <div class="overflow-x-auto">
-      <table class="w-full border border-black text-center text-[12px]">
-        <thead class="bg-gray-100">
-          <tr>
-            <th class="border px-3 py-2 font-semibold">Size</th>
-            <th class="border px-3 py-2 font-semibold">US</th>
-            <th class="border px-3 py-2 font-semibold">EU</th>
-            <th class="border px-3 py-2 font-semibold">Foot Length (cm)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="border px-3 py-2">S</td>
-            <td class="border px-3 py-2">6</td>
-            <td class="border px-3 py-2">39</td>
-            <td class="border px-3 py-2">24.5</td>
-          </tr>
-          <tr class="bg-gray-50">
-            <td class="border px-3 py-2">M</td>
-            <td class="border px-3 py-2">8</td>
-            <td class="border px-3 py-2">41</td>
-            <td class="border px-3 py-2">26</td>
-          </tr>
-          <tr>
-            <td class="border px-3 py-2">L</td>
-            <td class="border px-3 py-2">10</td>
-            <td class="border px-3 py-2">43</td>
-            <td class="border px-3 py-2">27.5</td>
-          </tr>
-          <tr class="bg-gray-50">
-            <td class="border px-3 py-2">XL</td>
-            <td class="border px-3 py-2">12</td>
-            <td class="border px-3 py-2">45</td>
-            <td class="border px-3 py-2">29</td>
-          </tr>
-        </tbody>
-      </table>
+
+    <div v-if="sizes.length">
+      <div
+        class="mb-3 text-[10px] font-semibold uppercase tracking-[0.12em]"
+      >
+        Available demo sizes
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span
+          v-for="size in sizes"
+          :key="size"
+          class="border border-black px-2 py-1 font-mono text-[12px]"
+        >
+          {{ size }}
+        </span>
+      </div>
     </div>
-    <div class="mt-2 text-center text-[10px]">
-      * Measurements may vary slightly depending on the design.
+
+    <div class="mt-6 text-[10px] leading-[1.5] text-neutral-500">
+      The sizes shown here mirror the options available on this product page.
+      They are interface options, not body or garment measurements.
     </div>
   </div>
 </template>
 
 <script setup>
-// 데모용이라 props/state 없음
+import { computed } from 'vue'
+
+const props = defineProps({
+  product: { type: Object, required: true },
+})
+
+const sizes = computed(() => props.product?.sizes ?? [])
 </script>

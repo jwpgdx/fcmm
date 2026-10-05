@@ -65,11 +65,13 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "stamp-rib-cropped-t-shirt-noir"
       },
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "stamp-rib-cropped-t-shirt-off-white"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -87,11 +89,13 @@
     "colors": [
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "stamp-rib-cropped-t-shirt-off-white"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "stamp-rib-cropped-t-shirt-noir"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -182,11 +186,13 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "blue-spiral-long-t-shirt-noir"
       },
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "blue-spiral-long-t-shirt-off-white"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -203,11 +209,13 @@
     "colors": [
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "blue-spiral-long-t-shirt-off-white"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "blue-spiral-long-t-shirt-noir"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -225,11 +233,13 @@
     "colors": [
       {
         "name": "Khaki",
-        "value": "#2e2b25"
+        "value": "#2e2b25",
+        "productId": "zip-up-hoodie-khaki"
       },
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "zip-up-hoodie-grey"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -247,11 +257,13 @@
     "colors": [
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "zip-up-hoodie-grey"
       },
       {
         "name": "Khaki",
-        "value": "#2e2b25"
+        "value": "#2e2b25",
+        "productId": "zip-up-hoodie-khaki"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -347,7 +359,7 @@
   },
   {
     "id": "v-neck-sweatshirt-grey",
-    "name": "V-Neck Sweatchirt",
+    "name": "V-Neck Sweatshirt",
     "group": "ready-to-wear",
     "category": "sweatshirts-hoodies",
     "price": {
@@ -356,11 +368,13 @@
     "colors": [
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "v-neck-sweatshirt-grey"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "v-neck-sweatshirt-blue"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -369,7 +383,7 @@
 
   {
     "id": "v-neck-sweatshirt-blue",
-    "name": "V-Neck Sweatchirt",
+    "name": "V-Neck Sweatshirt",
     "group": "ready-to-wear",
     "category": "sweatshirts-hoodies",
     "price": {
@@ -378,11 +392,13 @@
     "colors": [
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "v-neck-sweatshirt-blue"
       },
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "v-neck-sweatshirt-grey"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -485,11 +501,13 @@
     "colors": [
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "essential-hoodie-off-white"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "essential-hoodie-noir"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -506,11 +524,13 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "essential-hoodie-noir"
       },
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "essential-hoodie-off-white"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -528,15 +548,18 @@
     "colors": [
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "langle-sweatshirt-grey"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "langle-sweatshirt-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "langle-sweatshirt-noir"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -554,15 +577,18 @@
     "colors": [
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "langle-sweatshirt-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "langle-sweatshirt-noir"
       },
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "langle-sweatshirt-grey"
       }
     ],
 
@@ -581,15 +607,18 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "langle-sweatshirt-noir"
       },
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "langle-sweatshirt-grey"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "langle-sweatshirt-blue"
       }
     ],
 
@@ -607,19 +636,23 @@
     "colors": [
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "plue-windbreaker-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "plue-windbreaker-noir"
       },
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "plue-windbreaker-off-white"
       },
       {
         "name": "Brown",
-        "value": "#413633"
+        "value": "#413633",
+        "productId": "plue-windbreaker-brown"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -636,19 +669,23 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "plue-windbreaker-noir"
       },
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "plue-windbreaker-off-white"
       },
       {
         "name": "Brown",
-        "value": "#413633"
+        "value": "#413633",
+        "productId": "plue-windbreaker-brown"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "plue-windbreaker-blue"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -666,19 +703,23 @@
     "colors": [
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "plue-windbreaker-off-white"
       },
       {
         "name": "Brown",
-        "value": "#413633"
+        "value": "#413633",
+        "productId": "plue-windbreaker-brown"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "plue-windbreaker-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "plue-windbreaker-noir"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -696,19 +737,23 @@
     "colors": [
       {
         "name": "Brown",
-        "value": "#413633"
+        "value": "#413633",
+        "productId": "plue-windbreaker-brown"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "plue-windbreaker-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "plue-windbreaker-noir"
       },
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "plue-windbreaker-off-white"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -726,11 +771,13 @@
     "colors": [
       {
         "name": "Green",
-        "value": "#2e594d"
+        "value": "#2e594d",
+        "productId": "puffer-jacket-green"
       },
       {
         "name": "Brown",
-        "value": "#413633"
+        "value": "#413633",
+        "productId": "puffer-jacket-brown"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -748,11 +795,13 @@
     "colors": [
       {
         "name": "Brown",
-        "value": "#413633"
+        "value": "#413633",
+        "productId": "puffer-jacket-brown"
       },
       {
         "name": "Green",
-        "value": "#2e594d"
+        "value": "#2e594d",
+        "productId": "puffer-jacket-green"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -770,11 +819,13 @@
     "colors": [
       {
         "name": "Navy",
-        "value": "#1d1c2c"
+        "value": "#1d1c2c",
+        "productId": "tatom-jumper-navy"
       },
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "tatom-jumper-grey"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -792,11 +843,13 @@
     "colors": [
       {
         "name": "Grey",
-        "value": "#797979"
+        "value": "#797979",
+        "productId": "tatom-jumper-grey"
       },
       {
         "name": "Navy",
-        "value": "#1d1c2c"
+        "value": "#1d1c2c",
+        "productId": "tatom-jumper-navy"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -813,19 +866,23 @@
     "colors": [
       {
         "name": "Beige",
-        "value": "#a39c87"
+        "value": "#a39c87",
+        "productId": "grampur-jumper-beige"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "grampur-jumper-noir"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "grampur-jumper-blue"
       },
       {
         "name": "Yellow",
-        "value": "#dfdb93"
+        "value": "#dfdb93",
+        "productId": "grampur-jumper-yellow"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -843,19 +900,23 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "grampur-jumper-noir"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "grampur-jumper-blue"
       },
       {
         "name": "Yellow",
-        "value": "#dfdb93"
+        "value": "#dfdb93",
+        "productId": "grampur-jumper-yellow"
       },
       {
         "name": "Beige",
-        "value": "#a39c87"
+        "value": "#a39c87",
+        "productId": "grampur-jumper-beige"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -873,19 +934,23 @@
     "colors": [
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "grampur-jumper-blue"
       },
       {
         "name": "Yellow",
-        "value": "#dfdb93"
+        "value": "#dfdb93",
+        "productId": "grampur-jumper-yellow"
       },
       {
         "name": "Beige",
-        "value": "#a39c87"
+        "value": "#a39c87",
+        "productId": "grampur-jumper-beige"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "grampur-jumper-noir"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -903,19 +968,23 @@
     "colors": [
       {
         "name": "Yellow",
-        "value": "#dfdb93"
+        "value": "#dfdb93",
+        "productId": "grampur-jumper-yellow"
       },
       {
         "name": "Beige",
-        "value": "#a39c87"
+        "value": "#a39c87",
+        "productId": "grampur-jumper-beige"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "grampur-jumper-noir"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "grampur-jumper-blue"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -1036,11 +1105,13 @@
     "colors": [
       {
         "name": "Light Blue",
-        "value": "#70929e"
+        "value": "#70929e",
+        "productId": "half-sleeve-shirt-light-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "half-sleeve-shirt-light-noir"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -1057,11 +1128,13 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "half-sleeve-shirt-light-noir"
       },
       {
         "name": "Light Blue",
-        "value": "#70929e"
+        "value": "#70929e",
+        "productId": "half-sleeve-shirt-light-blue"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -1079,11 +1152,13 @@
     "colors": [
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "rueta-shirt-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "rueta-shirt-noir"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -1101,11 +1176,13 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "rueta-shirt-noir"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "rueta-shirt-blue"
       }
     ],
     "sizes": ["S", "M", "L", "XL", "XXL"],
@@ -1413,11 +1490,13 @@
     "colors": [
       {
         "name": "Charcoal",
-        "value": "#46454e"
+        "value": "#46454e",
+        "productId": "standic-cap-charcoal"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "standic-cap-noir"
       }
     ],
     "sizes": [1],
@@ -1434,11 +1513,13 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "standic-cap-noir"
       },
       {
         "name": "Charcoal",
-        "value": "#46454e"
+        "value": "#46454e",
+        "productId": "standic-cap-charcoal"
       }
     ],
     "sizes": [1],
@@ -1472,15 +1553,18 @@
     "colors": [
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "standic-socks-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "standic-socks-noir"
       },
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "standic-socks-off-white"
       }
     ],
     "sizes": [1],
@@ -1497,15 +1581,18 @@
     "colors": [
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "standic-socks-noir"
       },
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "standic-socks-off-white"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "standic-socks-blue"
       }
     ],
     "sizes": [1],
@@ -1522,15 +1609,18 @@
     "colors": [
       {
         "name": "Off White",
-        "value": "#fff"
+        "value": "#fff",
+        "productId": "standic-socks-off-white"
       },
       {
         "name": "Blue",
-        "value": "#274183"
+        "value": "#274183",
+        "productId": "standic-socks-blue"
       },
       {
         "name": "Noir",
-        "value": "#000"
+        "value": "#000",
+        "productId": "standic-socks-noir"
       }
     ],
     "sizes": [1],
