@@ -185,7 +185,7 @@ jobs:
               'Tatom logo T-Shirt',
             )
             const sizeGuideClicked = await page.evaluate(() => {
-              const target = [...document.querySelectorAll('div')].find(
+              const target = [...document.querySelectorAll('div.cursor-pointer')].find(
                 (element) => element.textContent?.trim() === 'Size Guide',
               )
               if (!target) return false
