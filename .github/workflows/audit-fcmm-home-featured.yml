@@ -1,0 +1,180 @@
+name: Audit FCMM Home and Featured
+
+on:
+  push:
+    branches:
+      - audit/fcmm-home-featured-20261005
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run build
+      - run: npm install --no-save --package-lock=false puppeteer-core@24.22.3
+
+      - name: Home and Featured route smoke
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/fcmm-vite.log 2>&1 &
+          PREVIEW_PID=$!
+          trap 'kill $PREVIEW_PID || true' EXIT
+
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:4173/ >/dev/null
+
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import puppeteer from 'puppeteer-core'
+
+          const chromePath = [
+            '/usr/bin/google-chrome',
+            '/usr/bin/google-chrome-stable',
+            '/usr/bin/chromium',
+            '/usr/bin/chromium-browser',
+          ].find((candidate) => fs.existsSync(candidate))
+          if (!chromePath) throw new Error('No system Chrome/Chromium found')
+
+          const browser = await puppeteer.launch({
+            executablePath: chromePath,
+            headless: true,
+            args: ['--no-sandbox', '--disable-dev-shm-usage'],
+          })
+
+          const base = 'http://127.0.0.1:4173'
+          const routes = [
+            '/',
+            '/feature',
+            '/feature/special/ive-rei',
+            '/feature/special/espacio',
+            '/feature/special/seoul-fashion-week',
+            '/feature/campaign/fw23-launch',
+            '/feature/campaign/ss23-sale',
+          ]
+          const widths = [390, 768, 1440]
+          const results = []
+
+          const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+          for (const width of widths) {
+            for (const route of routes) {
+              const page = await browser.newPage()
+              await page.setViewport({ width, height: width === 390 ? 844 : 900 })
+
+              const consoleErrors = []
+              const failedRequests = []
+              const badResponses = []
+
+              page.on('pageerror', (error) => consoleErrors.push('pageerror: ' + error.message))
+              page.on('console', (message) => {
+                if (message.type() === 'error') consoleErrors.push('console: ' + message.text())
+              })
+              page.on('requestfailed', (request) => {
+                const url = request.url()
+                if (url.startsWith(base)) failedRequests.push(url.replace(base, ''))
+              })
+              page.on('response', (response) => {
+                const url = response.url()
+                if (url.startsWith(base) && response.status() >= 400) {
+                  badResponses.push(response.status() + ' ' + url.replace(base, ''))
+                }
+              })
+
+              const response = await page.goto(base + route, {
+                waitUntil: 'domcontentloaded',
+                timeout: 30000,
+              })
+              await delay(800)
+
+              const totalHeight = await page.evaluate(
+                () => Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
+              )
+              for (let y = 0; y < totalHeight; y += 650) {
+                await page.evaluate((nextY) => window.scrollTo(0, nextY), y)
+                await delay(80)
+              }
+              await page.evaluate(() => window.scrollTo(0, 0))
+              await delay(800)
+
+              const dom = await page.evaluate(() => {
+                const brokenImages = [...document.images]
+                  .filter((img) => img.complete && img.naturalWidth === 0)
+                  .map((img) => img.getAttribute('src'))
+                  .filter(Boolean)
+
+                return {
+                  title: document.title,
+                  bodyPrefix: document.body.innerText.slice(0, 280),
+                  scrollWidth: document.documentElement.scrollWidth,
+                  innerWidth: window.innerWidth,
+                  brokenImages: [...new Set(brokenImages)],
+                }
+              })
+
+              results.push({
+                width,
+                route,
+                status: response?.status?.() ?? null,
+                horizontalOverflow: dom.scrollWidth > dom.innerWidth + 1,
+                scrollWidth: dom.scrollWidth,
+                innerWidth: dom.innerWidth,
+                brokenImages: dom.brokenImages,
+                consoleErrors: [...new Set(consoleErrors)],
+                failedRequests: [...new Set(failedRequests)],
+                badResponses: [...new Set(badResponses)],
+              })
+              await page.close()
+            }
+          }
+
+          const iveFallback = await fetch(
+            base + '/images/feature/ive-rei/wide-slim-fit-pants.webp',
+          )
+          results.push({
+            probe: 'ive-rei-wide-slim-fit-pants-webp',
+            status: iveFallback.status,
+            contentType: iveFallback.headers.get('content-type'),
+          })
+
+          fs.writeFileSync(
+            'fcmm-home-featured-smoke.json',
+            JSON.stringify(results, null, 2) + '\n',
+          )
+
+          console.log(JSON.stringify(results, null, 2))
+
+          const routeFailures = results.filter(
+            (item) =>
+              item.route &&
+              (item.status !== 200 ||
+                item.horizontalOverflow ||
+                item.brokenImages.length ||
+                item.consoleErrors.length ||
+                item.failedRequests.length ||
+                item.badResponses.length),
+          )
+
+          if (routeFailures.length) {
+            console.log(
+              'AUDIT_FINDINGS_PRESENT=' +
+                routeFailures.map((x) => `${x.width}:${x.route}`).join(','),
+            )
+          } else {
+            console.log('AUDIT_ROUTE_SMOKE_CLEAN')
+          }
+
+          await browser.close()
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fcmm-home-featured-smoke
+          path: fcmm-home-featured-smoke.json
