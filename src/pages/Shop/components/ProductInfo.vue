@@ -150,6 +150,7 @@
     <v-dialog v-model="isGuideOpen" :title="selectedGuide?.label || ''">
       <component
         :is="getGuideComponent(selectedGuide?.value)"
+        v-bind="guideProps"
         v-if="selectedGuide"
       />
     </v-dialog>
@@ -217,6 +218,9 @@ const availableSizes = computed(() => (props.product.sizes ?? []).join(' / '))
 const productDescription = computed(
   () =>
     `${props.product.name} is part of the FCMM ${categoryLabel.value.toLowerCase()} edit, presented through the product imagery and available options shown on this page.`,
+)
+const guideProps = computed(() =>
+  selectedGuide.value?.value === 1 ? { product: props.product } : {},
 )
 
 watch(
