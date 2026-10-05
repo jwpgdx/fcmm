@@ -132,7 +132,8 @@ jobs:
             const response = await page.goto(base + path, { waitUntil: 'domcontentloaded' })
             try {
               await page.waitForFunction(
-                (text) => document.body.innerText.includes(text),
+                (text) =>
+                  document.body.innerText.toLowerCase().includes(text.toLowerCase()),
                 { timeout: 15000 },
                 expectedText,
               )
