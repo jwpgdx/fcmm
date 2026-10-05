@@ -98,6 +98,9 @@ jobs:
           done
 
           curl -fsS http://127.0.0.1:4173/ >/dev/null
+          curl -fsS http://127.0.0.1:4173/legal/privacy >/dev/null
+          curl -fsS http://127.0.0.1:4173/legal/privacy.md | grep -F 'Privacy Notice' >/dev/null
+          curl -fsS http://127.0.0.1:4173/legal/terms.md | grep -F 'Portfolio Notice' >/dev/null
 
           node --input-type=module <<'NODE'
           import fs from 'node:fs'
@@ -126,12 +129,30 @@ jobs:
           }
 
           async function open(page, path, expectedText) {
-            await page.goto(base + path, { waitUntil: 'domcontentloaded' })
-            await page.waitForFunction(
-              (text) => document.body.innerText.includes(text),
-              { timeout: 15000 },
-              expectedText,
-            )
+            const response = await page.goto(base + path, { waitUntil: 'domcontentloaded' })
+            try {
+              await page.waitForFunction(
+                (text) => document.body.innerText.includes(text),
+                { timeout: 15000 },
+                expectedText,
+              )
+            } catch (error) {
+              const diagnostic = await page.evaluate(() => ({
+                href: location.href,
+                pathname: location.pathname,
+                body: document.body.innerText.slice(0, 2400),
+              }))
+              console.error(
+                'OPEN_DIAGNOSTIC',
+                JSON.stringify({
+                  path,
+                  expectedText,
+                  status: response?.status?.() ?? null,
+                  diagnostic,
+                }),
+              )
+              throw error
+            }
           }
 
           async function clickColour(page, title, expectedSuffix) {
@@ -158,6 +179,10 @@ jobs:
 
           for (const width of widths) {
             const page = await browser.newPage()
+            page.on('pageerror', (error) => console.error('PAGE_ERROR', error.message))
+            page.on('console', (message) => {
+              if (message.type() === 'error') console.error('BROWSER_CONSOLE', message.text())
+            })
             await page.setViewport({ width, height: width === 390 ? 844 : 900 })
 
             await open(
