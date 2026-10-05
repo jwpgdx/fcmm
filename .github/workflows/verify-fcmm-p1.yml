@@ -1,0 +1,80 @@
+name: Verify FCMM P1 branch
+
+on:
+  push:
+    branches:
+      - fix/fcmm-p1-accuracy-20261005
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: npm ci
+      - run: npm run build
+      - run: git diff --check a65743fc347b736650bdab3a1e2d0b720d0589a7...HEAD
+      - name: Verify variant targets and stale legal copy
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+          const items = JSON.parse(fs.readFileSync('public/items.json', 'utf8'))
+          let refs = 0
+          const failures = []
+          for (const product of items) {
+            for (const color of product.colors || []) {
+              if (!color.productId) continue
+              refs += 1
+              const matches = items.filter((candidate) => candidate.id === color.productId)
+              if (matches.length !== 1) {
+                failures.push(`${product.id} / ${color.name} -> ${color.productId}: ${matches.length} matches`)
+                continue
+              }
+              const target = matches[0]
+              if (
+                target.group !== product.group ||
+                target.category !== product.category ||
+                target.colors?.[0]?.name !== color.name
+              ) {
+                failures.push(`${product.id} / ${color.name} -> ${color.productId}: target mismatch`)
+              }
+            }
+          }
+          if (refs !== 90) failures.push(`expected 90 explicit variant refs, got ${refs}`)
+
+          const sizeGuide = fs.readFileSync('src/pages/Shop/components/ProductGuideSize.vue', 'utf8')
+          if (/Foot Length|>US<|>EU</.test(sizeGuide)) {
+            failures.push('shoe-size columns remain in ProductGuideSize.vue')
+          }
+
+          const legal =
+            fs.readFileSync('public/legal/privacy.md', 'utf8') +
+            '\n' +
+            fs.readFileSync('public/legal/terms.md', 'utf8')
+          const banned = [
+            'wedding invitation',
+            'Jane Kim',
+            '1234-5678',
+            'Advertising & Marketing',
+            'I ACCEPT',
+            'Membership Registration',
+            'Purchase and Payment',
+            'Returns and Refund Policy',
+            'Effective Date:',
+          ]
+          for (const phrase of banned) {
+            if (legal.toLowerCase().includes(phrase.toLowerCase())) {
+              failures.push(`stale legal phrase remains: ${phrase}`)
+            }
+          }
+
+          if (failures.length) {
+            console.error(failures.join('\n'))
+            process.exit(1)
+          }
+          console.log(`P1 static verification PASS: ${refs} variant refs checked`)
+          NODE
