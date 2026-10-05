@@ -54,7 +54,7 @@ const loading = ref(false)
 const navigationItems = [
   {
     id: 'terms',
-    title: 'Terms of Service',
+    title: 'Portfolio Notice',
     href: '/legal/terms',
     file: '/legal/terms.md',
   },
