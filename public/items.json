@@ -14,16 +14,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ss23-sale"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ss23-sale"]
   },
   {
     "id": "nana-t-shirt",
@@ -40,17 +32,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best",
-      "ss23-sale"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best", "ss23-sale"]
   },
   {
     "id": "recycling-recovery-t-shirt",
@@ -67,16 +50,8 @@
         "value": "#fff"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ss23-sale"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ss23-sale"]
   },
   {
     "id": "stamp-rib-cropped-t-shirt-noir",
@@ -99,17 +74,8 @@
         "productId": "stamp-rib-cropped-t-shirt-off-white"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best",
-      "ss23-sale"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best", "ss23-sale"]
   },
   {
     "id": "stamp-rib-cropped-t-shirt-off-white",
@@ -132,18 +98,10 @@
         "productId": "stamp-rib-cropped-t-shirt-noir"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best",
-      "ss23-sale"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best", "ss23-sale"]
   },
+
   {
     "id": "cozy-long-t-shirt",
     "name": "Cozy Long T-Shirt",
@@ -159,18 +117,10 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best",
-      "ss23-sale"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best", "ss23-sale"]
   },
+
   {
     "id": "butterfly-graphic-mock-neck-top",
     "name": "Butterfly Graphic Mock Neck Top",
@@ -186,17 +136,10 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
+
   {
     "id": "heritage-club-v-neck-tee",
     "name": "Heritage Club V-Neck Tee",
@@ -212,16 +155,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ss23-sale"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ss23-sale"]
   },
   {
     "id": "monochrome-edge-long-t-shirt",
@@ -237,16 +172,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "fw23-launch"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch"]
   },
   {
     "id": "blue-spiral-long-t-shirt-noir",
@@ -268,17 +195,8 @@
         "productId": "blue-spiral-long-t-shirt-off-white"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "fw23-launch",
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
   },
   {
     "id": "blue-spiral-long-t-shirt-off-white",
@@ -300,18 +218,10 @@
         "productId": "blue-spiral-long-t-shirt-noir"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "fw23-launch",
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
   },
+
   {
     "id": "zip-up-hoodie-khaki",
     "name": "Zip Up Hoodie",
@@ -332,17 +242,10 @@
         "productId": "zip-up-hoodie-grey"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "zip-up-hoodie-grey",
     "name": "Zip Up Hoodie",
@@ -363,17 +266,10 @@
         "productId": "zip-up-hoodie-khaki"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "76-stripe-polo-sweatshirt",
     "name": "76 Stripe Polo Sweatshirt",
@@ -388,16 +284,8 @@
         "value": "#4D2B35"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
   {
     "id": "v-neck-short-sleeve-sweatshirt",
@@ -413,16 +301,8 @@
         "value": "#2B3439"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
   {
     "id": "urban-glide-sweatshirt",
@@ -438,15 +318,10 @@
         "value": "#595C5B"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
+
   {
     "id": "structured-scuba-hoodie",
     "name": "Structured Scuba Hoodie",
@@ -461,18 +336,10 @@
         "value": "#4D4F46"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "fw23-launch",
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "best"]
   },
+
   {
     "id": "color-block-hoodie",
     "name": "Color Block Hoodie",
@@ -487,16 +354,8 @@
         "value": "#46454e"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
   {
     "id": "v-neck-sweatshirt-grey",
@@ -518,17 +377,10 @@
         "productId": "v-neck-sweatshirt-blue"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "v-neck-sweatshirt-blue",
     "name": "V-Neck Sweatshirt",
@@ -549,17 +401,10 @@
         "productId": "v-neck-sweatshirt-grey"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "essential-full-zip-hoodie",
     "name": "Essential Full Zip Hoodie",
@@ -574,16 +419,8 @@
         "value": "#C7C8C7"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
   {
     "id": "the-essential-hoodie",
@@ -599,13 +436,7 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
   {
@@ -622,16 +453,8 @@
         "value": "#F3EDE0"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ive-rei"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
   },
   {
     "id": "oldschool-wide-sweatshirt",
@@ -647,16 +470,8 @@
         "value": "#E5E7E4"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ive-rei"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
   },
   {
     "id": "crewneck-sweatshirt",
@@ -672,16 +487,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["seoul-fashion-week"]
   },
   {
     "id": "essential-hoodie-off-white",
@@ -703,16 +510,8 @@
         "productId": "essential-hoodie-noir"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["seoul-fashion-week"]
   },
   {
     "id": "essential-hoodie-noir",
@@ -734,17 +533,10 @@
         "productId": "essential-hoodie-off-white"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["seoul-fashion-week"]
   },
+
   {
     "id": "langle-sweatshirt-grey",
     "name": "Langle Sweatshirt",
@@ -770,15 +562,10 @@
         "productId": "langle-sweatshirt-noir"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
+
   {
     "id": "langle-sweatshirt-blue",
     "name": "Langle Sweatshirt",
@@ -804,15 +591,11 @@
         "productId": "langle-sweatshirt-grey"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
+
   {
     "id": "langle-sweatshirt-noir",
     "name": "Langle Sweatshirt",
@@ -838,13 +621,8 @@
         "productId": "langle-sweatshirt-blue"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
   {
@@ -877,16 +655,8 @@
         "productId": "plue-windbreaker-brown"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
   {
     "id": "plue-windbreaker-noir",
@@ -918,17 +688,10 @@
         "productId": "plue-windbreaker-blue"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "plue-windbreaker-off-white",
     "name": "Plue Windbreaker",
@@ -959,17 +722,10 @@
         "productId": "plue-windbreaker-noir"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "plue-windbreaker-brown",
     "name": "Plue Windbreaker",
@@ -1000,17 +756,10 @@
         "productId": "plue-windbreaker-off-white"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "puffer-jacket-green",
     "name": "Puffer Jacket",
@@ -1031,17 +780,10 @@
         "productId": "puffer-jacket-brown"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "puffer-jacket-brown",
     "name": "Puffer Jacket",
@@ -1062,17 +804,10 @@
         "productId": "puffer-jacket-green"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "tatom-jumper-navy",
     "name": "Tatom Jumper",
@@ -1093,17 +828,10 @@
         "productId": "tatom-jumper-grey"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "tatom-jumper-grey",
     "name": "Tatom Jumper",
@@ -1124,16 +852,8 @@
         "productId": "tatom-jumper-navy"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
   {
     "id": "grampur-jumper-beige",
@@ -1165,18 +885,10 @@
         "productId": "grampur-jumper-yellow"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "fw23-launch",
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
   },
+
   {
     "id": "grampur-jumper-noir",
     "name": "Grampur Jumper",
@@ -1207,18 +919,10 @@
         "productId": "grampur-jumper-beige"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "fw23-launch",
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
   },
+
   {
     "id": "grampur-jumper-blue",
     "name": "Grampur Jumper",
@@ -1249,18 +953,10 @@
         "productId": "grampur-jumper-noir"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "fw23-launch",
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
   },
+
   {
     "id": "grampur-jumper-yellow",
     "name": "Grampur Jumper",
@@ -1291,18 +987,10 @@
         "productId": "grampur-jumper-blue"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "fw23-launch",
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["fw23-launch", "seoul-fashion-week"]
   },
+
   {
     "id": "club-team-authentic-windbreaker",
     "name": "Club Team Authentic Windbreaker",
@@ -1317,16 +1005,8 @@
         "value": "#797979"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ive-rei"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
   },
   {
     "id": "essential-windbreaker",
@@ -1342,16 +1022,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
   {
     "id": "lightweight-mountain-parka",
@@ -1367,13 +1039,7 @@
         "value": "#d7cfc9"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
   {
@@ -1390,16 +1056,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ive-rei"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
   },
   {
     "id": "sherpa-lined-coach-jacket",
@@ -1415,16 +1073,8 @@
         "value": "#1e372d"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
   {
     "id": "track-day-puffer-jacket",
@@ -1440,15 +1090,10 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
+
   {
     "id": "half-sleeve-shirt-light-blue",
     "name": "Half Sleeve Shirt",
@@ -1469,16 +1114,8 @@
         "productId": "half-sleeve-shirt-light-noir"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
   {
     "id": "half-sleeve-shirt-light-noir",
@@ -1500,17 +1137,10 @@
         "productId": "half-sleeve-shirt-light-blue"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "rueta-shirt-blue",
     "name": "Rueta Shirt",
@@ -1531,17 +1161,10 @@
         "productId": "rueta-shirt-noir"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "rueta-shirt-noir",
     "name": "Rueta Shirt",
@@ -1562,17 +1185,10 @@
         "productId": "rueta-shirt-blue"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "cartif-shirt",
     "name": "Cartif Shirt",
@@ -1587,13 +1203,7 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
   {
@@ -1610,16 +1220,8 @@
         "value": "#797979"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "seoul-fashion-week"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["seoul-fashion-week"]
   },
   {
     "id": "pro-big-logo-half-zip",
@@ -1635,16 +1237,8 @@
         "value": "#fff"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ive-rei"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
   },
   {
     "id": "v-neck-short-sleeve-knit-top",
@@ -1660,16 +1254,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
   {
     "id": "four-seasons-signature-stretch-shorts",
@@ -1685,16 +1271,8 @@
         "value": "#fff"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ive-rei"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
   },
   {
     "id": "four-seasons-stretch-utility-jogger-pants",
@@ -1710,17 +1288,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ive-rei",
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei", "best"]
   },
   {
     "id": "nomad-utility-pants",
@@ -1736,16 +1305,8 @@
         "value": "#d8d6ca"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
   {
     "id": "ripstop-easy-waist-cargo-pants",
@@ -1761,13 +1322,7 @@
         "value": "#868469"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
   {
@@ -1784,13 +1339,7 @@
         "value": "#3e363d"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "tags": []
   },
   {
@@ -1807,16 +1356,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "ive-rei"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["ive-rei"]
   },
   {
     "id": "utility-pants",
@@ -1832,17 +1373,10 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "espacio"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["espacio"]
   },
+
   {
     "id": "knee-panel-straight-jeans",
     "name": "Knee Panel Straight Jeans",
@@ -1857,16 +1391,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "tags": ["best"]
   },
   {
     "id": "mini-rucksack",
@@ -1882,9 +1408,7 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      1
-    ],
+    "sizes": [1],
     "tags": []
   },
   {
@@ -1901,9 +1425,7 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      1
-    ],
+    "sizes": [1],
     "tags": []
   },
   {
@@ -1920,9 +1442,7 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      1
-    ],
+    "sizes": [1],
     "tags": []
   },
   {
@@ -1939,12 +1459,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      1
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": [1],
+    "tags": ["best"]
   },
   {
     "id": "classic-gum-sole-trainer",
@@ -1960,12 +1476,7 @@
         "value": "#46454e"
       }
     ],
-    "sizes": [
-      1,
-      2,
-      3,
-      4
-    ],
+    "sizes": [1, 2, 3, 4],
     "tags": []
   },
   {
@@ -1988,12 +1499,8 @@
         "productId": "standic-cap-noir"
       }
     ],
-    "sizes": [
-      1
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": [1],
+    "tags": ["best"]
   },
   {
     "id": "standic-cap-noir",
@@ -2015,12 +1522,8 @@
         "productId": "standic-cap-charcoal"
       }
     ],
-    "sizes": [
-      1
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": [1],
+    "tags": ["best"]
   },
   {
     "id": "tetraight-belt",
@@ -2036,12 +1539,8 @@
         "value": "#000"
       }
     ],
-    "sizes": [
-      1
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": [1],
+    "tags": ["best"]
   },
   {
     "id": "standic-socks-blue",
@@ -2068,12 +1567,8 @@
         "productId": "standic-socks-off-white"
       }
     ],
-    "sizes": [
-      1
-    ],
-    "tags": [
-      "best"
-    ]
+    "sizes": [1],
+    "tags": ["best"]
   },
   {
     "id": "standic-socks-noir",
@@ -2100,9 +1595,7 @@
         "productId": "standic-socks-blue"
       }
     ],
-    "sizes": [
-      1
-    ],
+    "sizes": [1],
     "tags": []
   },
   {
@@ -2130,9 +1623,7 @@
         "productId": "standic-socks-noir"
       }
     ],
-    "sizes": [
-      1
-    ],
+    "sizes": [1],
     "tags": []
   }
 ]
