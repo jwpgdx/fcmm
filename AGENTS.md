@@ -30,7 +30,9 @@ Codex CLI owns repo-local work inside the approved package:
 
 `inspect -> implement -> test -> fix -> retest -> compact report -> STOP`
 
-Use Codex CLI actively when it improves repo-wide search, implementation, verification, or independent review. For FCMM, prefer `gpt-6.1-sol/high` for normal multi-file implementation/debugging and `gpt-6.1-sol/xhigh` for broad audits, difficult cross-cutting layout/performance work, or independent closeout review. Use lighter effort for narrow mechanical edits when higher effort adds little. Prime chooses per package; do not automatically escalate model/effort or start the next package.
+Do not invoke Codex CLI by default. Prime should handle straightforward inspection, decisions, and small edits directly. Use Codex only when it materially improves the work: the task needs substantial reasoning, repo-wide or cross-file investigation, difficult coupled debugging, an independent review, or CLI execution is meaningfully faster/safer than doing it directly.
+
+When Codex is justified, choose the lowest sufficient effort. `gpt-6.1-sol/high` is appropriate for genuinely nontrivial multi-file work; `gpt-6.1-sol/xhigh` is reserved for reasoning-heavy broad audits, difficult coupled layout/performance investigations, or important independent closeout review. Do not use Codex merely because it is available, and do not automatically escalate model/effort or start the next package.
 
 CoS owns local workspace/browser/runtime work that benefits from the connected machine: exact worktree inspection, browser/UI acceptance, asset inspection, Firebase CLI execution, and other approved external/runtime operations.
 

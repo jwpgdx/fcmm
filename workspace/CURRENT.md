@@ -148,13 +148,20 @@ P1 and HOME-COMP-01 are branch-only and are not evidence that production contain
 - One active mutation owner per worktree/package.
 - Another GPT account must be able to resume from GitHub + Slack without this chat.
 
-## Recommended Codex use
+## Codex use policy
 
-- narrow mechanical work: lowest sufficient reasoning;
-- normal multi-file responsive/interaction/debug work: `gpt-6.1-sol/high`;
-- broad audit, difficult coupled layout/performance investigation, provenance/closeout review, or independent second opinion: `gpt-6.1-sol/xhigh`.
+Codex CLI is optional, not the default execution path.
 
-Do not escalate automatically. Prime chooses the package and effort.
+Prime should do straightforward inspection, decisions, and small edits directly. Use Codex only when at least one of these is true:
+
+- the task is difficult enough that additional reasoning is materially useful;
+- repo-wide/cross-file investigation or coupled debugging would be faster or safer in Codex CLI;
+- a substantial implementation is more efficient to execute/test through the CLI;
+- an independent review materially improves confidence.
+
+When Codex is used, choose the lowest sufficient reasoning effort. Use `gpt-6.1-sol/high` for genuinely nontrivial multi-file work and `gpt-6.1-sol/xhigh` only for reasoning-heavy broad audits, difficult coupled layout/performance investigations, or important independent closeout review.
+
+Do not invoke Codex merely because it is available, and do not escalate automatically. Prime chooses per package.
 
 ## Next safe boundary
 

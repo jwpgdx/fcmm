@@ -126,6 +126,10 @@ Slack channel:
 
 Slack must point to durable Git state; it is never the sole authority for a decision that must survive account/session loss.
 
+## Codex selection during takeover
+
+Do not automatically start a Codex worker when taking over FCMM. First inspect the bounded task directly. Use Codex only when reasoning complexity, repo breadth, implementation/testing efficiency, or the value of an independent review makes it materially better than direct Prime/CoS work. If used, choose the lowest sufficient effort; reserve xhigh for tasks that genuinely need it.
+
 ## Ownership transfer
 
 One active mutation owner per worktree/package. Read-only reviewers may parallel.
