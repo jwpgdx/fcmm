@@ -58,11 +58,20 @@ Already frozen for the current Home package:
 - remove `Main-5` / Run The Line from Home exposure;
 - remove `Main-Lookbook-Test` from Home exposure;
 - preserve both components and their assets;
-- do not perform destructive cleanup from this decision.
+- keep `Marquee-1` / TRACK SESSION as the one retained marquee;
+- remove `Marquee-2` because it repeats Main-3's Essential / Fluid / Adaptive idea;
+- move `Main-4` / SALE directly after Main-3;
+- keep the four-product IVE REI product grid after SALE for now;
+- remove `Grid-3` / Countdown from the Home exit;
+- keep Most Wanted + New Arrival as a two-tile Explore block for now;
+- do not change Main-3 height yet;
+- do not perform destructive cleanup from these exposure/composition decisions.
 
-Current next visible section: `Main-3`.
+Latest Home source commit: `f4536f1c5a04edc1262703c624717f32254e14d9`.
 
-Do not reopen those settled removals unless the user explicitly changes the decision.
+Current next decision: visually review the updated Preview and decide whether Main-3 should be shortened and whether the two-tile Explore block should remain.
+
+Do not reopen settled removals unless the user explicitly changes the decision.
 
 ## Original local worktree: preserve
 
@@ -117,10 +126,10 @@ Use this current preview for user-guided Home composition review:
 
 - channel: `fcmm-home-review`
 - URL: `https://fcmm-app--fcmm-home-review-2fyh4u4b.web.app`
-- deployed source: `c8cfb9e585207b8de60242158cc2553392334151`
-- expiry: 2026-11-05 19:30:45 KST
+- deployed source: `f4536f1c5a04edc1262703c624717f32254e14d9`
+- expiry: 2026-11-05 20:26:57 KST
 
-The first verified preview state has `Main-5` / Run The Line and `Main-Lookbook-Test` removed from Home exposure while their source/assets remain preserved. Rendered verification confirms the Home proceeds from the retained hero/marquee into `Main-3`.
+The current verified preview state has `Main-5`, `Main-Lookbook-Test`, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. SALE now appears before the four-product grid, and the Home exits through the two-tile Most Wanted / New Arrival block.
 
 Update this same preview channel after later approved Home branch changes so the user can keep reviewing one stable URL. Do not confuse this preview with production.
 

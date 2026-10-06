@@ -58,19 +58,36 @@ Current user decision already applied:
 - PRESERVE both components and their assets for possible later reuse;
 - do not treat removal from Home as authorization for destructive cleanup.
 
-Current Home order after that decision:
+Current Home order after the latest portfolio-focused review:
 
 1. `Main-1`
-2. `Marquee-1`
-3. `Main-3`
-4. `Marquee-2`
+2. `Marquee-1` / TRACK SESSION
+3. `Main-3` / Essential · Fluid · Adaptive
+4. `Main-4` / SALE
 5. `ProductList tag="ive-rei"`
-6. `Main-4`
-7. `Grid-Container-1`
+6. `Grid-Container-1` with only Most Wanted + New Arrival
+7. Footer
 
-The Home composition change passed `npm ci`, `npm run build`, and `git diff --check` in GitHub Actions. It has not yet received a focused Home browser acceptance package after the composition is frozen.
+Latest frozen decisions:
 
-The next user-guided decision is the current `Main-3` section ("Essential / Fluid / Adaptive / for Expression"), then the remaining Home sections in order.
+- keep the first TRACK SESSION marquee as the single intermission between Hero and Main-3;
+- remove the second Essential / Fluid / Adaptive marquee because it repeats Main-3 without adding a new design idea;
+- move SALE above the product grid to preserve visual/typographic momentum before the more utilitarian commerce UI;
+- remove the Countdown third tile from the final grid; keep a 2-up Most Wanted + New Arrival exit for now;
+- do not change Main-3 height yet. Judge sequence first, then decide whether Main-3 should be shortened.
+
+The source change is `f4536f1c5a04edc1262703c624717f32254e14d9`.
+
+Verification on the updated preview lineage:
+
+- `npm ci` PASS;
+- `npm run build` PASS;
+- `git diff --check` PASS;
+- Firebase Preview channel update PASS;
+- rendered order verified as Hero → TRACK SESSION → Main-3 → SALE → four products → Most Wanted / New Arrival;
+- no repeated Essential marquee and no Countdown tile are present in the rendered preview.
+
+Next user-guided decision: review this exact Preview visually, especially whether Main-3 still occupies too much vertical space and whether the 2-up final Explore block deserves to remain.
 
 ## Portfolio provenance guard
 
@@ -144,8 +161,8 @@ Firebase Preview channel:
 
 - channel: `fcmm-home-review`
 - URL: `https://fcmm-app--fcmm-home-review-2fyh4u4b.web.app`
-- deployed source: `c8cfb9e585207b8de60242158cc2553392334151`
-- expires: 2026-11-05 19:30:45 KST
+- deployed source: `f4536f1c5a04edc1262703c624717f32254e14d9`
+- expires: 2026-11-05 20:26:57 KST
 
 Preview deployment verification:
 
