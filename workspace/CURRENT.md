@@ -138,6 +138,28 @@ The documentation bootstrap push to main already caused a real successful Fireba
 
 P1 and HOME-COMP-01 are branch-only and are not evidence that production contains those changes. Verify the actual deployed site/runtime independently before any release statement or retry.
 
+### Current Home review preview
+
+Firebase Preview channel:
+
+- channel: `fcmm-home-review`
+- URL: `https://fcmm-app--fcmm-home-review-2fyh4u4b.web.app`
+- deployed source: `c8cfb9e585207b8de60242158cc2553392334151`
+- expires: 2026-11-05 19:30:45 KST
+
+Preview deployment verification:
+
+- exact source built successfully with `npm run build`;
+- `git diff --check` PASS;
+- Firebase preview release completed successfully;
+- rendered Home no longer includes Run The Line or the two-image Lookbook Test block;
+- `Main-1` remains and the next substantive block is `Main-3` ("Essential / Fluid / Adaptive / for Expression");
+- the preview retains the project noindex directives.
+
+Firebase CLI warned that it could not add/sync the preview channel domain with Firebase Auth. The current FCMM login/auth UI is demo-only with no application authentication backend, so this warning is not a blocker for the approved Home visual-review purpose. Do not treat this preview as authentication acceptance evidence.
+
+Production `https://fcmm-app.web.app` was not changed by this preview deployment.
+
 ## Operating model
 
 - Prime / Web GPT: direction, design/product decisions, bounded packages, model/effort, approval, review.

@@ -111,6 +111,19 @@ A docs-only main push can therefore deploy production. Do not use main merely to
 
 P1 and Home branches are not proof of deployed production state. Verify Hosting separately before release/deploy work and after ambiguous output.
 
+### Home visual review preview
+
+Use this current preview for user-guided Home composition review:
+
+- channel: `fcmm-home-review`
+- URL: `https://fcmm-app--fcmm-home-review-2fyh4u4b.web.app`
+- deployed source: `c8cfb9e585207b8de60242158cc2553392334151`
+- expiry: 2026-11-05 19:30:45 KST
+
+The first verified preview state has `Main-5` / Run The Line and `Main-Lookbook-Test` removed from Home exposure while their source/assets remain preserved. Rendered verification confirms the Home proceeds from the retained hero/marquee into `Main-3`.
+
+Update this same preview channel after later approved Home branch changes so the user can keep reviewing one stable URL. Do not confuse this preview with production.
+
 ## Durable evidence
 
 Historical audits:
