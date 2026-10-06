@@ -2,8 +2,6 @@
   <div class="relative w-full">
     <Main-1 />
     <Marquee-1 />
-    <Main-5 />
-    <Main-Lookbook-Test />
     <Main-3 />
     <Marquee-2 />
 
@@ -18,8 +16,6 @@
 import Main1 from './components/Main-1.vue'
 import Main3 from './components/Main-3.vue'
 import Main4 from './components/Main-4.vue'
-import Main5 from './components/Main-5.vue'
-import MainLookbookTest from './components/Main-Lookbook-Test.vue'
 
 import GridContainer1 from './components/Grid-Container-1.vue'
 
