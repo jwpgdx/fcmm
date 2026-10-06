@@ -1,127 +1,174 @@
 # FCMM — Current State
 
-Status date: 2026-10-05 KST
+Status date: 2026-10-06 KST
 
 This is the short moving navigation pointer for FCMM portfolio completion work. It is not a replacement for actual Git/worktree/Firebase state.
 
 ## Repository checkpoints
 
 - Repository: `jwpgdx/fcmm`
-- Primary branch: `main`
-- Last implementation checkpoint before operations bootstrap:
-  `66b088a06088c5fa8b816feb586e5eb8d7a24d8b`
-- Operations foundation checkpoint:
-  `1c922dea35bf49edf0c09063af8062bb4fd7d9d9`
-- The operations foundation adds `AGENTS.md`, this handoff structure, portfolio scope, and Slack coordination policy; it does not change runtime/source behavior.
+- Remote default branch: `main@a65743fc347b736650bdab3a1e2d0b720d0589a7`
+- Verified P1 clean candidate:
+  `fix/fcmm-p1-accuracy-final-20261005@7fcb80fe42346cb8fcf6361d0b8ec94d437183f4`
+- Active portfolio-finishing branch:
+  `feat/fcmm-home-comp-01`
+- Active Home checkpoint before this documentation refresh:
+  `870657b1e2aff4008f6d9e3a31313ebcc1ab8b79`
 
-Always verify actual `HEAD`, `origin/main`, branch, and worktree before mutation.
+The active Home branch descends from the verified P1 candidate. P1 and Home composition changes are not merged into `main`.
+
+Always verify the actual remote branch tip before mutation; the SHA above is a checkpoint, not a guarantee that the branch has not advanced.
 
 ## Current goal
 
-Finish the existing FCMM portfolio build through bounded polish and closeout, not another broad rewrite.
+Finish the existing FCMM portfolio through user-guided Home composition, then complete selected editorial/Featured work, then perform final route/responsive/performance/accessibility acceptance.
 
-The immediate workflow is:
+Do not start another wholesale redesign.
 
-1. reconcile the actual local worktree against remote GitHub;
-2. preserve any intentional local-only asset/font work;
-3. perform a read-only final-polish inventory against the deployed portfolio;
-4. execute one bounded implementation package at a time;
-5. verify desktop/mobile browser behavior for each visual package;
-6. commit/push durable checkpoints;
-7. deploy to Firebase only when explicitly approved;
-8. finish with a separate final portfolio acceptance package.
+## Completed bounded package — P1 accuracy
 
-## Verified project boundary
+The P1 package is implementation-complete on the clean candidate `7fcb80f...`.
 
-At the last repository audit:
+It fixes:
 
-- Vue 3 + Vite 6 + Vue Router + Pinia + Tailwind 3 SPA;
-- static product/content data;
-- cart/wishlist demo state in browser `localStorage`;
-- Firebase Hosting configuration without runtime Firebase application imports;
-- no application backend for ordering/payment/account/inventory/delivery;
-- portfolio site is intentionally non-commercial.
+- explicit product colour-variant routing instead of name-derived target IDs;
+- the V-Neck Sweatshirt spelling issue;
+- the footwear-style size chart being shown for apparel;
+- privacy/terms copy that described unrelated commerce/wedding/account behavior.
 
-Reverify these facts if later code changes affect them.
+Verification already completed on the diagnostic lineage and preserved in the clean candidate tree:
 
-## Product Detail sticky-width fix
+- `npm ci` PASS;
+- `npm run build` PASS;
+- `git diff --check` PASS;
+- 90/90 explicit colour-variant targets valid;
+- focused browser acceptance at 390px and 1440px for the affected product/legal flows.
 
-The Product Detail sticky-width defect was fixed by attaching the real `.sidebar__inner w-full min-w-0` to the DOM-rendered ProductInfo root rather than passing the class to a fragment.
+Do not reimplement P1 unless later source changes invalidate this evidence.
 
-Verified result:
+## Active package — HOME-COMP-01
 
-- previous 768px behavior: static 448.25px -> sticky fixed 384px;
-- fixed 768px behavior: 384px -> 384px;
-- duplicate sticky-sidebar generated wrappers: 11 -> 0;
-- responsive boundary checks were performed at 639/640/641, 767/768/769, 1023/1024/1025, 1279/1280/1281, 1439/1440;
-- the bounded fix was deployed to Firebase Hosting and the deployed 768px result was verified.
+The user is reviewing Home visually and removing weak sections before deeper polish.
 
-## Current deployment evidence
+Current user decision already applied:
+
+- KEEP `Main-1`;
+- REMOVE `Main-5` ("Run The Line") from Home exposure;
+- REMOVE `Main-Lookbook-Test` from Home exposure;
+- PRESERVE both components and their assets for possible later reuse;
+- do not treat removal from Home as authorization for destructive cleanup.
+
+Current Home order after that decision:
+
+1. `Main-1`
+2. `Marquee-1`
+3. `Main-3`
+4. `Marquee-2`
+5. `ProductList tag="ive-rei"`
+6. `Main-4`
+7. `Grid-Container-1`
+
+The Home composition change passed `npm ci`, `npm run build`, and `git diff --check` in GitHub Actions. It has not yet received a focused Home browser acceptance package after the composition is frozen.
+
+The next user-guided decision is the current `Main-3` section ("Essential / Fluid / Adaptive / for Expression"), then the remaining Home sections in order.
+
+## Portfolio provenance guard
+
+Do not conflate commissioned FCMM work with later portfolio extensions.
+
+Current user clarification:
+
+- the project has real commissioned FCMM lineage, including site/UI structure and user design/implementation work;
+- the current portfolio Home banner visual content was created later by the user for portfolio presentation and was not a client-requested deliverable;
+- FCMM did run an IVE REI collaboration/campaign in the relevant brand context, but the user did not design or deliver that campaign/event page as commissioned work;
+- the current IVE REI editorial implementation is a later self-initiated portfolio extension: effectively "how I would have presented the campaign/editorial if I had designed that surface";
+- retaining IVE REI may be useful as a portfolio showcase, but it must not imply campaign creative direction, photography, celebrity collaboration ownership, or commissioned event-page delivery by the user;
+- other Featured/campaign pages must not automatically be claimed as the user's commissioned work without separate evidence.
+
+Use `docs/FCMM_PORTFOLIO_SCOPE.md` as the stable attribution rule.
+
+## Home / Featured audit evidence
+
+Dated audits remain evidence snapshots, not current authority:
+
+- finishing audit:
+  `docs/fcmm-finishing-audit-2026-10-05@15ac5bc9217a71837e287c167d0d13c4c6521412`
+  → `docs/FCMM_FINISHING_AUDIT_2026-10-05.md`
+- Home/Featured audit:
+  `docs/fcmm-home-featured-audit-20261005@dcc4b74713895ccc0008c28ee789a22159fedba4`
+  → `docs/FCMM_HOME_FEATURED_AUDIT_2026-10-05.md`
+
+Those documents contain older "next" instructions. CURRENT supersedes them where work has since completed or the user has made a newer decision.
+
+## Original local worktree custody
+
+Verified through CoS on 2026-10-06:
+
+- path: `/Users/admin/Documents/github/fcmm`
+- branch: `main`
+- local HEAD: `66b088a06088c5fa8b816feb586e5eb8d7a24d8b`
+- after non-destructive fetch, `origin/main`:
+  `a65743fc347b736650bdab3a1e2d0b720d0589a7`
+- local main is behind remote main by two commits;
+- intentional local-only font state is still present:
+  - modified `src/assets/css/fonts.css`;
+  - `GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf`;
+  - `SamsungSSHeadKR-Bold.woff2`;
+  - `SamsungSSHeadKR-Light.woff2`;
+  - `SamsungSSHeadKR-Medium.woff2`;
+  - `SamsungSSHeadKR-Regular.woff2`.
+
+Do not reset, clean, stash, pull over, or overwrite this worktree merely to synchronize it. Prefer an isolated worktree based on the active remote branch for new FCMM packages until the font custody issue is deliberately reconciled.
+
+At the verification time, no FCMM Codex/Vite/Firebase mutation process was active. A separate MOGO Codex process was active and unrelated.
+
+## Deployment / runtime boundary
 
 Portfolio URL:
 
 `https://fcmm-app.web.app`
 
-The deployment that included the Product Detail fix succeeded and returned HTTP 200 for root and Product Detail during that verification.
+Important workflow behavior:
 
-Do not assume future GitHub docs/source commits are deployed merely because `main` moved.
+- pushes to `main` or `master` trigger the Firebase live deployment workflow;
+- same-repository pull requests trigger Firebase preview deployment;
+- ordinary feature-branch pushes without a PR do not trigger those two workflows.
 
-## Local-only state that must be reverified
+The documentation bootstrap push to main already caused a real successful Firebase deployment in GitHub Actions. Therefore "docs only" does not mean "no deploy" on main.
 
-At the last successful local Git check before this operations bootstrap, the public GitHub push intentionally excluded:
-
-- modified `src/assets/css/fonts.css`;
-- `GoogleSansFlex-VariableFont_...` font binary;
-- four `SamsungSSHeadKR-*.woff2` font binaries.
-
-They were excluded because the repository is public and public redistribution permission had not been established. Those font families were only defined and were not observed as active font-family usage at that time.
-
-The local CoS caller identity was unavailable during this 2026-10-05 operations bootstrap, so the current local worktree was not re-read. Do not infer that the above six-file state is still exact. Reverify locally before any edit, cleanup, pull, or commit.
-
-Because this operations bootstrap was committed through the GitHub connector, a local checkout that still points to `66b088a...` may now be behind `origin/main`. Fetch and reconcile non-destructively; do not reset/stash/clean away local work.
-
-## Older audit findings — revalidation required
-
-The 2026-09-30 audit identified these items, but they are not automatically considered still-open after later changes:
-
-- portfolio/legal copy versus commerce-service claims;
-- three derived color target mismatches;
-- IVE REI section 3 missing fallback still;
-- unused/experimental components and stale asset references;
-- large font/media payload;
-- Google Maps placeholder/external-request behavior;
-- full desktop/mobile route regression and scroll/performance checks not yet performed.
-
-Before fixing any item above, inspect the current source/runtime and confirm it still exists.
+P1 and HOME-COMP-01 are branch-only and are not evidence that production contains those changes. Verify the actual deployed site/runtime independently before any release statement or retry.
 
 ## Operating model
 
-- Prime / Web GPT: direction, bounded packages, model/effort, approval, review.
-- Codex CLI: repo-local inspect/implement/test/review/document work.
-- CoS: local worktree, browser/UI acceptance, asset inspection, Firebase/runtime operations.
-- GitHub: durable code/state/handoff authority.
+- Prime / Web GPT: direction, design/product decisions, bounded packages, model/effort, approval, review.
+- Codex CLI: repo-local inspect/implement/test/review work inside a bounded package.
+- CoS: exact local worktree, browser/UI, asset and Firebase/runtime operations.
+- GitHub: durable source/decision/handoff authority.
 - Slack `#fcmm-dev` (`C0C6MCU79J6`): coordination/navigation only.
 - One active mutation owner per worktree/package.
+- Another GPT account must be able to resume from GitHub + Slack without this chat.
 
 ## Recommended Codex use
 
-For FCMM finishing work:
+- narrow mechanical work: lowest sufficient reasoning;
+- normal multi-file responsive/interaction/debug work: `gpt-6.1-sol/high`;
+- broad audit, difficult coupled layout/performance investigation, provenance/closeout review, or independent second opinion: `gpt-6.1-sol/xhigh`.
 
-- narrow mechanical edit: choose the lowest sufficient effort;
-- normal multi-file responsive/interaction/debug package: `gpt-6.1-sol/high`;
-- broad final polish audit, coupled performance/layout investigation, or independent closeout review: `gpt-6.1-sol/xhigh`.
-
-Prime chooses per package; no model/effort choice is permanent.
+Do not escalate automatically. Prime chooses the package and effort.
 
 ## Next safe boundary
 
-First re-establish actual local authority:
+Continue `HOME-COMP-01` with the user, one visible section at a time.
 
-- actual local HEAD / branch / `origin/main` divergence;
-- dirty/untracked state and ownership;
-- whether the local-only font files still exist;
-- any active CoS/Codex/Vite/Firebase process.
+Next section for decision: `Main-3`.
 
-Then perform a **read-only FCMM portfolio finishing audit** against the current source and deployed site. Produce a prioritized, bounded polish list before making broad new changes.
+Do not automatically:
 
-No Firebase deploy, repository-visibility change, licensed-asset upload, destructive cleanup, or unrelated architecture rewrite is implied by this next boundary.
+- re-add Main-5 or Main-Lookbook-Test;
+- delete preserved Home components/assets;
+- start IVE REI redesign before Home composition is decided;
+- merge to `main`;
+- open a PR merely to preview without accounting for Firebase preview deployment;
+- deploy Firebase production.
+
+After Home composition is frozen, run a focused browser acceptance package, then move to the next explicitly chosen editorial/Featured package.

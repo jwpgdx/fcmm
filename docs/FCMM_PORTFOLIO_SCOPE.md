@@ -27,13 +27,27 @@ Firebase is currently used for Hosting configuration; repository/runtime facts m
 
 Do not describe this as a wholly unrelated greenfield redesign if that conflicts with the actual project lineage.
 
-Portfolio copy should distinguish:
+Portfolio copy must distinguish:
 
 - work performed during the commissioned FCMM project;
-- later portfolio-specific refinement or redesign;
+- later portfolio-specific refinement, redesign, or reconstruction;
 - direct user design/implementation work;
 - any external concept/design contribution;
 - any later AI-assisted implementation.
+
+### Explicit current provenance
+
+The following distinctions are frozen unless the user later corrects them:
+
+- the FCMM site/UI work has real commissioned-project lineage;
+- the current portfolio Home banner visual content was created later by the user for portfolio presentation and was not a client-requested deliverable;
+- FCMM did run an IVE REI collaboration/campaign in the relevant brand context, but the user did not design or deliver that campaign/event page as part of the commissioned work;
+- the current IVE REI editorial implementation is a later self-initiated portfolio extension: a demonstration of how the user would have designed/presented that campaign surface;
+- real brand, campaign, celebrity, product, photography, styling, and other supplied assets remain attributable to their respective rights holders/contributors;
+- retaining or featuring IVE REI must not imply that the user owned the celebrity collaboration, campaign creative direction, photography, styling, or original commissioned event-page delivery;
+- other Featured/campaign pages are not automatically evidence of the user's commissioned contribution unless separately supported.
+
+It is acceptable to present commissioned work and later portfolio extensions in the same FCMM case study when the boundary is explicit.
 
 Do not infer unsupported research, performance results, business outcomes, or ownership claims from the codebase.
 
@@ -57,7 +71,12 @@ Large architecture rewrites require an explicit Prime decision.
 
 Firebase Hosting is the presentation runtime.
 
-A successful local build or GitHub push is not equivalent to a Firebase deployment. GitHub source state and deployed Hosting state must be tracked separately.
+Repository automation currently means:
+
+- a push to `main` or `master` triggers live Firebase deployment;
+- a same-repository pull request triggers Firebase preview deployment.
+
+Therefore a documentation-only main push or PR is not operationally neutral. GitHub source state and deployed Hosting state must be tracked separately.
 
 ## Repository visibility
 
