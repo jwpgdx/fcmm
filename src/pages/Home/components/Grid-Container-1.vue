@@ -1,6 +1,6 @@
 <template>
   <div class="relative w-full overflow-hidden">
-    <div class="grid grid-cols-1 gap-0 sm:grid-cols-3">
+    <div class="grid grid-cols-1 gap-0 sm:grid-cols-2">
       <div v-for="(GridComp, index) in grids" :key="index" class="relative">
         <div
           class="block w-full pb-[100%]"
@@ -25,9 +25,8 @@
 <script setup>
 import Grid1 from './Grid-1.vue'
 import Grid2 from './Grid-2.vue'
-import Grid3 from './Grid-3.vue'
 
-const grids = [Grid1, Grid2, Grid3]
+const grids = [Grid1, Grid2]
 </script>
 
 <style scoped>
