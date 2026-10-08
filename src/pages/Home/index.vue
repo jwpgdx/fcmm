@@ -4,7 +4,7 @@
     <Marquee-1 />
     <Main-3 />
 
-    <Ive-Rei-Main />
+    <IveReiMain />
     <ProductList tag="ive-rei" :limit="4" />
 
     <Grid-Container-1 />
