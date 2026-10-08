@@ -92,6 +92,23 @@ Verification on the updated preview lineage:
 
 Next user-guided decision: review this exact Preview visually, especially whether Main-3 still occupies too much vertical space and whether the 2-up final Explore block deserves to remain.
 
+## Hero performance audit — ready for bounded implementation
+
+A read-only/local-only Hero audit is recorded at:
+
+`docs/FCMM_HERO_PERFORMANCE_AUDIT_2026-10-08.md`
+
+Key result:
+
+- current `Main-1.vue` uses three synchronized Swiper instances;
+- Home Hero can reproduce the required 3-slide layered visual, 4s autoplay, pointer swipe and pagination without Swiper;
+- local proof build reduced the large initial/home JS chunk from 272.15 kB / 94.18 kB gzip to 168.04 kB / 63.36 kB gzip;
+- Hero's six active layer images total about 2.65 MiB, so later-slide image deferral should accompany the native carousel rewrite;
+- Swiper remains needed on other lazy routes, so this does not authorize removing the dependency project-wide;
+- the local proof was discarded and is not implementation authority.
+
+Next safe implementation package if the user approves: `HOME-HERO-NATIVE-01`, preserving the current visual/art direction and changing only the Hero carousel implementation/performance boundary.
+
 ## Portfolio provenance guard
 
 Do not conflate commissioned FCMM work with later portfolio extensions.
