@@ -1,6 +1,6 @@
 # FCMM — Durable Handoff
 
-Status date: 2026-10-06 KST
+Status date: 2026-10-08 KST
 
 This file defines takeover procedure for a new ChatGPT/Prime session, CoS session, Codex CLI worker, account, or operator. The goal is that another GPT account can continue from GitHub + Slack without relying on the prior chat transcript.
 
@@ -60,14 +60,15 @@ Already frozen for the current Home package:
 - preserve both components and their assets;
 - keep `Marquee-1` / TRACK SESSION as the one retained marquee;
 - remove `Marquee-2` because it repeats Main-3's Essential / Fluid / Adaptive idea;
-- move `Main-4` / SALE directly after Main-3;
-- keep the four-product IVE REI product grid after SALE for now;
+- remove `Main-4` / SALE from Home exposure and preserve it;
+- reuse the existing IVE REI campaign main visual directly after Main-3;
+- keep four existing `ive-rei` ProductList cards immediately under that campaign visual;
 - remove `Grid-3` / Countdown from the Home exit;
 - keep Most Wanted + New Arrival as a two-tile Explore block for now;
 - do not change Main-3 height yet;
 - do not perform destructive cleanup from these exposure/composition decisions.
 
-Latest Home source commit: `f4536f1c5a04edc1262703c624717f32254e14d9`.
+Latest Home source commit: `ef957bbfd1333b6e2e0451e63036344baeedbc31`.
 
 Current next decision: visually review the updated Preview and decide whether Main-3 should be shortened and whether the two-tile Explore block should remain.
 
@@ -126,10 +127,10 @@ Use this current preview for user-guided Home composition review:
 
 - channel: `fcmm-home-review`
 - URL: `https://fcmm-app--fcmm-home-review-2fyh4u4b.web.app`
-- deployed source: `f4536f1c5a04edc1262703c624717f32254e14d9`
-- expiry: 2026-11-05 20:26:57 KST
+- deployed source: `ef957bbfd1333b6e2e0451e63036344baeedbc31`
+- expiry: 2026-11-07 19:46:39 KST
 
-The current verified preview state has `Main-5`, `Main-Lookbook-Test`, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. SALE now appears before the four-product grid, and the Home exits through the two-tile Most Wanted / New Arrival block.
+The current verified preview state has `Main-5`, `Main-Lookbook-Test`, `Main-4` / SALE, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. The existing IVE REI campaign main visual now appears directly before the four IVE REI products, and the Home exits through the two-tile Most Wanted / New Arrival block.
 
 Update this same preview channel after later approved Home branch changes so the user can keep reviewing one stable URL. Do not confuse this preview with production.
 

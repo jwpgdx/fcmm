@@ -1,6 +1,6 @@
 # FCMM — Current State
 
-Status date: 2026-10-06 KST
+Status date: 2026-10-08 KST
 
 This is the short moving navigation pointer for FCMM portfolio completion work. It is not a replacement for actual Git/worktree/Firebase state.
 
@@ -63,8 +63,8 @@ Current Home order after the latest portfolio-focused review:
 1. `Main-1`
 2. `Marquee-1` / TRACK SESSION
 3. `Main-3` / Essential · Fluid · Adaptive
-4. `Main-4` / SALE
-5. `ProductList tag="ive-rei"`
+4. existing `IVE REI` campaign main visual
+5. `ProductList tag="ive-rei"` with four REI products directly below the campaign visual
 6. `Grid-Container-1` with only Most Wanted + New Arrival
 7. Footer
 
@@ -72,11 +72,13 @@ Latest frozen decisions:
 
 - keep the first TRACK SESSION marquee as the single intermission between Hero and Main-3;
 - remove the second Essential / Fluid / Adaptive marquee because it repeats Main-3 without adding a new design idea;
-- move SALE above the product grid to preserve visual/typographic momentum before the more utilitarian commerce UI;
+- remove `Main-4` / SALE from Home exposure and preserve its source/assets;
+- reuse the existing IVE REI campaign main visual on Home rather than inventing a new campaign section;
+- keep the existing four IVE REI-tagged products directly under that campaign visual so the two read as one editorial/product block;
 - remove the Countdown third tile from the final grid; keep a 2-up Most Wanted + New Arrival exit for now;
-- do not change Main-3 height yet. Judge sequence first, then decide whether Main-3 should be shortened.
+- do not change Main-3 height yet. Judge the current sequence first, then decide whether Main-3 should be shortened.
 
-The source change is `f4536f1c5a04edc1262703c624717f32254e14d9`.
+The latest Home source commit is `ef957bbfd1333b6e2e0451e63036344baeedbc31`.
 
 Verification on the updated preview lineage:
 
@@ -84,8 +86,9 @@ Verification on the updated preview lineage:
 - `npm run build` PASS;
 - `git diff --check` PASS;
 - Firebase Preview channel update PASS;
-- rendered order verified as Hero → TRACK SESSION → Main-3 → SALE → four products → Most Wanted / New Arrival;
-- no repeated Essential marquee and no Countdown tile are present in the rendered preview.
+- rendered preview contains the IVE REI campaign `main-01.webp` asset immediately before the four REI product cards;
+- SALE copy is absent from the rendered Home;
+- no repeated Essential marquee and no Countdown tile are present.
 
 Next user-guided decision: review this exact Preview visually, especially whether Main-3 still occupies too much vertical space and whether the 2-up final Explore block deserves to remain.
 
@@ -161,16 +164,17 @@ Firebase Preview channel:
 
 - channel: `fcmm-home-review`
 - URL: `https://fcmm-app--fcmm-home-review-2fyh4u4b.web.app`
-- deployed source: `f4536f1c5a04edc1262703c624717f32254e14d9`
-- expires: 2026-11-05 20:26:57 KST
+- deployed source: `ef957bbfd1333b6e2e0451e63036344baeedbc31`
+- expires: 2026-11-07 19:46:39 KST
 
 Preview deployment verification:
 
 - exact source built successfully with `npm run build`;
 - `git diff --check` PASS;
 - Firebase preview release completed successfully;
-- rendered Home no longer includes Run The Line or the two-image Lookbook Test block;
-- `Main-1` remains and the next substantive block is `Main-3` ("Essential / Fluid / Adaptive / for Expression");
+- rendered Home no longer includes Run The Line, the two-image Lookbook Test block, SALE, the repeated Essential marquee, or the Countdown tile;
+- `Main-1` remains, followed by TRACK SESSION and `Main-3`;
+- the existing IVE REI campaign main visual now sits directly above four IVE REI products;
 - the preview retains the project noindex directives.
 
 Firebase CLI warned that it could not add/sync the preview channel domain with Firebase Auth. The current FCMM login/auth UI is demo-only with no application authentication backend, so this warning is not a blocker for the approved Home visual-review purpose. Do not treat this preview as authentication acceptance evidence.
