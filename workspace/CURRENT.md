@@ -79,7 +79,7 @@ Latest frozen decisions:
 - remove the Countdown third tile from the final grid; keep a 2-up Most Wanted + New Arrival exit for now;
 - do not change Main-3 height yet. Judge the current sequence first, then decide whether Main-3 should be shortened.
 
-The latest Home source commit is `b137c0456d653969f942b9f988f7a1d5d199146d`.
+The latest Home source commit is `2aaa46860bce0d449b7b17da15ca7bc2cfffcafb`.
 
 Verification on the updated preview lineage:
 
@@ -94,9 +94,10 @@ Verification on the updated preview lineage:
 - the two floating Main-3 objects now use requestAnimationFrame + frame-rate-adjusted lerp smoothing rather than rendering the raw scroll target directly;
 - deployed-browser verification after an abrupt scroll showed both floating transforms converging continuously across 12 sampled animation frames instead of jumping to the final target in one frame;
 - local directional scroll check with smoothing remained lightweight (TaskDuration 0.546s, RecalcStyleDuration 0.129s) with zero runtime errors;
-- Main-3 large text no longer waits on the previous element-visibility observer timing. It now reveals once when the Main-3 section top crosses 88% of the viewport height;
+- Main-3 large text no longer waits on the previous element-visibility observer timing. It reveals when Main-3 enters near the lower viewport, resets after the section leaves the viewport, and replays on re-entry;
 - Main-3 AnimatedText timing is 480ms with 2px initial blur and 0/100/200/300ms word staggering, while other AnimatedText users retain the existing 700ms / 4px defaults;
 - deployed-browser wheel verification: text starts hidden at section entry, begins reveal after the first ~150px wheel movement, and settles to opacity 1 / blur 0; runtime errors 0;
+- repeat-cycle QA: hidden → reveal → offscreen reset → re-entry reveal completed with zero runtime errors;
 - 390px Main-3 browser QA: no horizontal overflow and no runtime errors;
 - no repeated Essential marquee and no Countdown tile are present.
 
@@ -208,17 +209,17 @@ Firebase Preview channel:
 
 - channel: `fcmm-home-review-v2`
 - URL: `https://fcmm-app--fcmm-home-review-v2-w8rzrimt.web.app`
-- deployed source: `b137c0456d653969f942b9f988f7a1d5d199146d`
-- expires: 2026-12-20 02:21:50 KST
+- deployed source: `2aaa46860bce0d449b7b17da15ca7bc2cfffcafb`
+- expires: 2026-12-20 02:41:22 KST
 
 Preview deployment verification:
 
 - exact source rebuilt successfully with `npm run build` on 2026-11-19;
 - `git diff --check` PASS;
 - a fresh Preview channel URL was created after stale-cache confusion on the prior stable URL, and the release completed successfully;
-- rendered Home no longer includes Run The Line, the two-image Lookbook Test block, SALE, the repeated Essential marquee, or the Countdown tile;
+- rendered Home no longer includes Run The Line, the two-image Lookbook Test block, the repeated Essential marquee, or the Countdown tile;
 - `Main-1` remains, followed by TRACK SESSION and `Main-3`;
-- the existing IVE REI campaign main visual now sits directly above four IVE REI products;
+- `Main-3` is the Home IVE REI campaign/editorial block, followed by four IVE REI products and then SALE;
 - the preview retains the project noindex directives.
 
 Firebase CLI warned that it could not add/sync the preview channel domain with Firebase Auth. The current FCMM login/auth UI is demo-only with no application authentication backend, so this warning is not a blocker for the approved Home visual-review purpose. Do not treat this preview as authentication acceptance evidence.
