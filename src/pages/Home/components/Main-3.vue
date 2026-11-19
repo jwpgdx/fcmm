@@ -48,7 +48,7 @@
     <div
       class="absolute left-[0%] top-[104%] z-[5] sm:left-[18%] sm:top-[84%]"
       :style="{
-        transform: `translateY(${parallax1}px)`,
+        transform: `translateY(${smoothParallax1}px)`,
       }"
     >
       <img
@@ -62,7 +62,7 @@
     <div
       class="absolute right-0 top-[104%] z-[5] sm:right-[16%] sm:top-[84%]"
       :style="{
-        transform: `translateY(${parallax2}px)`,
+        transform: `translateY(${smoothParallax2}px)`,
       }"
     >
       <img
@@ -138,7 +138,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import {
   useElementBounding,
   useElementVisibility,
@@ -210,6 +210,82 @@ const parallax2 = computed(
     floating2TravelRatio *
     clamp((componentScrollProgress.value - floating2ProgressDelay) / (1 - floating2ProgressDelay)),
 )
+
+const smoothParallax1 = ref(0)
+const smoothParallax2 = ref(0)
+const targetParallax1 = ref(0)
+const targetParallax2 = ref(0)
+
+let smoothingFrame = null
+let previousFrameTime = 0
+let hasInitialParallax = false
+let reduceMotion = false
+
+const stopSmoothing = () => {
+  if (smoothingFrame !== null) {
+    cancelAnimationFrame(smoothingFrame)
+    smoothingFrame = null
+  }
+}
+
+const runSmoothing = (time) => {
+  const frameMs = previousFrameTime ? Math.min(time - previousFrameTime, 32) : 16.67
+  previousFrameTime = time
+
+  // 60fps 기준 약 18%씩 목표값을 따라간다.
+  // 프레임 간격이 달라도 체감 속도가 크게 변하지 않도록 보정한다.
+  const alpha = 1 - Math.pow(1 - 0.18, frameMs / 16.67)
+
+  smoothParallax1.value +=
+    (targetParallax1.value - smoothParallax1.value) * alpha
+  smoothParallax2.value +=
+    (targetParallax2.value - smoothParallax2.value) * alpha
+
+  const settled1 = Math.abs(targetParallax1.value - smoothParallax1.value) < 0.1
+  const settled2 = Math.abs(targetParallax2.value - smoothParallax2.value) < 0.1
+
+  if (settled1 && settled2) {
+    smoothParallax1.value = targetParallax1.value
+    smoothParallax2.value = targetParallax2.value
+    smoothingFrame = null
+    previousFrameTime = 0
+    return
+  }
+
+  smoothingFrame = requestAnimationFrame(runSmoothing)
+}
+
+const scheduleSmoothing = () => {
+  if (reduceMotion) {
+    stopSmoothing()
+    smoothParallax1.value = targetParallax1.value
+    smoothParallax2.value = targetParallax2.value
+    return
+  }
+
+  if (smoothingFrame === null) {
+    previousFrameTime = 0
+    smoothingFrame = requestAnimationFrame(runSmoothing)
+  }
+}
+
+watch(
+  [parallax1, parallax2],
+  ([nextParallax1, nextParallax2]) => {
+    targetParallax1.value = nextParallax1
+    targetParallax2.value = nextParallax2
+
+    if (!hasInitialParallax) {
+      smoothParallax1.value = nextParallax1
+      smoothParallax2.value = nextParallax2
+      hasInitialParallax = true
+      return
+    }
+
+    scheduleSmoothing()
+  },
+  { immediate: true },
+)
 const backgroundParallaxY = computed(
   () => -sectionHeight.value * backgroundTravelRatio * componentScrollProgress.value,
 )
@@ -280,6 +356,12 @@ function getRandomImages(count) {
 }
 
 const floatingImages = ref(getRandomImages(2))
+
+onMounted(() => {
+  reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+})
+
+onBeforeUnmount(stopSmoothing)
 </script>
 
 <style scoped>
