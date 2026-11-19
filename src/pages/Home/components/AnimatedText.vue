@@ -1,12 +1,16 @@
 <template>
   <div
     :class="[
-      'transition-all duration-700 text-[#00ff00]',
+      'transition-[transform,opacity,filter,color] text-[#00ff00]',
       isVisible
-        ? `translate-y-0 opacity-100 ${visibleTextClass} blur-0`
-        : 'translate-y-8 opacity-0 blur-sm',
+        ? `translate-y-0 opacity-100 ${visibleTextClass}`
+        : 'translate-y-8 opacity-0',
     ]"
-    :style="{ transitionDelay: `${delay}ms` }"
+    :style="{
+      transitionDelay: `${delay}ms`,
+      transitionDuration: `${duration}ms`,
+      filter: isVisible ? 'blur(0px)' : `blur(${hiddenBlurPx}px)`,
+    }"
   >
     <slot></slot> </div>
 </template>
@@ -20,6 +24,14 @@ defineProps({
   delay: {
     type: Number,
     default: 0,
+  },
+  duration: {
+    type: Number,
+    default: 700,
+  },
+  hiddenBlurPx: {
+    type: Number,
+    default: 4,
   },
   visibleTextClass: {
     type: String,

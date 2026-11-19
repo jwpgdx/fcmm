@@ -72,7 +72,6 @@
       />
     </div>
     <div
-      ref="containerRef"
       class="group container relative left-0 top-0 z-[2] flex cursor-pointer flex-col items-center justify-center gap-[5vw] pt-[10vw] sm:absolute sm:items-start sm:gap-6 sm:py-12"
     >
       <div
@@ -81,6 +80,8 @@
         <AnimatedText
           :isVisible="isVisible"
           :delay="0"
+          :duration="480"
+          :hiddenBlurPx="2"
           visibleTextClass="text-black"
           class="flex items-center gap-1 sm:gap-2"
         >
@@ -89,7 +90,9 @@
 
         <AnimatedText
           :isVisible="isVisible"
-          :delay="200"
+          :delay="100"
+          :duration="480"
+          :hiddenBlurPx="2"
           visibleTextClass="text-black"
           class="flex items-center gap-1 sm:gap-2"
         >
@@ -98,7 +101,9 @@
 
         <AnimatedText
           :isVisible="isVisible"
-          :delay="400"
+          :delay="200"
+          :duration="480"
+          :hiddenBlurPx="2"
           visibleTextClass="text-black"
           class="flex items-center gap-1 sm:gap-2"
         >
@@ -108,7 +113,9 @@
         <AnimatedText
           class="hidden sm:block"
           :isVisible="isVisible"
-          :delay="600"
+          :delay="300"
+          :duration="480"
+          :hiddenBlurPx="2"
           visibleTextClass="text-black"
           >for Expression</AnimatedText
         >
@@ -141,16 +148,11 @@
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import {
   useElementBounding,
-  useElementVisibility,
   useWindowSize,
 } from '@vueuse/core'
 import AnimatedText from './AnimatedText.vue'
 
 const sectionRef = ref(null)
-const containerRef = ref(null)
-const isVisible = useElementVisibility(containerRef, {
-  threshold: 0.8, // 화면에 50% 이상 보이면 true
-})
 
 const { top, height: sectionHeight } = useElementBounding(sectionRef)
 const { height: windowHeight } = useWindowSize()
@@ -199,6 +201,29 @@ const componentScrollProgress = computed(() => {
 
   return clamp((start - top.value) / (start - end))
 })
+
+const isVisible = ref(false)
+let textRevealFrame = null
+
+const updateTextReveal = () => {
+  if (isVisible.value || !sectionRef.value) return
+
+  const rect = sectionRef.value.getBoundingClientRect()
+  const revealLine = window.innerHeight * 0.88
+
+  if (rect.top <= revealLine && rect.bottom >= 0) {
+    isVisible.value = true
+  }
+}
+
+const scheduleTextRevealUpdate = () => {
+  if (isVisible.value || textRevealFrame !== null) return
+
+  textRevealFrame = requestAnimationFrame(() => {
+    textRevealFrame = null
+    updateTextReveal()
+  })
+}
 
 // Main-3 섹션 안에서 움직인 스크롤 양만 사용
 const parallax1 = computed(
@@ -359,9 +384,22 @@ const floatingImages = ref(getRandomImages(2))
 
 onMounted(() => {
   reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  window.addEventListener('scroll', scheduleTextRevealUpdate, { passive: true })
+  window.addEventListener('resize', scheduleTextRevealUpdate)
+  requestAnimationFrame(updateTextReveal)
 })
 
-onBeforeUnmount(stopSmoothing)
+onBeforeUnmount(() => {
+  stopSmoothing()
+
+  if (textRevealFrame !== null) {
+    cancelAnimationFrame(textRevealFrame)
+    textRevealFrame = null
+  }
+
+  window.removeEventListener('scroll', scheduleTextRevealUpdate)
+  window.removeEventListener('resize', scheduleTextRevealUpdate)
+})
 </script>
 
 <style scoped>
