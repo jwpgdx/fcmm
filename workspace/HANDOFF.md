@@ -130,7 +130,23 @@ Workflow behavior:
 
 A docs-only main push can therefore deploy production. Do not use main merely to make handoff docs visible.
 
-P1 and Home branches are not proof of deployed production state. Verify Hosting separately before release/deploy work and after ambiguous output.
+P1 and the current Home runtime package were promoted to production on 2026-11-20 KST. Future branch commits are not proof of deployed production state; verify Hosting separately before later release/deploy work and after ambiguous output.
+
+### Current production
+
+- URL: `https://fcmm-app.web.app`
+- deployed source: `9faaf02b69a11e1611a3383281d556c7c6160bf3`
+- GitHub Actions run: `44581264699`
+- workflow: `Deploy to Firebase Hosting on merge`
+- conclusion: success
+
+Focused live QA after deployment:
+
+- production asset matches the release candidate (`assets/index-BpWUNhWr.js`);
+- Main-3 repeat reveal works on production: hidden → reveal → reset → re-entry reveal;
+- production DOM contains SALE, four IVE REI products, Most Wanted and New Arrival;
+- no separately-added `feature/ive-rei/*` campaign block remains on Home;
+- focused runtime/console errors: 0.
 
 ### Home visual review preview
 
@@ -143,7 +159,7 @@ Use this current fresh-cache preview for user-guided Home composition review:
 
 The current verified preview state has `Main-5`, `Main-Lookbook-Test`, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. `Main-3` is the one Home IVE REI campaign/editorial block, followed directly by the four IVE REI products. `Main-4` / SALE comes after that product row. The separately-added `IveReiMain` block was removed from Home after confirming it duplicated the campaign concept already represented by Main-3. The original `ive-rei-main.vue` component was restored for the Featured detail page. The Home exits through the two-tile Most Wanted / New Arrival block.
 
-Prefer this v2 preview for the current review because the prior channel URL had cache ambiguity during the duplicate-REI correction. Do not confuse this preview with production.
+The v2 preview remains useful for future branch review, but the reviewed runtime through `9faaf02b69a11e1611a3383281d556c7c6160bf3` is now also live in production. Do not assume later preview-only commits are deployed.
 
 ## Durable evidence
 

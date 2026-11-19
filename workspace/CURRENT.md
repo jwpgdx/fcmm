@@ -201,7 +201,7 @@ Important workflow behavior:
 
 The documentation bootstrap push to main already caused a real successful Firebase deployment in GitHub Actions. Therefore "docs only" does not mean "no deploy" on main.
 
-P1 and HOME-COMP-01 are branch-only and are not evidence that production contains those changes. Verify the actual deployed site/runtime independently before any release statement or retry.
+P1 and the current HOME-COMP-01 runtime changes were promoted to production on 2026-11-20 KST. Future branch work is not evidence of production state; verify Hosting independently before any later release statement or retry.
 
 ### Current Home review preview
 
@@ -224,7 +224,24 @@ Preview deployment verification:
 
 Firebase CLI warned that it could not add/sync the preview channel domain with Firebase Auth. The current FCMM login/auth UI is demo-only with no application authentication backend, so this warning is not a blocker for the approved Home visual-review purpose. Do not treat this preview as authentication acceptance evidence.
 
-Production `https://fcmm-app.web.app` was not changed by this preview deployment.
+### Production release
+
+Production URL:
+
+- `https://fcmm-app.web.app`
+- deployed source: `9faaf02b69a11e1611a3383281d556c7c6160bf3`
+- GitHub Actions run: `44581264699` — `Deploy to Firebase Hosting on merge` — success
+
+Release verification on 2026-11-20 KST:
+
+- `origin/main` fast-forwarded from `a65743fc347b736650bdab3a1e2d0b720d0589a7` to `9faaf02b69a11e1611a3383281d556c7c6160bf3`;
+- clean release worktree `npm ci` PASS;
+- clean release worktree `npm run build` PASS;
+- GitHub Actions build PASS and Firebase live deploy PASS;
+- production serves `assets/index-BpWUNhWr.js`, matching the release candidate;
+- production DOM has one SALE visual, four IVE REI product links, one Most Wanted link, one New Arrival link, and zero separately-added `feature/ive-rei/*` campaign blocks;
+- production Main-3 repeat-cycle QA verified hidden → reveal → reset → re-entry reveal;
+- production runtime errors observed during the focused browser smoke test: 0.
 
 ## Operating model
 
