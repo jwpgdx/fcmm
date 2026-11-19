@@ -49,7 +49,6 @@
       class="absolute left-[0%] top-[104%] z-[5] sm:left-[18%] sm:top-[84%]"
       :style="{
         transform: `translateY(${parallax1}px)`,
-        transition: 'transform 0.05s linear',
       }"
     >
       <img
@@ -64,7 +63,6 @@
       class="absolute right-0 top-[104%] z-[5] sm:right-[16%] sm:top-[84%]"
       :style="{
         transform: `translateY(${parallax2}px)`,
-        transition: 'transform 0.05s linear',
       }"
     >
       <img
@@ -179,18 +177,14 @@ const plantLeftTravelRatio = 0.14
 const plantLeftFrontTravelRatio = 0.22
 // 오른쪽 식물 이동량: 왼쪽과 다른 속도로 움직여 깊이감을 만듦
 const plantRightTravelRatio = 0.18
-// 뒤쪽 식물 애니메이션: 스크롤될수록 작아지고 흐려지며 뒤로 빠지는 느낌
+// 뒤쪽 식물 애니메이션: 스크롤될수록 작아지고 뒤로 빠지는 느낌
 const plantBackStartScale = 1.04
 const plantBackEndScale = 0.86
-const plantBackStartBlur = 0
-const plantBackEndBlur = 1.4
 const plantBackStartOpacity = 1
 const plantBackEndOpacity = 0.88
-// 앞쪽 흐림 식물 애니메이션: 렌즈 앞 잎처럼 시작부터 살짝 흐리고, 끝에서 더 흐려짐
+// 앞쪽 식물 애니메이션
 const plantFrontStartScale = 1.16
 const plantFrontEndScale = 0.96
-const plantFrontStartBlur = 1.4
-const plantFrontEndBlur = 3
 const plantFrontStartOpacity = 0.9
 const plantFrontEndOpacity = 0.78
 
@@ -234,17 +228,11 @@ const plantRightParallaxY = computed(
 const plantBackScale = computed(() =>
   lerp(plantBackStartScale, plantBackEndScale, componentScrollProgress.value),
 )
-const plantBackBlur = computed(() =>
-  `${lerp(plantBackStartBlur, plantBackEndBlur, componentScrollProgress.value).toFixed(2)}px`,
-)
 const plantBackOpacity = computed(() =>
   lerp(plantBackStartOpacity, plantBackEndOpacity, componentScrollProgress.value),
 )
 const plantFrontScale = computed(() =>
   lerp(plantFrontStartScale, plantFrontEndScale, componentScrollProgress.value),
-)
-const plantFrontBlur = computed(() =>
-  `${lerp(plantFrontStartBlur, plantFrontEndBlur, componentScrollProgress.value).toFixed(2)}px`,
 )
 const plantFrontOpacity = computed(() =>
   lerp(plantFrontStartOpacity, plantFrontEndOpacity, componentScrollProgress.value),
@@ -253,37 +241,32 @@ const plantFrontOpacity = computed(() =>
 const backgroundLayerStyle = computed(() => ({
   transform: `translateY(${backgroundParallaxY.value}px) scale(${backgroundScale})`,
   transformOrigin: 'center center',
-  transition: 'transform 0.05s linear',
 }))
 
 const personLayerStyle = computed(() => ({
   transform: `scale(${personScale.value})`,
   transformOrigin: 'center bottom',
-  transition: 'transform 0.05s linear',
 }))
 
 const plantLeftLayerStyle = computed(() => ({
   transform: `translateY(${plantLeftParallaxY.value}px) scale(${plantBackScale.value})`,
   transformOrigin: 'left bottom',
-  filter: `blur(${plantBackBlur.value})`,
+  filter: 'blur(0.7px)',
   opacity: plantBackOpacity.value,
-  transition: 'transform 0.05s linear, filter 0.05s linear, opacity 0.05s linear',
 }))
 
 const plantLeftFrontLayerStyle = computed(() => ({
   transform: `translateY(${plantLeftFrontParallaxY.value}px) scale(${plantFrontScale.value})`,
   transformOrigin: 'left top',
-  filter: `blur(${plantFrontBlur.value})`,
+  filter: 'blur(2px)',
   opacity: plantFrontOpacity.value,
-  transition: 'transform 0.05s linear, filter 0.05s linear, opacity 0.05s linear',
 }))
 
 const plantRightLayerStyle = computed(() => ({
   transform: `translateY(${plantRightParallaxY.value}px) scale(${plantBackScale.value})`,
   transformOrigin: 'right bottom',
-  filter: `blur(${plantBackBlur.value})`,
+  filter: 'blur(0.7px)',
   opacity: plantBackOpacity.value,
-  transition: 'transform 0.05s linear, filter 0.05s linear, opacity 0.05s linear',
 }))
 
 function getRandomImages(count) {
