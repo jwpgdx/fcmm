@@ -79,7 +79,7 @@ Latest frozen decisions:
 - remove the Countdown third tile from the final grid; keep a 2-up Most Wanted + New Arrival exit for now;
 - do not change Main-3 height yet. Judge the current sequence first, then decide whether Main-3 should be shortened.
 
-The latest Home source commit is `b18380c1301629c0229071ef08b488b1eca0e6c4`.
+The latest Home source commit is `e1add93d088984bb25066ea062ad9c71d87b2c4c`.
 
 Verification on the updated preview lineage:
 
@@ -91,6 +91,9 @@ Verification on the updated preview lineage:
 - browser verification found zero `feature/ive-rei/*` campaign image elements on Home, confirming that the separately-added IVE REI main block is gone;
 - Main-3 performance polish removed the 0.05s transitions from scroll-driven transforms and replaced scroll-varying blur values with fixed blur values, preserving the composition while reducing per-scroll style work;
 - directional 150-step headless-Chrome comparison: TaskDuration 1.270s → 0.765s (~40% lower) and RecalcStyleDuration 0.242s → 0.140s (~42% lower);
+- the two floating Main-3 objects now use requestAnimationFrame + frame-rate-adjusted lerp smoothing rather than rendering the raw scroll target directly;
+- deployed-browser verification after an abrupt scroll showed both floating transforms converging continuously across 12 sampled animation frames instead of jumping to the final target in one frame;
+- local directional scroll check with smoothing remained lightweight (TaskDuration 0.546s, RecalcStyleDuration 0.129s) with zero runtime errors;
 - 390px Main-3 browser QA: no horizontal overflow and no runtime errors;
 - no repeated Essential marquee and no Countdown tile are present.
 
@@ -202,8 +205,8 @@ Firebase Preview channel:
 
 - channel: `fcmm-home-review-v2`
 - URL: `https://fcmm-app--fcmm-home-review-v2-w8rzrimt.web.app`
-- deployed source: `b18380c1301629c0229071ef08b488b1eca0e6c4`
-- expires: 2026-12-20 01:53:23 KST
+- deployed source: `e1add93d088984bb25066ea062ad9c71d87b2c4c`
+- expires: 2026-12-20 02:09:15 KST
 
 Preview deployment verification:
 
