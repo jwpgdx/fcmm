@@ -62,25 +62,24 @@ Current Home order after the latest portfolio-focused review:
 
 1. `Main-1`
 2. `Marquee-1` / TRACK SESSION
-3. `Main-3` / Essential · Fluid · Adaptive
-4. `Main-4` / SALE
-5. existing `IVE REI` campaign main visual
-6. `ProductList tag="ive-rei"` with four REI products directly below the campaign visual
-7. `Grid-Container-1` with only Most Wanted + New Arrival
-8. Footer
+3. `Main-3` / IVE REI campaign editorial (Essential · Fluid · Adaptive)
+4. `ProductList tag="ive-rei"` with four REI products directly below Main-3
+5. `Main-4` / SALE
+6. `Grid-Container-1` with only Most Wanted + New Arrival
+7. Footer
 
 Latest frozen decisions:
 
 - keep the first TRACK SESSION marquee as the single intermission between Hero and Main-3;
 - remove the second Essential / Fluid / Adaptive marquee because it repeats Main-3 without adding a new design idea;
-- keep `Main-4` / SALE directly after Main-3;
-- keep the existing IVE REI campaign main visual after SALE;
-- render the IVE REI campaign hero from `index.webp` only; the previous `main-01.webp` foreground duplicated the same model and has been removed from this Home-visible component;
-- keep the existing four IVE REI-tagged products directly under that campaign visual so the two read as one editorial/product block;
+- treat `Main-3` itself as the Home IVE REI campaign/editorial block; its Essential / Fluid / Adaptive language and `main-3-*` visual system are reused by the IVE REI detail implementation;
+- do not render a separate `IveReiMain` on Home;
+- keep the existing four IVE REI-tagged products directly under Main-3 so the campaign/editorial block flows into its products;
+- keep `Main-4` / SALE after that four-product REI row;
 - remove the Countdown third tile from the final grid; keep a 2-up Most Wanted + New Arrival exit for now;
 - do not change Main-3 height yet. Judge the current sequence first, then decide whether Main-3 should be shortened.
 
-The latest Home source commit is `f2525491ae2d1492af26fc62141b2ccec182badd`.
+The latest Home source commit is `7a465bd69060d4af1e1a8104a0169ea7d703804f`.
 
 Verification on the updated preview lineage:
 
@@ -88,8 +87,8 @@ Verification on the updated preview lineage:
 - `npm run build` PASS;
 - `git diff --check` PASS;
 - Firebase Preview channel update PASS;
-- rendered preview contains SALE, followed by one IVE REI campaign visual and then the four REI product cards;
-- browser verification found one `.background-img` and zero `main-01.webp` foreground image elements in the campaign block;
+- rendered preview contains Main-3, then the four IVE REI product cards, then SALE;
+- browser verification found zero `feature/ive-rei/*` campaign image elements on Home, confirming that the separately-added IVE REI main block is gone;
 - no repeated Essential marquee and no Countdown tile are present.
 
 Next user-guided decision: review this exact Preview visually, especially whether Main-3 still occupies too much vertical space and whether the 2-up final Explore block deserves to remain.
@@ -198,16 +197,16 @@ P1 and HOME-COMP-01 are branch-only and are not evidence that production contain
 
 Firebase Preview channel:
 
-- channel: `fcmm-home-review`
-- URL: `https://fcmm-app--fcmm-home-review-njhbtw9x.web.app`
-- deployed source: `f2525491ae2d1492af26fc62141b2ccec182badd`
-- expires: 2026-12-20 01:14:17 KST
+- channel: `fcmm-home-review-v2`
+- URL: `https://fcmm-app--fcmm-home-review-v2-w8rzrimt.web.app`
+- deployed source: `7a465bd69060d4af1e1a8104a0169ea7d703804f`
+- expires: 2026-12-20 01:26:18 KST
 
 Preview deployment verification:
 
 - exact source rebuilt successfully with `npm run build` on 2026-11-19;
 - `git diff --check` PASS;
-- Firebase preview channel was recreated after the previous channel expired and the release completed successfully;
+- a fresh Preview channel URL was created after stale-cache confusion on the prior stable URL, and the release completed successfully;
 - rendered Home no longer includes Run The Line, the two-image Lookbook Test block, SALE, the repeated Essential marquee, or the Countdown tile;
 - `Main-1` remains, followed by TRACK SESSION and `Main-3`;
 - the existing IVE REI campaign main visual now sits directly above four IVE REI products;

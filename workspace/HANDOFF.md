@@ -60,16 +60,16 @@ Already frozen for the current Home package:
 - preserve both components and their assets;
 - keep `Marquee-1` / TRACK SESSION as the one retained marquee;
 - remove `Marquee-2` because it repeats Main-3's Essential / Fluid / Adaptive idea;
-- keep `Main-4` / SALE directly after Main-3;
-- keep the existing IVE REI campaign main visual directly after SALE;
-- keep only the `index.webp` visual in the IVE REI main component for Home; the duplicate `main-01.webp` foreground of the same model was removed;
-- keep four existing `ive-rei` ProductList cards immediately under that campaign visual;
+- treat `Main-3` itself as the Home IVE REI campaign/editorial block;
+- do not render the separate `IveReiMain` component on Home;
+- keep four existing `ive-rei` ProductList cards immediately under Main-3;
+- keep `Main-4` / SALE after the four-product REI row;
 - remove `Grid-3` / Countdown from the Home exit;
 - keep Most Wanted + New Arrival as a two-tile Explore block for now;
 - do not change Main-3 height yet;
 - do not perform destructive cleanup from these exposure/composition decisions.
 
-Latest Home source commit: `f2525491ae2d1492af26fc62141b2ccec182badd`.
+Latest Home source commit: `7a465bd69060d4af1e1a8104a0169ea7d703804f`.
 
 HOME-HERO-NATIVE-01 is also implementation-complete on the same branch. `Main-1.vue` no longer uses its three synchronized Swiper instances; the native Vue/CSS/Pointer Events replacement preserves the same visual/interaction intent. Re-verification on 2026-11-19 passed build, diff check, 1440/390 layout checks, autoplay 1→2→3→1, pagination, left/right drag, vertical scrolling, and reported zero runtime/console errors during the scripted QA.
 
@@ -126,16 +126,16 @@ P1 and Home branches are not proof of deployed production state. Verify Hosting 
 
 ### Home visual review preview
 
-Use this current preview for user-guided Home composition review:
+Use this current fresh-cache preview for user-guided Home composition review:
 
-- channel: `fcmm-home-review`
-- URL: `https://fcmm-app--fcmm-home-review-njhbtw9x.web.app`
-- deployed source: `f2525491ae2d1492af26fc62141b2ccec182badd`
-- expiry: 2026-12-20 01:14:17 KST
+- channel: `fcmm-home-review-v2`
+- URL: `https://fcmm-app--fcmm-home-review-v2-w8rzrimt.web.app`
+- deployed source: `7a465bd69060d4af1e1a8104a0169ea7d703804f`
+- expiry: 2026-12-20 01:26:18 KST
 
-The current verified preview state has `Main-5`, `Main-Lookbook-Test`, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. `Main-4` / SALE is restored directly after Main-3, followed by a single IVE REI campaign visual (`index.webp` only) and then the four IVE REI products. The duplicate `main-01.webp` foreground was removed after visual QA showed the same model twice. The Home exits through the two-tile Most Wanted / New Arrival block.
+The current verified preview state has `Main-5`, `Main-Lookbook-Test`, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. `Main-3` is the one Home IVE REI campaign/editorial block, followed directly by the four IVE REI products. `Main-4` / SALE comes after that product row. The separately-added `IveReiMain` block was removed from Home after confirming it duplicated the campaign concept already represented by Main-3. The original `ive-rei-main.vue` component was restored for the Featured detail page. The Home exits through the two-tile Most Wanted / New Arrival block.
 
-Update this same preview channel after later approved Home branch changes so the user can keep reviewing one stable URL. Do not confuse this preview with production.
+Prefer this v2 preview for the current review because the prior channel URL had cache ambiguity during the duplicate-REI correction. Do not confuse this preview with production.
 
 ## Durable evidence
 
