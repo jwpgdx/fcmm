@@ -69,9 +69,11 @@ Already frozen for the current Home package:
 - do not change Main-3 height yet;
 - do not perform destructive cleanup from these exposure/composition decisions.
 
-Latest Home source commit: `7a465bd69060d4af1e1a8104a0169ea7d703804f`.
+Latest Home source commit: `b18380c1301629c0229071ef08b488b1eca0e6c4`.
 
 HOME-HERO-NATIVE-01 is also implementation-complete on the same branch. `Main-1.vue` no longer uses its three synchronized Swiper instances; the native Vue/CSS/Pointer Events replacement preserves the same visual/interaction intent. Re-verification on 2026-11-19 passed build, diff check, 1440/390 layout checks, autoplay 1→2→3→1, pagination, left/right drag, vertical scrolling, and reported zero runtime/console errors during the scripted QA.
+
+Main-3 has also received a bounded scroll-performance polish. The visual structure and scroll distances remain intact, but scroll-driven 0.05s CSS transitions were removed and continuously changing blur filters were reduced to fixed blur values. Build/diff checks passed. A directional 150-step headless-Chrome comparison reduced TaskDuration from 1.270s to 0.765s and RecalcStyleDuration from 0.242s to 0.140s. Mobile 390px QA showed no horizontal overflow or runtime errors. Treat these numbers as a local directional benchmark, not field-performance telemetry.
 
 Current next decision: visually review the restored Preview and decide whether Main-3 should be shortened and whether the two-tile Explore block should remain.
 
@@ -130,8 +132,8 @@ Use this current fresh-cache preview for user-guided Home composition review:
 
 - channel: `fcmm-home-review-v2`
 - URL: `https://fcmm-app--fcmm-home-review-v2-w8rzrimt.web.app`
-- deployed source: `7a465bd69060d4af1e1a8104a0169ea7d703804f`
-- expiry: 2026-12-20 01:26:18 KST
+- deployed source: `b18380c1301629c0229071ef08b488b1eca0e6c4`
+- expiry: 2026-12-20 01:53:23 KST
 
 The current verified preview state has `Main-5`, `Main-Lookbook-Test`, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. `Main-3` is the one Home IVE REI campaign/editorial block, followed directly by the four IVE REI products. `Main-4` / SALE comes after that product row. The separately-added `IveReiMain` block was removed from Home after confirming it duplicated the campaign concept already represented by Main-3. The original `ive-rei-main.vue` component was restored for the Featured detail page. The Home exits through the two-tile Most Wanted / New Arrival block.
 

@@ -79,7 +79,7 @@ Latest frozen decisions:
 - remove the Countdown third tile from the final grid; keep a 2-up Most Wanted + New Arrival exit for now;
 - do not change Main-3 height yet. Judge the current sequence first, then decide whether Main-3 should be shortened.
 
-The latest Home source commit is `7a465bd69060d4af1e1a8104a0169ea7d703804f`.
+The latest Home source commit is `b18380c1301629c0229071ef08b488b1eca0e6c4`.
 
 Verification on the updated preview lineage:
 
@@ -89,6 +89,9 @@ Verification on the updated preview lineage:
 - Firebase Preview channel update PASS;
 - rendered preview contains Main-3, then the four IVE REI product cards, then SALE;
 - browser verification found zero `feature/ive-rei/*` campaign image elements on Home, confirming that the separately-added IVE REI main block is gone;
+- Main-3 performance polish removed the 0.05s transitions from scroll-driven transforms and replaced scroll-varying blur values with fixed blur values, preserving the composition while reducing per-scroll style work;
+- directional 150-step headless-Chrome comparison: TaskDuration 1.270s → 0.765s (~40% lower) and RecalcStyleDuration 0.242s → 0.140s (~42% lower);
+- 390px Main-3 browser QA: no horizontal overflow and no runtime errors;
 - no repeated Essential marquee and no Countdown tile are present.
 
 Next user-guided decision: review this exact Preview visually, especially whether Main-3 still occupies too much vertical space and whether the 2-up final Explore block deserves to remain.
@@ -199,8 +202,8 @@ Firebase Preview channel:
 
 - channel: `fcmm-home-review-v2`
 - URL: `https://fcmm-app--fcmm-home-review-v2-w8rzrimt.web.app`
-- deployed source: `7a465bd69060d4af1e1a8104a0169ea7d703804f`
-- expires: 2026-12-20 01:26:18 KST
+- deployed source: `b18380c1301629c0229071ef08b488b1eca0e6c4`
+- expires: 2026-12-20 01:53:23 KST
 
 Preview deployment verification:
 
