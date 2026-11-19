@@ -63,22 +63,23 @@ Current Home order after the latest portfolio-focused review:
 1. `Main-1`
 2. `Marquee-1` / TRACK SESSION
 3. `Main-3` / Essential · Fluid · Adaptive
-4. existing `IVE REI` campaign main visual
-5. `ProductList tag="ive-rei"` with four REI products directly below the campaign visual
-6. `Grid-Container-1` with only Most Wanted + New Arrival
-7. Footer
+4. `Main-4` / SALE
+5. existing `IVE REI` campaign main visual
+6. `ProductList tag="ive-rei"` with four REI products directly below the campaign visual
+7. `Grid-Container-1` with only Most Wanted + New Arrival
+8. Footer
 
 Latest frozen decisions:
 
 - keep the first TRACK SESSION marquee as the single intermission between Hero and Main-3;
 - remove the second Essential / Fluid / Adaptive marquee because it repeats Main-3 without adding a new design idea;
-- remove `Main-4` / SALE from Home exposure and preserve its source/assets;
-- reuse the existing IVE REI campaign main visual on Home rather than inventing a new campaign section;
+- keep `Main-4` / SALE directly after Main-3;
+- keep the existing IVE REI campaign main visual after SALE;
 - keep the existing four IVE REI-tagged products directly under that campaign visual so the two read as one editorial/product block;
 - remove the Countdown third tile from the final grid; keep a 2-up Most Wanted + New Arrival exit for now;
 - do not change Main-3 height yet. Judge the current sequence first, then decide whether Main-3 should be shortened.
 
-The latest Home source commit is `ef957bbfd1333b6e2e0451e63036344baeedbc31`.
+The latest Home source commit is `6f5a8efba5034c8eac058d391883c6a879d6c139`.
 
 Verification on the updated preview lineage:
 
@@ -86,8 +87,7 @@ Verification on the updated preview lineage:
 - `npm run build` PASS;
 - `git diff --check` PASS;
 - Firebase Preview channel update PASS;
-- rendered preview contains the IVE REI campaign `main-01.webp` asset immediately before the four REI product cards;
-- SALE copy is absent from the rendered Home;
+- rendered preview contains SALE, followed by the IVE REI campaign `main-01.webp` asset and then the four REI product cards;
 - no repeated Essential marquee and no Countdown tile are present.
 
 Next user-guided decision: review this exact Preview visually, especially whether Main-3 still occupies too much vertical space and whether the 2-up final Explore block deserves to remain.
@@ -198,8 +198,8 @@ Firebase Preview channel:
 
 - channel: `fcmm-home-review`
 - URL: `https://fcmm-app--fcmm-home-review-njhbtw9x.web.app`
-- deployed source: `9549120220c844e21a82ee5526671dcfb8f67ca9`
-- expires: 2026-12-19 20:06:32 KST
+- deployed source: `6f5a8efba5034c8eac058d391883c6a879d6c139`
+- expires: 2026-12-19 20:19:39 KST
 
 Preview deployment verification:
 
