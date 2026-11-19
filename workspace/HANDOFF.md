@@ -1,6 +1,6 @@
 # FCMM — Durable Handoff
 
-Status date: 2026-10-08 KST
+Status date: 2026-11-19 KST
 
 This file defines takeover procedure for a new ChatGPT/Prime session, CoS session, Codex CLI worker, account, or operator. The goal is that another GPT account can continue from GitHub + Slack without relying on the prior chat transcript.
 
@@ -68,9 +68,11 @@ Already frozen for the current Home package:
 - do not change Main-3 height yet;
 - do not perform destructive cleanup from these exposure/composition decisions.
 
-Latest Home source commit: `ef957bbfd1333b6e2e0451e63036344baeedbc31`.
+Latest Home source commit: `9549120220c844e21a82ee5526671dcfb8f67ca9`.
 
-Current next decision: visually review the updated Preview and decide whether Main-3 should be shortened and whether the two-tile Explore block should remain.
+HOME-HERO-NATIVE-01 is also implementation-complete on the same branch. `Main-1.vue` no longer uses its three synchronized Swiper instances; the native Vue/CSS/Pointer Events replacement preserves the same visual/interaction intent. Re-verification on 2026-11-19 passed build, diff check, 1440/390 layout checks, autoplay 1→2→3→1, pagination, left/right drag, vertical scrolling, and reported zero runtime/console errors during the scripted QA.
+
+Current next decision: visually review the restored Preview and decide whether Main-3 should be shortened and whether the two-tile Explore block should remain.
 
 Do not reopen settled removals unless the user explicitly changes the decision.
 
@@ -126,9 +128,9 @@ P1 and Home branches are not proof of deployed production state. Verify Hosting 
 Use this current preview for user-guided Home composition review:
 
 - channel: `fcmm-home-review`
-- URL: `https://fcmm-app--fcmm-home-review-2fyh4u4b.web.app`
-- deployed source: `ef957bbfd1333b6e2e0451e63036344baeedbc31`
-- expiry: 2026-11-07 19:46:39 KST
+- URL: `https://fcmm-app--fcmm-home-review-njhbtw9x.web.app`
+- deployed source: `9549120220c844e21a82ee5526671dcfb8f67ca9`
+- expiry: 2026-12-19 20:06:32 KST
 
 The current verified preview state has `Main-5`, `Main-Lookbook-Test`, `Main-4` / SALE, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. The existing IVE REI campaign main visual now appears directly before the four IVE REI products, and the Home exits through the two-tile Most Wanted / New Arrival block.
 

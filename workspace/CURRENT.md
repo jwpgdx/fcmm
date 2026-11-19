@@ -1,6 +1,6 @@
 # FCMM — Current State
 
-Status date: 2026-10-08 KST
+Status date: 2026-11-19 KST
 
 This is the short moving navigation pointer for FCMM portfolio completion work. It is not a replacement for actual Git/worktree/Firebase state.
 
@@ -92,22 +92,39 @@ Verification on the updated preview lineage:
 
 Next user-guided decision: review this exact Preview visually, especially whether Main-3 still occupies too much vertical space and whether the 2-up final Explore block deserves to remain.
 
-## Hero performance audit — ready for bounded implementation
+## Completed bounded package — HOME-HERO-NATIVE-01
 
-A read-only/local-only Hero audit is recorded at:
+The Hero audit remains recorded at:
 
 `docs/FCMM_HERO_PERFORMANCE_AUDIT_2026-10-08.md`
 
-Key result:
+Implementation source:
 
-- current `Main-1.vue` uses three synchronized Swiper instances;
-- Home Hero can reproduce the required 3-slide layered visual, 4s autoplay, pointer swipe and pagination without Swiper;
-- local proof build reduced the large initial/home JS chunk from 272.15 kB / 94.18 kB gzip to 168.04 kB / 63.36 kB gzip;
-- Hero's six active layer images total about 2.65 MiB, so later-slide image deferral should accompany the native carousel rewrite;
-- Swiper remains needed on other lazy routes, so this does not authorize removing the dependency project-wide;
-- the local proof was discarded and is not implementation authority.
+`9549120220c844e21a82ee5526671dcfb8f67ca9` — `perf: replace FCMM Home hero Swipers`
 
-Next safe implementation package if the user approves: `HOME-HERO-NATIVE-01`, preserving the current visual/art direction and changing only the Hero carousel implementation/performance boundary.
+The Home Hero now:
+
+- removes the three synchronized Swiper instances from `Main-1.vue`;
+- uses Vue state + CSS transforms + Pointer Events for the 3-slide loop;
+- preserves the existing Hero art direction, copy, crops, height, layered background/text/foreground composition, 4-second autoplay, pagination and background-colour transitions;
+- defers later-slide layer attachment while keeping the first slide immediately available;
+- leaves the project-wide Swiper dependency intact because other routes still use it.
+
+2026-11-19 re-verification on the exact source commit:
+
+- `npm ci` PASS;
+- `npm run build` PASS;
+- `git diff --check` PASS;
+- large Home/initial JS chunk: 168.99 kB raw / 63.70 kB gzip;
+- Chrome 1440×900: Hero height 844px, no horizontal overflow;
+- Chrome 390×844: Hero height 788px, no horizontal overflow;
+- autoplay verified 1 → 2 → 3 → 1;
+- pagination verified 1 ↔ 3;
+- pointer drag verified left and right;
+- vertical page scroll remains functional;
+- runtime/console errors observed during the scripted QA: 0.
+
+The restored Firebase Preview contains this source and should be used for visual approval before any main/production release.
 
 ## Portfolio provenance guard
 
@@ -180,15 +197,15 @@ P1 and HOME-COMP-01 are branch-only and are not evidence that production contain
 Firebase Preview channel:
 
 - channel: `fcmm-home-review`
-- URL: `https://fcmm-app--fcmm-home-review-2fyh4u4b.web.app`
-- deployed source: `ef957bbfd1333b6e2e0451e63036344baeedbc31`
-- expires: 2026-11-07 19:46:39 KST
+- URL: `https://fcmm-app--fcmm-home-review-njhbtw9x.web.app`
+- deployed source: `9549120220c844e21a82ee5526671dcfb8f67ca9`
+- expires: 2026-12-19 20:06:32 KST
 
 Preview deployment verification:
 
-- exact source built successfully with `npm run build`;
+- exact source rebuilt successfully with `npm run build` on 2026-11-19;
 - `git diff --check` PASS;
-- Firebase preview release completed successfully;
+- Firebase preview channel was recreated after the previous channel expired and the release completed successfully;
 - rendered Home no longer includes Run The Line, the two-image Lookbook Test block, SALE, the repeated Essential marquee, or the Countdown tile;
 - `Main-1` remains, followed by TRACK SESSION and `Main-3`;
 - the existing IVE REI campaign main visual now sits directly above four IVE REI products;
