@@ -206,18 +206,32 @@ const isVisible = ref(false)
 let textRevealFrame = null
 
 const updateTextReveal = () => {
-  if (isVisible.value || !sectionRef.value) return
+  if (!sectionRef.value) return
 
   const rect = sectionRef.value.getBoundingClientRect()
   const revealLine = window.innerHeight * 0.88
+  const resetAboveLine = window.innerHeight * 0.08
+  const resetBelowLine = window.innerHeight * 0.98
 
-  if (rect.top <= revealLine && rect.bottom >= 0) {
+  if (
+    isVisible.value &&
+    (rect.bottom <= resetAboveLine || rect.top >= resetBelowLine)
+  ) {
+    isVisible.value = false
+    return
+  }
+
+  if (
+    !isVisible.value &&
+    rect.top <= revealLine &&
+    rect.bottom >= resetAboveLine
+  ) {
     isVisible.value = true
   }
 }
 
 const scheduleTextRevealUpdate = () => {
-  if (isVisible.value || textRevealFrame !== null) return
+  if (textRevealFrame !== null) return
 
   textRevealFrame = requestAnimationFrame(() => {
     textRevealFrame = null
