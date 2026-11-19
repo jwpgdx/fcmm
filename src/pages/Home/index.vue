@@ -3,6 +3,7 @@
     <Main-1 />
     <Marquee-1 />
     <Main-3 />
+    <Main-4 />
 
     <IveReiMain />
     <ProductList tag="ive-rei" :limit="4" />
@@ -14,6 +15,7 @@
 <script setup>
 import Main1 from './components/Main-1.vue'
 import Main3 from './components/Main-3.vue'
+import Main4 from './components/Main-4.vue'
 
 import IveReiMain from '@/pages/Feature/Special/components/ive-rei/ive-rei-main.vue'
 import GridContainer1 from './components/Grid-Container-1.vue'
