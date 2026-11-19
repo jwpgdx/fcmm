@@ -9,16 +9,11 @@
       :class="{ 'animate-bg-zoom': isVisible }"
     />
 
-    <img
-      :src="`/images/feature/ive-rei/main-01.webp`"
-      class="absolute bottom-[-30%] left-1/2 z-[10] h-[120%] w-auto -translate-x-1/2 object-cover"
-      :class="{ 'animate-fg-zoom': isVisible }"
-    />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
 const container = ref(null)
@@ -51,15 +46,6 @@ useIntersectionObserver(
 
 <style scoped>
 /* 애니메이션은 그대로 */
-@keyframes fg-zoom {
-  0% {
-    transform: translateX(-50%) scale(0.96);
-  }
-  100% {
-    transform: translateX(-50%) scale(1);
-  }
-}
-
 @keyframes bg-zoom {
   0% {
     transform: scale(1.08);
@@ -71,9 +57,6 @@ useIntersectionObserver(
   }
 }
 
-.animate-fg-zoom {
-  animation: fg-zoom 4s ease-in;
-}
 .animate-bg-zoom {
   animation: bg-zoom 6s ease-out forwards;
 }
