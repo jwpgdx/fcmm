@@ -62,13 +62,14 @@ Already frozen for the current Home package:
 - remove `Marquee-2` because it repeats Main-3's Essential / Fluid / Adaptive idea;
 - keep `Main-4` / SALE directly after Main-3;
 - keep the existing IVE REI campaign main visual directly after SALE;
+- keep only the `index.webp` visual in the IVE REI main component for Home; the duplicate `main-01.webp` foreground of the same model was removed;
 - keep four existing `ive-rei` ProductList cards immediately under that campaign visual;
 - remove `Grid-3` / Countdown from the Home exit;
 - keep Most Wanted + New Arrival as a two-tile Explore block for now;
 - do not change Main-3 height yet;
 - do not perform destructive cleanup from these exposure/composition decisions.
 
-Latest Home source commit: `6f5a8efba5034c8eac058d391883c6a879d6c139`.
+Latest Home source commit: `f2525491ae2d1492af26fc62141b2ccec182badd`.
 
 HOME-HERO-NATIVE-01 is also implementation-complete on the same branch. `Main-1.vue` no longer uses its three synchronized Swiper instances; the native Vue/CSS/Pointer Events replacement preserves the same visual/interaction intent. Re-verification on 2026-11-19 passed build, diff check, 1440/390 layout checks, autoplay 1→2→3→1, pagination, left/right drag, vertical scrolling, and reported zero runtime/console errors during the scripted QA.
 
@@ -129,10 +130,10 @@ Use this current preview for user-guided Home composition review:
 
 - channel: `fcmm-home-review`
 - URL: `https://fcmm-app--fcmm-home-review-njhbtw9x.web.app`
-- deployed source: `6f5a8efba5034c8eac058d391883c6a879d6c139`
-- expiry: 2026-12-19 20:19:39 KST
+- deployed source: `f2525491ae2d1492af26fc62141b2ccec182badd`
+- expiry: 2026-12-20 01:14:17 KST
 
-The current verified preview state has `Main-5`, `Main-Lookbook-Test`, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. `Main-4` / SALE is restored directly after Main-3, followed by the existing IVE REI campaign main visual and then the four IVE REI products. The Home exits through the two-tile Most Wanted / New Arrival block.
+The current verified preview state has `Main-5`, `Main-Lookbook-Test`, the repeated `Marquee-2`, and the Countdown tile removed from Home exposure while source/assets remain preserved unless separately changed. `Main-4` / SALE is restored directly after Main-3, followed by a single IVE REI campaign visual (`index.webp` only) and then the four IVE REI products. The duplicate `main-01.webp` foreground was removed after visual QA showed the same model twice. The Home exits through the two-tile Most Wanted / New Arrival block.
 
 Update this same preview channel after later approved Home branch changes so the user can keep reviewing one stable URL. Do not confuse this preview with production.
 

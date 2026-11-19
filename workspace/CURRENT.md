@@ -75,11 +75,12 @@ Latest frozen decisions:
 - remove the second Essential / Fluid / Adaptive marquee because it repeats Main-3 without adding a new design idea;
 - keep `Main-4` / SALE directly after Main-3;
 - keep the existing IVE REI campaign main visual after SALE;
+- render the IVE REI campaign hero from `index.webp` only; the previous `main-01.webp` foreground duplicated the same model and has been removed from this Home-visible component;
 - keep the existing four IVE REI-tagged products directly under that campaign visual so the two read as one editorial/product block;
 - remove the Countdown third tile from the final grid; keep a 2-up Most Wanted + New Arrival exit for now;
 - do not change Main-3 height yet. Judge the current sequence first, then decide whether Main-3 should be shortened.
 
-The latest Home source commit is `6f5a8efba5034c8eac058d391883c6a879d6c139`.
+The latest Home source commit is `f2525491ae2d1492af26fc62141b2ccec182badd`.
 
 Verification on the updated preview lineage:
 
@@ -87,7 +88,8 @@ Verification on the updated preview lineage:
 - `npm run build` PASS;
 - `git diff --check` PASS;
 - Firebase Preview channel update PASS;
-- rendered preview contains SALE, followed by the IVE REI campaign `main-01.webp` asset and then the four REI product cards;
+- rendered preview contains SALE, followed by one IVE REI campaign visual and then the four REI product cards;
+- browser verification found one `.background-img` and zero `main-01.webp` foreground image elements in the campaign block;
 - no repeated Essential marquee and no Countdown tile are present.
 
 Next user-guided decision: review this exact Preview visually, especially whether Main-3 still occupies too much vertical space and whether the 2-up final Explore block deserves to remain.
@@ -198,8 +200,8 @@ Firebase Preview channel:
 
 - channel: `fcmm-home-review`
 - URL: `https://fcmm-app--fcmm-home-review-njhbtw9x.web.app`
-- deployed source: `6f5a8efba5034c8eac058d391883c6a879d6c139`
-- expires: 2026-12-19 20:19:39 KST
+- deployed source: `f2525491ae2d1492af26fc62141b2ccec182badd`
+- expires: 2026-12-20 01:14:17 KST
 
 Preview deployment verification:
 
